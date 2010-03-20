@@ -1,0 +1,107 @@
+#summary Instructions for building and running .nexe files
+
+This page tells you how to use the Native Client SDK to build and run a .nexe file (untrusted native code module).
+
+<wiki:toc />
+
+= Platform requirements =
+
+TBD
+
+= Getting the software =
+
+To build and run .nexe files,
+you need to get the SDK
+and make sure you have the right version of Google Chrome.
+
+<ol>
+<li> Download the SDK for your platform. You can find it here:
+
+  http://build.chromium.org/buildbot/snapshots/nacl_new_sdk/
+
+<p>
+The SDK contains compilers, linkers, include files, and the like. It also has other tools, such as the build tools Hammer and SCons.
+</p>
+</li>
+
+<li> Check whether you're running the Dev channel version of Google Chrome. TBD: say how. If you aren't, switch to the Dev channel, as described here:
+
+  http://dev.chromium.org/getting-involved/dev-channel
+  
+</li>
+</ol>
+
+= Building the examples =
+
+Before you can run the examples, you need to build them.
+Here's how:
+
+  <pre>cd examples; ./hammer.sh</pre>
+
+This step creates .nexe files (one for each example) under `examples/scons-out/nacl/staging`. It also happens to build a trusted NPAPI plugin version of each example; you'll need this plugin later if you debug an example.
+
+= Running the examples =
+
+<ol>
+<li> Run Google Chrome with these flags:
+
+<blockquote>
+<pre>--no-sandbox --internal-nacl --internal-pepper --enable-gpu-plugin</pre></blockquote>
+
+For example, to run on a Mac from the command line:
+
+<blockquote>
+<pre>Chromium.app/Contents/MacOS/Chromium --no-sandbox --internal-nacl \
+      --internal-pepper --enable-gpu-plugin</pre></blockquote>
+      
+TBD: Get the complete command.
+
+</li>
+<li>
+Start up a local HTTP server, if one isn't already running. 
+You can start the SDK's simple HTTP server like this:
+
+<blockquote><pre>cd examples; python httpd.py</pre></blockquote>
+</li>
+
+<li>
+Load the npapi_helloworld example:
+
+  http://localhost:5103/scons-out/nacl/staging/npapi_helloworld.html
+
+TBD: explain what you should see. Extend congratulations if warranted, and tips for fixing the problem if necessary.
+</li>
+</ol>
+
+= What to do next =
+
+See DebuggingModules.
+
+= Move me =
+
+PENDING: put the stuff in this section somewhere (not in this page?).
+
+== Hammer time ==
+
+<p>
+Here are some of the most useful `hammer` switches:
+</p>
+
+|| *Command* || *Description* ||
+|| `./hammer.sh -c` || Clean everything ||
+|| `./hammer.sh` || Build everything ||
+|| `./hammer.sh --mode nacl` || Build the untrusted .nexes (for release) ||
+|| `./hammer.sh --mode plugin` || Build the trusted NPAPI plugins (for debugging) ||
+
+== MIME types ==
+A note about MIME types:
+  * Trusted NPAPI plugins must have a MIME type that begins with 'pepper-'.
+  * Native Client modules must have a MIME type that is exactly 'application/x-nacl-srpc'.
+
+The HTML files bundles with the examples show how
+to specify a different MIME type for the embedded object when you are debugging
+a trusted NPAPI plugin versus running an untrusted module.
+
+Be sure to set the MIME
+type of your trusted plugin to match the MIME type in the HTML. (On the Mac,
+this means the Info.plist has to have one WebPluginMIMETypes entry.)
