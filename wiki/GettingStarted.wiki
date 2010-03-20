@@ -1,4 +1,5 @@
 #summary Instructions for building and running examples
+#labels Featured
 
 This page tells you how to use the Native Client SDK to build and run a .nexe file (untrusted native code module).
 
