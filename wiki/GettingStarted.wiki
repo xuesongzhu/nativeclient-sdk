@@ -5,9 +5,9 @@ This page tells you how to use the Native Client SDK to build and run a .nexe fi
 
 <wiki:toc />
 
-= Platform requirements =
+= Before you start =
 
-TBD
+PENDING: discuss platform requirements here
 
 = Getting the software =
 
@@ -25,23 +25,17 @@ The SDK contains compilers, linkers, include files, and the like. It also has ot
 </p>
 </li>
 
-<li> Check whether you're running the Dev channel version of Google Chrome. TBD: say how. If you aren't, switch to the Dev channel, as described here:
+<li> Check whether you're running the Dev channel version of Google Chrome. (TBD: say how to check) If you aren't, switch to the Dev channel, as described here:
 
   http://dev.chromium.org/getting-involved/dev-channel
   
 </li>
 </ol>
 
-= Building the examples =
+= Running pre-built examples =
 
-Before you can run the examples, you need to build them.
-Here's how:
-
-  <pre>cd examples; ./hammer.sh</pre>
-
-This step creates .nexe files (one for each example) under `examples/scons-out/nacl/staging`. It also happens to build a trusted NPAPI plugin version of each example; you'll need this plugin later if you debug an example.
-
-= Running the examples =
+Your first step is to make sure that
+you can run Native Client modules that are already on the web.
 
 <ol>
 <li> Run Google Chrome with these flags:
@@ -58,15 +52,56 @@ For example, to run on a Mac from the command line:
 TBD: Get the complete command.
 
 </li>
-<li>
-Start up a local HTTP server, if one isn't already running. 
-You can start the SDK's simple HTTP server like this:
 
-<blockquote><pre>cd examples; python httpd.py</pre></blockquote>
+<li>
+Visit (some URL to a page that runs a .nexe).
+PENDING: explain and perhaps show what you should see.
+Troubleshoot common issues. Refer to group if necessary.
+</li>
+
+</ol>
+
+Once you've successfully run a .nexe from the web,
+you're ready to build and run examples in the SDK.
+
+= Building and running the SDK examples =
+
+Before you can run any of the examples in the SDK, you need to build them.
+Then you need to use an HTTP URL
+to load a page that refers to the .nexe file of one of the examples.
+
+<ol>
+<li> Build the examples, using the following command:
+
+  <pre>cd examples; ./hammer.sh</pre>
+
+This step creates .nexe files (one for each example) under `examples/scons-out/nacl/staging`. It also happens to build a trusted NPAPI plugin version of each example; you'll need this plugin later if you debug an example.
+</li>
+
+<li> Run Google Chrome with the same flags as before: <code>--no-sandbox --internal-nacl --internal-pepper --enable-gpu-plugin</code>. For example, to run on a Mac from the command line:
+
+<blockquote>
+<pre>Chromium.app/Contents/MacOS/Chromium --no-sandbox --internal-nacl \
+      --internal-pepper --enable-gpu-plugin</pre></blockquote>
+      
+TBD: Get the complete command.
+
+</li>
+<li>
+If you don't already have an HTTP server running,
+start one up
+so that you can get to the examples' built files using HTTP.
+If you don't have an HTTP server already set up,
+you can use the one that's included in the SDK.
+(PENDING: link to HTTPD instructions)
 </li>
 
 <li>
-Load the npapi_helloworld example:
+Load the npapi_helloworld example
+from `examples/scons-out/nacl/staging/npapi_helloworld.html`.
+(Be sure not to forget `scons-out`!)
+For example, if you're using the HTTP server that's included in the SDK,
+you'd use this URL:
 
   http://localhost:5103/scons-out/nacl/staging/npapi_helloworld.html
 
@@ -106,3 +141,9 @@ a trusted NPAPI plugin versus running an untrusted module.
 Be sure to set the MIME
 type of your trusted plugin to match the MIME type in the HTML. (On the Mac,
 this means the Info.plist has to have one WebPluginMIMETypes entry.)
+
+== httpd ==
+
+Start the SDK's simple HTTP server like this:
+
+<blockquote><pre>cd examples; python httpd.py</pre></blockquote>
