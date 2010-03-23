@@ -111,7 +111,7 @@ you'd use this URL:
 
 = What to do next =
 
-See DebuggingModules.
+See DebuggingModules and WritingModules.
 
 = Move me =
 
