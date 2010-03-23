@@ -7,7 +7,7 @@ This page tells you how to use the Native Client SDK to build and run a .nexe fi
 
 = Before you start =
 
-PENDING: discuss platform requirements here
+{PENDING: discuss platform requirements here}
 
 = Getting the software =
 
@@ -25,7 +25,7 @@ The SDK contains compilers, linkers, include files, and the like. It also has ot
 </p>
 </li>
 
-<li> Check whether you're running the Dev channel version of Google Chrome. (TBD: say how to check) If you aren't, switch to the Dev channel, as described here:
+<li> Check whether you're running the Dev channel version of Google Chrome. {TBD: say how to check.} If you aren't, switch to the Dev channel, as described here:
 
   http://dev.chromium.org/getting-involved/dev-channel
   
@@ -49,14 +49,14 @@ For example, to run on a Mac from the command line:
 <pre>Chromium.app/Contents/MacOS/Chromium --no-sandbox --internal-nacl \
       --internal-pepper --enable-gpu-plugin</pre></blockquote>
       
-TBD: Get the complete command.
+{TBD: Get the complete command.}
 
 </li>
 
 <li>
-Visit (some URL to a page that runs a .nexe).
-PENDING: explain and perhaps show what you should see.
-Troubleshoot common issues. Refer to group if necessary.
+Visit {some URL to a page that runs a .nexe}.
+{PENDING: explain and perhaps show what you should see.
+Troubleshoot common issues. Refer to [https://groups.google.com/group/native-client-discuss native-client-discuss] if they still have issues.}
 </li>
 
 </ol>
@@ -78,13 +78,13 @@ to load a page that refers to the .nexe file of one of the examples.
 This step creates .nexe files (one for each example) under `examples/scons-out/nacl/staging`. It also happens to build a trusted NPAPI plugin version of each example; you'll need this plugin later if you debug an example.
 </li>
 
-<li> Run Google Chrome with the same flags as before: <code>--no-sandbox --internal-nacl --internal-pepper --enable-gpu-plugin</code>. For example, to run on a Mac from the command line:
+<li> Run Google Chrome with the same flags as before: `--no-sandbox --internal-nacl --internal-pepper --enable-gpu-plugin`. For example, to run on a Mac from the command line:
 
 <blockquote>
 <pre>Chromium.app/Contents/MacOS/Chromium --no-sandbox --internal-nacl \
       --internal-pepper --enable-gpu-plugin</pre></blockquote>
       
-TBD: Get the complete command.
+{TBD: Get the complete command.}
 
 </li>
 <li>
@@ -93,7 +93,7 @@ start one up
 so that you can get to the examples' built files using HTTP.
 If you don't have an HTTP server already set up,
 you can use the one that's included in the SDK.
-(PENDING: link to HTTPD instructions)
+{PENDING: link to HTTPD instructions}
 </li>
 
 <li>
@@ -105,7 +105,7 @@ you'd use this URL:
 
   http://localhost:5103/scons-out/nacl/staging/npapi_helloworld.html
 
-TBD: explain what you should see. Extend congratulations if warranted, and tips for fixing the problem if necessary.
+{TBD: explain what you should see. Extend congratulations if warranted, and tips for fixing the problem if necessary.}
 </li>
 </ol>
 
@@ -115,7 +115,7 @@ See DebuggingModules.
 
 = Move me =
 
-PENDING: put the stuff in this section somewhere (not in this page?).
+{PENDING: put the stuff in this section somewhere (not in this page?).}
 
 == Hammer time ==
 
