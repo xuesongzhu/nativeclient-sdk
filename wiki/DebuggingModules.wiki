@@ -7,10 +7,10 @@ Here are my rough notes. I'll fix them soon.
 
 <li>
 Do everything in GettingStarted, including:
-  * Making sure your version of Google Chrome can run Native Client examples
-  * Downloading and unarchiving the SDK
-  * Building the SDK examples
-  * Having an HTTP server, and testing that you can load one of the examples that you built
+  * Make sure your version of Google Chrome can run Native Client examples
+  * Download and unarchive the SDK
+  * Build the SDK examples
+  * Have an HTTP server, and test that you can load one of the examples that you built
 </li>
 
 <li>
