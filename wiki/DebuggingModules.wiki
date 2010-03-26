@@ -21,7 +21,10 @@ Quit Google Chrome.
 Launch GDB, specifying the executable file for Google Chrome. For example:
 
 <blockquote>
-<pre>gdb /Users/me/Downloads/chrome-mac/Chromium.app/Contents/MacOS/Chromium</pre></blockquote>
+<pre>gdb /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome</pre></blockquote>
+
+{Or, for Chromium:
+`gdb /Users/me/Downloads/chrome-mac/Chromium.app/Contents/MacOS/Chromium`}
 </li>
 
 <li>
