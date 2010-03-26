@@ -17,10 +17,16 @@ you need to get the SDK
 and make sure you have the right version of Google Chrome.
 
 <ol>
-<li> Download the SDK for your platform. You can find it here:
+<li> Download the SDK for your platform. You can probably just double-click it. Or use the command line. For example:
 
   http://build.chromium.org/buildbot/snapshots/nacl_new_sdk/
 
+</li>
+
+<li> Unarchive the SDK. Here's one way to do it:
+
+<blockquote>
+<pre>tar xvf naclsdk*.tgz</pre></blockquote>
 </li>
 
 <li> Bring up the *About Google Chrome* dialog, and make sure you're running the Dev channel version of Google Chrome. On the Mac, the menu item that brings up this dialog under the Chrome menu; on Linux and Windows, it's under the Tools (wrench) menu.
