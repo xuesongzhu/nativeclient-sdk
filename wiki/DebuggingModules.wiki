@@ -79,9 +79,9 @@ $2 = 0x1849cdc9 "hello, world."
 (gdb) </pre></blockquote>
 
 You often need to have breakpoints in one or more of these methods (any experienced plugin developer would know these):
-  * !NPP_GetValue
-  * !NPP_GetScriptableInstance - To make sure it's being called at all. This is how the browser gets your plugin object. 
-  * NPP_New
+  * `NPP_GetValue`
+  * `NPP_GetScriptableInstance` - To make sure it's being called at all. This is how the browser gets your plugin object. 
+  * `NPP_New`
 
 Possible exercise: In Chrome, look at source code of npapi_helloworld.html vs. .../#debug
 (.nexe vs. pepper code)
