@@ -23,7 +23,7 @@ and make sure you have the right version of Google Chrome.
 
 </li>
 
-<li> Bring up the *About Google Chrome* dialog, and make sure you're running the Dev channel version of Google Chrome. On the Mac, the menu item that brings up this dialog under the *Chrome* menu; on Linux and Windows, it's under the Tools (wrench) menu.
+<li> Bring up the *About Google Chrome* dialog, and make sure you're running the Dev channel version of Google Chrome. On the Mac, the menu item that brings up this dialog under the Chrome menu; on Linux and Windows, it's under the Tools (wrench) menu.
 </li>
 
 <li> If you aren't using the Dev channel, switch to it by following the instructions on this page:
