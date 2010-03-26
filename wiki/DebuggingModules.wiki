@@ -1,0 +1,100 @@
+#summary Instructions for debugging examples
+#labels Featured
+
+Here are my rough notes. I'll fix them soon.
+
+<ol>
+
+<li>
+Do everything in GettingStarted, including:
+  * Making sure your version of Google Chrome can run Native Client examples
+  * Downloading and unarchiving the SDK
+  * Building the SDK examples
+  * Having an HTTP server, and testing that you can load one of the examples that you built
+</li>
+
+<li>
+Quit Google Chrome.
+</li>
+
+<li>
+Launch GDB, specifying the executable file for Google Chrome. For example:
+
+<blockquote>
+<pre>gdb /Users/me/Downloads/chrome-mac/Chromium.app/Contents/MacOS/Chromium</pre></blockquote>
+</li>
+
+<li>
+Within GDB, start Google Chrome with the same flags as before, plus *--single-process* and *--load-plugin*. Set `--load-plugin` to the absolute path of the .plugin file for the debug version of the example {PENDING: check}. For example:
+
+<blockquote>
+<pre>r --internal-nacl --enable-gpu-plugin --no-sandbox --internal-pepper --single-process --load-plugin=/Users/me/Downloads/native_client_sdk_0_1_0_0/examples/debug/mac_x86-32/npapi_helloworld.plugin</pre></blockquote>
+</li>
+
+<li>
+Ctl+C to interrupt Chromium
+</li>
+
+<li>
+Set a breakpoint. For example:
+
+<blockquote>
+<pre> break npapi_helloworld.cc:79
+or
+break InvokeHW</pre></blockquote>
+</li>
+
+<li>
+Answer y to the question "Make breakpoint pending on future shared library load? (y or [n])"
+</li>
+
+<li>
+In the browser, instead of going to http://.../npapi_helloworld.html as you did in GettingStarted, add *#debug* to that URL. For example:
+
+http://localhost:5103/release/mac_x86-32/npapi_helloworld.html#debug
+
+You should hit the breakpoint.
+Now debug to your heart's content.
+</li>
+</ol>
+
+== More notes ==
+
+Some examples of commands you might use:
+  * list
+  * where 10
+  * n
+  * p _someVar_
+  
+Typical output:
+<blockquote><pre>
+(gdb) n
+80          const char *msg = "hello, world.";
+(gdb) p msg
+$1 = 0x6c6c6568 &lt;Address 0x6c6c6568 out of bounds>
+(gdb) n
+81          const int msglength = strlen(msg) + 1;
+(gdb) p msg
+$2 = 0x1849cdc9 "hello, world."
+(gdb) </pre></blockquote>
+
+You often need to have breakpoints in one or more of these methods (any experienced plugin developer would know these):
+  * NPP_GetValue
+  * NPP_GetScriptableInstance - To make sure it's being called at all. This is how the browser gets your plugin object. 
+  * NPP_New
+
+Possible exercise: In Chrome, look at source code of npapi_helloworld.html vs. .../#debug
+(.nexe vs. pepper code)
+
+Hello World will run in any browser. The other examples (Pepper 2D, Pepper 3D) require Chromium; they won't run in Safari (or whatever).
+
+== API notes {PENDING: move these elsewhere} ==
+Pepper APIs are documented here:
+https://wiki.mozilla.org/Plugins:PlatformIndependentNPAPI
+
+Plugin development documented here:
+https://developer.mozilla.org/en/Gecko_Plugin_API_Reference
+
+.nexe files have NPAPI baked in. They also use NPRuntime (a subset of NPAPI that lets you call C++ from JavaScript). Pepper is an extension of NPAPI.
+
+The Native Client implementation of NPAPI is built on top of SRPC. (You could use SRPC directly, but most people wouldn't.)
