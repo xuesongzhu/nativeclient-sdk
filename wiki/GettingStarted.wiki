@@ -23,7 +23,7 @@ and make sure you have the right version of Google Chrome.
 
 </li>
 
-<li> Unarchive the SDK. You can probably just double-click it. Or use the command line. For example:
+<li> Unarchive the SDK. You can probably just double-click it. If you prefer to use the command line, try this:
 
 <blockquote>
 <pre>tar xvf naclsdk*.tgz</pre></blockquote>
