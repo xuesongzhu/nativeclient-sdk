@@ -7,7 +7,8 @@ This page tells you how to use the Native Client SDK to build and run a .nexe fi
 
 = Before you start =
 
-{PENDING: discuss platform requirements here}
+{PENDING: discuss platform requirements here.
+So far, these instructions have been tested on Mac only.}
 
 = Getting the software =
 
@@ -20,15 +21,16 @@ and make sure you have the right version of Google Chrome.
 
   http://build.chromium.org/buildbot/snapshots/nacl_new_sdk/
 
-<p>
-The SDK contains compilers, linkers, include files, and the like. It also has other tools, such as the build tools Hammer and SCons.
-</p>
 </li>
 
-<li> Check whether you're running the Dev channel version of Google Chrome. {TBD: say how to check.} If you aren't, switch to the Dev channel, as described here:
+<li> Bring up the *About Google Chrome* dialog, and make sure you're running the Dev channel version of Google Chrome. On the Mac, the menu item that brings up this dialog under the *Chrome* menu; on Linux and Windows, it's under the Tools (wrench) menu.
+</li>
+
+<li> If you aren't using the Dev channel, switch to it by following the instructions on this page:
 
   http://dev.chromium.org/getting-involved/dev-channel
   
+{JUST KIDDING: The Dev channel doesn't currently work with Native Client. Instead, you can download the latest version of Chromium from http://build.chromium.org/buildbot/continuous/}
 </li>
 </ol>
 
@@ -39,24 +41,28 @@ you can run Native Client modules that are already on the web.
 
 <ol>
 <li> Run Google Chrome with these flags:
+`--no-sandbox --internal-nacl --internal-pepper --enable-gpu-plugin`
+
+For example, to run Google Chrome on a Mac from the command line:
 
 <blockquote>
-<pre>--no-sandbox --internal-nacl --internal-pepper --enable-gpu-plugin</pre></blockquote>
+<pre>/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --no-sandbox --internal-nacl --internal-pepper --enable-gpu-plugin</pre></blockquote>
 
-For example, to run on a Mac from the command line:
+{To run Chromium on a Mac from the command line:
 
 <blockquote>
-<pre>Chromium.app/Contents/MacOS/Chromium --no-sandbox --internal-nacl \
-      --internal-pepper --enable-gpu-plugin</pre></blockquote>
-      
-{TBD: Get the complete command.}
+<pre>/Users/me/Downloads/chrome-mac/Chromium.app/Contents/MacOS/Chromium --no-sandbox --internal-nacl --internal-pepper --enable-gpu-plugin</pre></blockquote> }
 
 </li>
 
 <li>
 Visit {some URL to a page that runs a .nexe}.
-{PENDING: explain and perhaps show what you should see.
-Troubleshoot common issues. Refer to [https://groups.google.com/group/native-client-discuss native-client-discuss] if they still have issues.}
+If you see SUCCESS under the Status heading,
+then you've successfully executed the hello world example.
+If not, 
+{PENDING: Troubleshoot common issues.}
+
+If you still can't run that example, look at the [https://groups.google.com/group/native-client-discuss native-client-discuss group] to see if someone else has had the same problem.
 </li>
 
 </ol>
@@ -68,44 +74,40 @@ you're ready to build and run examples in the SDK.
 
 Before you can run any of the examples in the SDK, you need to build them.
 Then you need to use an HTTP URL
-to load a page that refers to the .nexe file of one of the examples.
+to load an example's page.
 
 <ol>
 <li> Build the examples, using the following command:
 
-  <pre>cd examples; ./hammer.sh</pre>
+  <pre>cd examples; make</pre>
 
-This step creates .nexe files (one for each example) under `examples/scons-out/nacl/staging`. It also happens to build a trusted NPAPI plugin version of each example; you'll need this plugin later if you debug an example.
+This step creates release and debug versions of the SDK examples,
+placing the results under `release` and `debug` directories, respectively.
 </li>
 
-<li> Run Google Chrome with the same flags as before: `--no-sandbox --internal-nacl --internal-pepper --enable-gpu-plugin`. For example, to run on a Mac from the command line:
+<li> Run Google Chrome with the same flags as before. </li>
 
-<blockquote>
-<pre>Chromium.app/Contents/MacOS/Chromium --no-sandbox --internal-nacl \
-      --internal-pepper --enable-gpu-plugin</pre></blockquote>
-      
-{TBD: Get the complete command.}
-
-</li>
 <li>
 If you don't already have an HTTP server running,
 start one up
 so that you can get to the examples' built files using HTTP.
-If you don't have an HTTP server already set up,
-you can use the one that's included in the SDK.
-{PENDING: link to HTTPD instructions}
+If you want to use the one that's included in the SDK
+go to the `example` directory and execute `python httpd.py`.
 </li>
 
 <li>
 Load the npapi_helloworld example
-from `examples/scons-out/nacl/staging/npapi_helloworld.html`.
+from `examples/release/<em>your_platform</em>/npapi_helloworld.html`.
 (Be sure not to forget `scons-out`!)
-For example, if you're using the HTTP server that's included in the SDK,
-you'd use this URL:
+For example, if you're using a Mac and
+the HTTP server that's included in the SDK,
+use this URL:
 
-  http://localhost:5103/scons-out/nacl/staging/npapi_helloworld.html
+  http://localhost:5103/release/mac_x86-32/npapi_helloworld.html
 
-{TBD: explain what you should see. Extend congratulations if warranted, and tips for fixing the problem if necessary.}
+If you see SUCCESS under the Status heading,
+then you've successfully built and executed the hello world example.
+Woohoo!
 </li>
 </ol>
 
@@ -117,17 +119,17 @@ See DebuggingModules and WritingModules.
 
 {PENDING: put the stuff in this section somewhere (not in this page?).}
 
-== Hammer time ==
+== Make ==
 
 <p>
-Here are some of the most useful `hammer` switches:
+Here are some of the most useful Make targets:
 </p>
 
 || *Command* || *Description* ||
-|| `./hammer.sh -c` || Clean everything ||
-|| `./hammer.sh` || Build everything ||
-|| `./hammer.sh --mode nacl` || Build the untrusted .nexes (for release) ||
-|| `./hammer.sh --mode plugin` || Build the trusted NPAPI plugins (for debugging) ||
+|| `make clean` || Clean everything ||
+|| `make` || Build everything ||
+|| `make release` || Build the release version of your module (.nexe) ||
+|| `make debug` || Build the debug version ||
 
 == MIME types ==
 A note about MIME types:
@@ -141,9 +143,3 @@ a trusted NPAPI plugin versus running an untrusted module.
 Be sure to set the MIME
 type of your trusted plugin to match the MIME type in the HTML. (On the Mac,
 this means the Info.plist has to have one WebPluginMIMETypes entry.)
-
-== httpd ==
-
-Start the SDK's simple HTTP server like this:
-
-<blockquote><pre>cd examples; python httpd.py</pre></blockquote>
