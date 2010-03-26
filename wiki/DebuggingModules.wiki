@@ -79,14 +79,14 @@ $2 = 0x1849cdc9 "hello, world."
 (gdb) </pre></blockquote>
 
 You often need to have breakpoints in one or more of these methods (any experienced plugin developer would know these):
-  * NPP_GetValue
-  * NPP_GetScriptableInstance - To make sure it's being called at all. This is how the browser gets your plugin object. 
+  * !NPP_GetValue
+  * !NPP_GetScriptableInstance - To make sure it's being called at all. This is how the browser gets your plugin object. 
   * NPP_New
 
 Possible exercise: In Chrome, look at source code of npapi_helloworld.html vs. .../#debug
 (.nexe vs. pepper code)
 
-Hello World will run in any browser. The other examples (Pepper 2D, Pepper 3D) require Chromium; they won't run in Safari (or whatever).
+Hello World will run in any browser. The other examples (Pepper 2D, Pepper 3D) require Google Chrome; they won't run in Safari (or whatever).
 
 == API notes {PENDING: move these elsewhere} ==
 Pepper APIs are documented here:
@@ -95,6 +95,6 @@ https://wiki.mozilla.org/Plugins:PlatformIndependentNPAPI
 Plugin development documented here:
 https://developer.mozilla.org/en/Gecko_Plugin_API_Reference
 
-.nexe files have NPAPI baked in. They also use NPRuntime (a subset of NPAPI that lets you call C++ from JavaScript). Pepper is an extension of NPAPI.
+.nexe files have NPAPI baked in. They also use NPRuntime (a subset of NPAPI that lets you call C++ from !JavaScript). Pepper is an extension of NPAPI.
 
 The Native Client implementation of NPAPI is built on top of SRPC. (You could use SRPC directly, but most people wouldn't.)
