@@ -98,7 +98,6 @@ go to the `example` directory and execute `python httpd.py`.
 <li>
 Load the npapi_helloworld example
 from `examples/release/<em>your_platform</em>/npapi_helloworld.html`.
-(Be sure not to forget `scons-out`!)
 For example, if you're using a Mac and
 the HTTP server that's included in the SDK,
 use this URL:
