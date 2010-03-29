@@ -16,10 +16,10 @@ so you can run make.}
 
 To build and run .nexe files,
 you need to get the SDK
-and make sure you have the right version of Google Chrome.
+and make sure you have the right version of the browser.
 
 <ol>
-<li> Download a recent version of Chromium from http://build.chromium.org/buildbot/continuous/. The following versions have been confirmed to work:
+<li> Download and unarchive a recent version of Chromium from http://build.chromium.org/buildbot/continuous/. The following versions have been confirmed to work:
 
   * <a href="http://build.chromium.org/buildbot/continuous/mac/2010-03-29/42943/chrome-mac.zip">42943</a> (Mac)
   * ... (64-bit Linux)
@@ -100,7 +100,7 @@ This step creates release and debug versions of the SDK examples,
 placing the results under `release` and `debug` directories, respectively.
 </li>
 
-<li> Run Google Chrome with the same flags as before. </li>
+<li> Run Chromium with the same flags as before. (If it's still running, you don't need to restart it.) {PENDING: is there a possibility of cache issues? maybe we should show a different example?} </li>
 
 <li>
 If you don't already have an HTTP server running,
