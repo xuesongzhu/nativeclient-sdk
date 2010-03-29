@@ -65,7 +65,13 @@ For example, to run Google Chrome on a Mac from the command line:
 </li>
 
 <li>
-Visit {some URL to a page that runs a .nexe}.
+Visit one of the following pages:
+
+  * http://www/~kathyw/nacl/mac_x86-32/npapi_helloworld.html
+  * ...
+
+{Note: Separate URLs won't be required in the future. They're a temporary workaround because different versions of our sandbox currently require different binaries.}
+
 If you see SUCCESS under the Status heading,
 then you've successfully executed the hello world example.
 If not, 
