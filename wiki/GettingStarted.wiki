@@ -48,20 +48,19 @@ Your first step is to make sure that
 you can run Native Client modules that are already on the web.
 
 <ol>
-<li> Run Google Chrome with these flags:
-`--enable-nacl --no-sandbox`
+<li> Run Google Chrome with these flags: `--enable-nacl --no-sandbox`
 
-{Note: --no-sandbox is required ONLY on Mac. In older releases, you had to use `--no-sandbox --internal-nacl --internal-pepper --enable-gpu-plugin`.}
+{Note: `--no-sandbox` is required ONLY on Mac. In older releases, you had to use `--no-sandbox --internal-nacl --internal-pepper --enable-gpu-plugin`.}
 
 For example, to run Google Chrome on a Mac from the command line:
 
 <blockquote>
-<pre>/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --no-sandbox --internal-nacl --internal-pepper --enable-gpu-plugin</pre></blockquote>
+<pre>/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-nacl --no-sandbox</pre></blockquote>
 
 {To run Chromium on a Mac from the command line:
 
 <blockquote>
-<pre>/Users/me/Downloads/chrome-mac/Chromium.app/Contents/MacOS/Chromium --no-sandbox --internal-nacl --internal-pepper --enable-gpu-plugin</pre></blockquote> }
+<pre>/Users/me/Downloads/chrome-mac/Chromium.app/Contents/MacOS/Chromium --enable-nacl --no-sandbox</pre></blockquote> }
 
 </li>
 
