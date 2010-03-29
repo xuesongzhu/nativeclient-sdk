@@ -25,7 +25,7 @@ and make sure you have the right version of Google Chrome.
 
   http://dev.chromium.org/getting-involved/dev-channel
   
-{JUST KIDDING: The Dev channel doesn't currently work with Native Client. Instead, you can download the latest version of Chromium from http://build.chromium.org/buildbot/continuous/}
+{JUST KIDDING: The Dev channel doesn't currently work with Native Client. Instead, you can download the latest version of Chromium from http://build.chromium.org/buildbot/continuous/. These versions have been confirmed to work: 5.0.365.0 (42943) for Mac, ...}
 </li>
 
 <li> Download the SDK for your platform.
