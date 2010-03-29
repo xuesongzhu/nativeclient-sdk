@@ -67,7 +67,7 @@ Visit the page for your platform:
   * http://www/~kathyw/nacl-sdk/linux_x86-64/npapi_helloworld.html (64-bit Linux)
   * {PENDING: Watch http://www/~kathyw/nacl-sdk/ for more pages...}
 
-{Note: Separate URLs won't be required in the future. They're a temporary workaround because different versions of our sandbox currently require different binaries.}
+{Note: Separate URLs won't be required in the future. They're a temporary workaround because different versions of our sandbox currently require different binaries. And of course, the URL(s) listed in this section will be external.}
 
 If you see SUCCESS under the Status heading,
 then you've successfully executed the hello world example.
