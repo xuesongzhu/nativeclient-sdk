@@ -112,7 +112,7 @@ go to the `example` directory and execute `python httpd.py`.
 
 <li>
 Load the npapi_helloworld example
-from `examples/release/<em>your_platform</em>/npapi_helloworld.html`.
+from `examples/release/PLATFORM_NAME/npapi_helloworld.html`.
 For example, if you're using a Mac and
 the HTTP server that's included in the SDK,
 use this URL:
