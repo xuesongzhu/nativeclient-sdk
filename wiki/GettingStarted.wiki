@@ -9,7 +9,7 @@ This page tells you how to use the Native Client SDK to build and run a .nexe fi
 
 {PENDING: discuss platform requirements here.
 So far, these instructions have worked on Mac only.
-For now, you'll need cygwin or some other UNIX toolchain on Windows,
+On Windows, you'll need cygwin or some other UNIX toolchain,
 so you can run make.}
 
 = Getting the software =
@@ -50,28 +50,22 @@ Your first step is to make sure that
 you can run Native Client modules that are already on the web.
 
 <ol>
-<li> Run Google Chrome with these flags: `--enable-nacl --no-sandbox`
+<li> Run Chromium with these flags: `--enable-nacl --no-sandbox`. You probably want to use `--user-data-dir` as well, so that you don't have Native Client enabled all over the Web.
 
-{Note: `--no-sandbox` is required ONLY on Mac. In older releases, you had to use `--no-sandbox --internal-nacl --internal-pepper --enable-gpu-plugin`.}
+{Note: `--no-sandbox` is required ONLY on Mac; soon it won't be required.}
 
-For example, to run Google Chrome on a Mac from the command line:
-
-<blockquote>
-<pre>/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-nacl --no-sandbox</pre></blockquote>
-
-{To run Chromium on a Mac from the command line:
+For example, to run Chromium on a Mac from the command line:
 
 <blockquote>
-<pre>/Users/me/Downloads/chrome-mac/Chromium.app/Contents/MacOS/Chromium --enable-nacl --no-sandbox</pre></blockquote> }
-
+<pre>/Users/me/Downloads/chrome-mac/Chromium.app/Contents/MacOS/Chromium --enable-nacl --no-sandbox --user-data-dir=~/nacl-chrome-profile</pre></blockquote>
 </li>
 
 <li>
-Visit one of the following pages:
+Visit the page for your platform:
 
-  * http://www/~kathyw/nacl-sdk/mac_x86-32/npapi_helloworld.html
-  * http://www/~kathyw/nacl-sdk/linux_x86-64/npapi_helloworld.html
-  * ... {PENDING: More pages will appear under http://www/~kathyw/nacl-sdk/}
+  * http://www/~kathyw/nacl-sdk/mac_x86-32/npapi_helloworld.html (Mac)
+  * http://www/~kathyw/nacl-sdk/linux_x86-64/npapi_helloworld.html (64-bit Linux)
+  * {PENDING: Watch http://www/~kathyw/nacl-sdk/ for more pages...}
 
 {Note: Separate URLs won't be required in the future. They're a temporary workaround because different versions of our sandbox currently require different binaries.}
 
@@ -81,7 +75,7 @@ If not, try reloading the page.
 If the problem continues,
 {PENDING: Troubleshoot common issues.}
 
-If you still can't run that example, look at the [https://groups.google.com/group/native-client-discuss native-client-discuss group] to see if someone else has had the same problem.
+If you still can't run that example, look at the [https://groups.google.com/group/native-client-discuss native-client-discuss group] {PENDING: until this is external, just email the nacl team} to see if someone else has had the same problem.
 </li>
 
 </ol>
@@ -142,11 +136,11 @@ See DebuggingModules and WritingModules.
 
 == Dev channel ==
 
-This is what the download instructions will say once the dev channel works:
+These are miscellaneous instructions that we'll substitute for the Chromium instructions, once the dev channel works:
 
 <ol>
 <li>
-  Bring up the *About Google Chrome* dialog, and make sure you're running the Dev channel version of Google Chrome. On the Mac, the menu item that brings up this dialog under the Chrome menu; on Linux and Windows, it's under the Tools (wrench) menu.
+Bring up the *About Google Chrome* dialog, and make sure you're running the Dev channel version of Google Chrome. On the Mac, the menu item that brings up this dialog under the Chrome menu; on Linux and Windows, it's under the Tools (wrench) menu.
 </li>
 
 <li>
@@ -155,6 +149,12 @@ If you aren't using the Dev channel, switch to it by following the instructions 
   http://dev.chromium.org/getting-involved/dev-channel
 </li>
 </ol>
+
+For example, to run Google Chrome on a Mac from the command line:
+
+<blockquote>
+<pre>/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-nacl --no-sandbox --user-data-dir=~/nacl-chrome-profile</pre></blockquote>
+
 == Make ==
 
 <p>
@@ -166,16 +166,3 @@ Here are some of the most useful Make targets:
 || `make` || Build everything ||
 || `make release` || Build the release version of your module (.nexe) ||
 || `make debug` || Build the debug version ||
-
-== MIME types ==
-A note about MIME types:
-  * Trusted NPAPI plugins must have a MIME type that begins with 'pepper-'.
-  * Native Client modules must have a MIME type that is exactly 'application/x-nacl-srpc'.
-
-The HTML files bundles with the examples show how
-to specify a different MIME type for the embedded object when you are debugging
-a trusted NPAPI plugin versus running an untrusted module.
-
-Be sure to set the MIME
-type of your trusted plugin to match the MIME type in the HTML. (On the Mac,
-this means the Info.plist has to have one WebPluginMIMETypes entry.)
