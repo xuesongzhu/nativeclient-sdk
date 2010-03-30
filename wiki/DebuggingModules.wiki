@@ -1,16 +1,16 @@
 #summary Instructions for debugging examples
 #labels Featured
 
-Here are my rough notes. I'll fix them soon.
+Here are rough notes to help you debug SDK examples.
 
 <ol>
 
 <li>
-Do everything in GettingStarted, including:
+Before you start debugging, do everything in GettingStarted, including:
   * Make sure your version of Google Chrome can run Native Client examples
   * Download and unarchive the SDK
   * Build the SDK examples
-  * Have an HTTP server, and test that you can load one of the examples that you built
+  * Have an HTTP server, and use it to load one of the examples that you built
 </li>
 
 <li>
@@ -31,7 +31,7 @@ Launch GDB, specifying the executable file for Google Chrome. For example:
 In GDB, start Google Chrome with the same flags as before, plus *--single-process* and *--load-plugin*. Set `--load-plugin` to the absolute path of the .plugin file for the debug version of the example, which you can find under `examples/debug/your_platform`. For example:
 
 <blockquote>
-<pre>r --internal-nacl --enable-gpu-plugin --no-sandbox --internal-pepper --single-process --load-plugin=/Users/me/Downloads/native_client_sdk_0_1_0_0/examples/debug/mac_x86-32/npapi_helloworld.plugin</pre></blockquote>
+<pre>r --enable-nacl --no-sandbox --single-process --load-plugin=/Users/me/Downloads/native_client_sdk_0_1_0_0/examples/debug/mac_x86-32/npapi_helloworld.plugin</pre></blockquote>
 </li>
 
 <li>
@@ -81,7 +81,7 @@ $1 = 0x6c6c6568 &lt;Address 0x6c6c6568 out of bounds>
 $2 = 0x1849cdc9 "hello, world."
 (gdb) </pre></blockquote>
 
-You often need to have breakpoints in one or more of these methods (any experienced plugin developer would know these):
+You often need to have breakpoints in one or more of these methods:
   * `NPP_GetValue`
   * `NPP_GetScriptableInstance` - To make sure it's being called at all. This is how the browser gets your plugin object. 
   * `NPP_New`
