@@ -65,7 +65,6 @@ Visit the page for your platform:
 
   * x86-32: http://www/~kathyw/nacl-sdk/mac_x86-32/npapi_helloworld.html
   * x86-64: http://www/~kathyw/nacl-sdk/linux_x86-64/npapi_helloworld.html
-  * {PENDING: Watch http://www/~kathyw/nacl-sdk/ for more pages...}
 
 {Note: Separate URLs won't be required in the future. They're a temporary workaround because different versions of our sandbox currently require different binaries. And of course, the URL(s) listed in this section will be external.}
 
