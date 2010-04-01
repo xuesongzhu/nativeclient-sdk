@@ -16,19 +16,10 @@ A few platform notes:
 = Getting the software =
 
 To build and run .nexe files,
-you need to get the SDK
+you need to get the Native Client SDK
 and make sure you have the right version of the browser.
 
 <ol>
-<li> Download and unarchive a recent version of Chromium from http://build.chromium.org/buildbot/continuous/. The following versions have been confirmed to work:
-
-  * <a href="http://build.chromium.org/buildbot/continuous/mac/2010-03-29/42943/chrome-mac.zip">42943</a> (Mac)
-  * ... (Windows)
-  * ... (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help in running a 32-bit browser)
-  
-{Note: Before we release these instructions to the public, the Dev channel will be sufficient.}
-</li>
-
 <li> Download the SDK for your platform.
 
   http://build.chromium.org/buildbot/snapshots/nacl_new_sdk/
@@ -39,6 +30,15 @@ and make sure you have the right version of the browser.
 
 <blockquote>
 <pre>tar xvf naclsdk_mac.tgz</pre></blockquote>
+</li>
+
+<li> Download and unarchive a recent version of Chromium from http://build.chromium.org/buildbot/continuous/. The following versions have been confirmed to work:
+
+  * <a href="http://build.chromium.org/buildbot/continuous/mac/2010-03-29/42943/chrome-mac.zip">42943</a> (Mac)
+  * ... (Windows)
+  * ... (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help in running a 32-bit browser)
+  
+{Note: Before we release these instructions to the public, the Dev channel will be sufficient.}
 </li>
 
 </ol>
