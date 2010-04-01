@@ -1,18 +1,17 @@
 #summary Instructions for building and running examples
 #labels Featured
 
-This page tells you how to use the Native Client SDK to build and run a .nexe file (untrusted native code module).
+This page tells you how to use the Native Client SDK to build and run a Native Client module.
 
 <wiki:toc />
 
 = Before you start =
 
-{PENDING: discuss platform requirements here.
-So far, these instructions have been confirmed on Mac only.
-To build on Windows, you'll need cygwin (1.7 works; 1.5 doesn't)
-or some other UNIX toolchain.
-Although you can use a 64-bit system,
-we support only 32-bit browsers for now.}
+A few platform notes:
+
+  * So far, these instructions have been confirmed only on Mac. Please let us know whether they work for you on other platforms.
+  * On Windows when you get to the building step, you'll need cygwin (1.7 works; 1.5 doesn't) or some other UNIX toolchain.
+  * Although you can use a 64-bit Windows or Linux system, the browser itself must be 32-bit software.
 
 = Getting the software =
 
