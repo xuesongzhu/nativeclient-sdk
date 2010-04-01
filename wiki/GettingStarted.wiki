@@ -22,10 +22,8 @@ and make sure you have the right version of the browser.
 <li> Download and unarchive a recent version of Chromium from http://build.chromium.org/buildbot/continuous/. The following versions have been confirmed to work:
 
   * <a href="http://build.chromium.org/buildbot/continuous/mac/2010-03-29/42943/chrome-mac.zip">42943</a> (Mac)
-  * ... (64-bit Linux)
-  * ... (32-bit Linux)
-  * ... (64-bit Windows)
-  * ... (32-bit Windows)
+  * ... (Windows)
+  * ... (Linux; note that we don't support the 64-bit version of Google Chrome for Linux; for instructions on using a 32-bit browser with 64-bit Linux, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430)
   
 {Note: Before we release these instructions to the public, the Dev channel will be sufficient.}
 </li>
@@ -61,17 +59,14 @@ For example, to run Chromium on a Mac from the command line:
 </li>
 
 <li>
-Visit the page for your platform:
+Visit the following page:
 
-  * 32-bit x86: http://www/~kathyw/nacl-sdk/mac_x86-32/npapi_helloworld.html
-  * 64-bit x86: http://www/~kathyw/nacl-sdk/linux_x86-64/npapi_helloworld.html
-
-{Note: Separate URLs won't be required in the future. They're a temporary workaround because different versions of our sandbox currently require different binaries. And of course, the URL(s) listed in this section will be external.}
+     http://www/~kathyw/nacl-sdk/mac_x86-32/npapi_helloworld.html
 
 If you see SUCCESS under the Status heading,
 then you've successfully executed the hello world example.
 If not, try reloading the page.
-If the problem continues,
+If you still don't see SUCCESS,
 {PENDING: Troubleshoot common issues.}
 
 If you still can't run that example, look at the [https://groups.google.com/group/native-client-discuss native-client-discuss group] {PENDING: until this is external, just email the nacl team} to see if someone else has had the same problem.
