@@ -8,9 +8,11 @@ This page tells you how to use the Native Client SDK to build and run a .nexe fi
 = Before you start =
 
 {PENDING: discuss platform requirements here.
-So far, these instructions have worked on Mac only.
-On Windows, you'll need cygwin or some other UNIX toolchain,
-so you can run make.}
+So far, these instructions have been confirmed on Mac only.
+To build on Windows, you'll need cygwin (1.7 works; 1.5 doesn't)
+or some other UNIX toolchain.
+Although you can use a 64-bit system,
+we support only 32-bit browsers for now.}
 
 = Getting the software =
 
@@ -23,7 +25,7 @@ and make sure you have the right version of the browser.
 
   * <a href="http://build.chromium.org/buildbot/continuous/mac/2010-03-29/42943/chrome-mac.zip">42943</a> (Mac)
   * ... (Windows)
-  * ... (Linux; note that we don't support the 64-bit version of Google Chrome for Linux; for instructions on using a 32-bit browser with 64-bit Linux, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430)
+  * ... (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help in running a 32-bit browser)
   
 {Note: Before we release these instructions to the public, the Dev channel will be sufficient.}
 </li>
