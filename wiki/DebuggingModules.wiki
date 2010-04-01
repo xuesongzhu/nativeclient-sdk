@@ -9,7 +9,7 @@ Here are rough notes to help you debug SDK examples.
 Before you start debugging, do everything in GettingStarted, including:
   * Make sure your version of Google Chrome can run Native Client examples
   * Download and unarchive the SDK
-  * Build the SDK examples
+  * Build the SDK examples, be sure to use the 'debug' targets, for example <code>make debug</code>
   * Have an HTTP server, and use it to load one of the examples that you built
 </li>
 
