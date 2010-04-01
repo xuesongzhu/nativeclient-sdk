@@ -28,10 +28,10 @@ Launch GDB, specifying the executable file for Google Chrome. For example:
 </li>
 
 <li>
-In GDB, start Google Chrome with the same flags as before, plus *--single-process* and *--load-plugin*. Set `--load-plugin` to the absolute path of the .plugin file for the debug version of the example, which you can find under `examples/debug/your_platform`. For example:
+In GDB, start Google Chrome with the same flags as before, plus *--single-process*, *--internal-pepper*, and *--load-plugin*. Set `--load-plugin` to the absolute path of the .plugin file for the debug version of the example, which you can find under `examples/debug/your_platform`. For example:
 
 <blockquote>
-<pre>r --enable-nacl --no-sandbox --single-process --load-plugin=/Users/me/Downloads/native_client_sdk_0_1_0_0/examples/debug/mac_x86-32/npapi_helloworld.plugin</pre></blockquote>
+<pre>r --enable-nacl --no-sandbox --single-process --internal-pepper --load-plugin=/Users/me/Downloads/native_client_sdk_0_1_0_0/examples/debug/mac_x86-32/npapi_helloworld.plugin</pre></blockquote>
 </li>
 
 <li>
