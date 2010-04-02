@@ -63,8 +63,7 @@ For example, to run Chromium on a Mac from the command line:
 <pre>/Users/me/Downloads/chrome-mac/Chromium.app/Contents/MacOS/Chromium --enable-nacl --no-sandbox --user-data-dir=~/nacl-chrome-profile</pre></blockquote>
 </li>
 
-<li>
-Visit the following page if you're using Linux, Mac, or 32-bit Windows:
+<li>If you're using Linux, Mac, or 32-bit Windows, visit the following page:
 
      http://www/~kathyw/nacl-sdk/mac_x86-32/npapi_helloworld.html
 
