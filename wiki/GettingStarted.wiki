@@ -64,9 +64,13 @@ For example, to run Chromium on a Mac from the command line:
 </li>
 
 <li>
-Visit the following page:
+Visit the following page if you're using Linux, Mac, or 32-bit Windows:
 
      http://www/~kathyw/nacl-sdk/mac_x86-32/npapi_helloworld.html
+
+If you're using 64-bit Windows, visit this page:
+
+    {TBD: point to page with a 64-bit .nexe}
 
 If you see SUCCESS under the Status heading,
 then you've successfully executed the hello world example.
