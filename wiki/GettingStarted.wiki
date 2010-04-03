@@ -53,7 +53,7 @@ Your first step is to make sure that
 you can run Native Client modules that are already on the web.
 
 <ol>
-<li> Run Chromium with *--enable-nacl* flag. You probably want to use *--user-data-dir* as well, so that you can have two instances of Google Chrome running, and your normal version of Google Chrome won't have Native Client enabled.
+<li> Run Chromium with *--enable-nacl* flag. You probably want to use *--user-data-dir* as well, so that you can have two instances of Google Chrome running (letting you surf the web using an ordinary version of Google Chrome, without Native Client enabled).
 
 *Note:* On the Mac, you also need *--no-sandbox*. {PENDING: check}
 
