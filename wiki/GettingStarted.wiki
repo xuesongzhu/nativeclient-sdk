@@ -38,7 +38,7 @@ and make sure you have the right version of the browser.
 
 <li> Download and unarchive a recent version of Chromium from http://build.chromium.org/buildbot/continuous/. The following versions have been confirmed to work:
 
-  * <a href="http://build.chromium.org/buildbot/continuous/mac/2010-04-02/43509/chrome-mac.zip">43509</a> (Mac)
+  * <a href="http://build.chromium.org/buildbot/continuous/mac/2010-04-02/43509/chrome-mac.zip">43509</a> (Mac) {PENDING: 2D not working; 3D is flakey}
   * ... (Windows)
   * ... (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help in running a 32-bit browser)
   
@@ -53,9 +53,9 @@ Your first step is to make sure that
 you can run Native Client modules that are already on the web.
 
 <ol>
-<li> Run Chromium with these flags: `--enable-nacl --no-sandbox`. You probably want to use `--user-data-dir` as well, so that you don't have Native Client enabled all over the Web.
+<li> Run Chromium with *--enable-nacl* flag. You probably want to use *--user-data-dir* as well, so that you can have two instances of Google Chrome running, and your normal version of Google Chrome won't have Native Client enabled.
 
-{Note: `--no-sandbox` is required ONLY on Mac; soon it won't be required.}
+*Note:* On the Mac, you also need *--no-sandbox*. {PENDING: check}
 
 For example, to run Chromium on a Mac from the command line:
 
