@@ -30,15 +30,18 @@ and make sure you have the right version of the browser.
 
 </li>
 
-<li> Unarchive the SDK. You can probably just double-click it. If you prefer to use the command line, try something like this:
+<li> Unarchive the SDK. You can probably just double-click the archive file. If you prefer to use the command line, try something like this:
 
 <blockquote>
 <pre>tar xvf naclsdk_mac.tgz</pre></blockquote>
 </li>
 
+<li> If there are any spaces in the path to the SDK, remove them. {PENDING: check, clarify}
+</li>
+
 <li> Download and unarchive a recent version of Chromium from http://build.chromium.org/buildbot/continuous/. The following versions have been confirmed to work:
 
-  * <a href="http://build.chromium.org/buildbot/continuous/mac/2010-04-02/43509/chrome-mac.zip">43509</a> (Mac) {PENDING: 2D working for develop version only; 3D is flakey}
+  * <a href="http://build.chromium.org/buildbot/continuous/mac/2010-04-02/43509/chrome-mac.zip">43509</a> (Mac) {PENDING: 2D not working; 3D is flakey}
   * ... (Windows)
   * ... (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help in running a 32-bit browser)
   
@@ -55,7 +58,7 @@ you can run Native Client modules that are already on the web.
 <ol>
 <li> Run Chromium with *--enable-nacl* flag. You probably want to use *--user-data-dir* as well, so that you can have two instances of Google Chrome running (letting you surf the web using an ordinary version of Google Chrome, without Native Client enabled).
 
-*Note:* On the Mac, you also need *--no-sandbox*. {PENDING: check}
+*Note:* On the Mac, you also need *--no-sandbox*.
 
 For example, to run Chromium on a Mac from the command line:
 
@@ -65,7 +68,7 @@ For example, to run Chromium on a Mac from the command line:
 
 <li> If you're using Linux, Mac, or 32-bit Windows, visit the following page:
 
-     http://www/~kathyw/nacl-sdk/mac_x86-32/hello_world.html
+     http://www/~kathyw/nacl-sdk/mac_x86-32/npapi_helloworld.html
 
 If you're using 64-bit Windows, visit this page:
 
@@ -99,7 +102,7 @@ to load an example's page.
 <pre> cd native_client_sdk_0_1_0_0/examples
 make</pre></blockquote>
 
-This step creates publish and development versions of the SDK examples,
+This step creates publishable and development versions of the SDK examples,
 placing the results under `publish` and `develop` directories, respectively.
 </li>
 
@@ -109,18 +112,20 @@ placing the results under `publish` and `develop` directories, respectively.
 If you don't already have an HTTP server running,
 start one up
 so that you can get to the examples' built files using HTTP.
-If you want to use the one that's included in the SDK,
-go to the `example` directory and execute `python httpd.py`.
+To use the HTTP server that's included in the SDK:
+<blockquote>
+<pre> cd native_client_sdk_0_1_0_0/examples
+python httpd.py</pre></blockquote>
 </li>
 
 <li>
-Load the hello_world example
-from `examples/publish/PLATFORM_NAME/hello_world.html`.
+Load the npapi_helloworld example
+from `examples/publish/PLATFORM_NAME/npapi_helloworld.html`.
 For example, if you're using a Mac and
 the HTTP server that's included in the SDK,
 use this URL:
 
-  http://localhost:5103/publish/mac_x86/hello_world.html
+  http://localhost:5103/publish/mac_x86-32/npapi_helloworld.html
 
 If you see SUCCESS under the Status heading,
 then you've successfully built and executed the hello world example.
@@ -167,5 +172,5 @@ Here are some of the most useful Make targets:
 || *Command* || *Description* ||
 || `make clean` || Clean everything ||
 || `make` || Build everything ||
-|| `make publish` || Build the release version of your module (.nexe) ||
-|| `make develop` || Build the debug version ||
+|| `make publish` || Build the publishable version of your module (.nexe) ||
+|| `make develop` || Build the development version ||
