@@ -15,7 +15,7 @@ A few platform notes:
 
 A few terminology notes:
 
-  * You might see the term .nexe in places. It refers to a publishable, platform-independent Native Client module, without debug symbols. {TBD: check}
+  * The term .nexe refers to a publishable, platform-independent executable file for a Native Client module. {TBD: check}
   * To debug your Native Client module, you need to make a development version of it. {TBD: clarify}
 
 = Getting the software =
