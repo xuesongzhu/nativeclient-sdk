@@ -108,7 +108,7 @@ This step creates publishable and development versions of the SDK examples,
 placing the results under `publish` and `develop` directories, respectively.
 </li>
 
-<li> Run Chromium with the same flags as before. (If it's still running, you don't need to restart it.) {PENDING: is there a possibility of cache issues? maybe we should show a different example?} </li>
+<li> Run Chromium with the same flags as before. (If it's still running, you don't need to restart it.) </li>
 
 <li>
 If you don't already have an HTTP server running,
