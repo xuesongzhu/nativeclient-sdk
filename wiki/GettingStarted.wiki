@@ -47,9 +47,9 @@ $ mv native_client_sdk_0_1_127_0 /cygdrive/c/NaCl-testing</pre></blockquote>
 
 <li> Download and unarchive a recent version of Chromium from http://build.chromium.org/buildbot/continuous/. The following versions have been confirmed to work:
 
-  * <a href="http://build.chromium.org/buildbot/continuous/mac/2010-04-02/43509/chrome-mac.zip">43509</a> (Mac) {PENDING: 2D not working; 3D is flakey}
+  * [http://build.chromium.org/buildbot/continuous/mac/2010-04-02/43509/chrome-mac.zip 43509] (Mac) {PENDING: 2D not working; 3D is flakey}
   * ... (Windows)
-  * ... (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help in running a 32-bit browser)
+  * [http://build.chromium.org/buildbot/continuous/linux/2010-04-05/43622/chrome-linux.zip 43622] (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help in running a 32-bit browser)
   
 {Note: Before we release these instructions to the public, the Dev channel will be sufficient.}
 </li>
