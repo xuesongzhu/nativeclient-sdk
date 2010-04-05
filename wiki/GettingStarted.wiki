@@ -136,7 +136,10 @@ Woohoo!
 
 = What to do next =
 
-See DebuggingModules and WritingModules.
+  * See DebuggingModules
+  * See WritingModules
+  * Try running the [http://www/~kathyw/nacl-sdk/x86-32/pi_generator.html Pi Generator example]. {Note: This example uses Pepper 2D drawing, which doesn't currently work on Mac in publishable Native Client modules.} 
+  * Try running the [http://www/~kathyw/nacl-sdk/x86-32/tumbler.html Tumbler example]. {Note: This example uses Pepper 3D drawing.} 
 
 = Move me =
 
