@@ -1,7 +1,7 @@
 #summary Instructions for debugging examples
 #labels Featured
 
-Here are rough notes to help you debug SDK examples.
+Here are rough notes to help you debug SDK examples. {Note: These instructions feature Chromium. By the time this project is available externally, they'll feature Dev channel Google Chrome instead.}
 
 <ol>
 
@@ -45,13 +45,13 @@ break InvokeHW</pre></blockquote>
 </li>
 
 <li>
-Answer *y* to the question "Make breakpoint pending on future shared library load? (y or [n])".
+Answer *y* to the question "Make breakpoint pending on future shared library load? (y or n)".
 </li>
 
 <li>
 In the browser, instead of going to http://.../publish/.../hello_world.html as you did in GettingStarted, change *publish* to *develop* and add *#develop* to the end of the URL. For example:
 
-http://localhost:5103/develop/mac_x86/hello_world.html#develop
+     http://localhost:5103/develop/mac_x86/hello_world.html#develop
 
 You should hit the breakpoint.
 Now debug to your heart's content.
