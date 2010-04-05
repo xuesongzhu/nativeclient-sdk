@@ -7,28 +7,25 @@ Here are rough notes to help you debug SDK examples.
 
 <li>
 Before you start debugging, do everything in GettingStarted, including:
-  * Make sure your version of Google Chrome can run Native Client examples
+  * Make sure your version of Chromium can run Native Client examples
   * Download and unarchive the SDK
-  * Build the SDK examples, be sure to use the 'develop' targets, for example: <pre>make develop</pre>
+  * Build the SDK examples using `make` or `make develop`
   * Have an HTTP server, and use it to load one of the examples that you built
 </li>
 
 <li>
-Quit Google Chrome.
+Quit Chromium.
 </li>
 
 <li>
-Launch GDB, specifying the executable file for Google Chrome. For example:
+Launch GDB, specifying the executable file for Chromium. For example:
 
 <blockquote>
-<pre>gdb /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome</pre></blockquote>
-
-{Or, for Chromium:
-`gdb /Users/me/Downloads/chrome-mac/Chromium.app/Contents/MacOS/Chromium`}
+<pre>gdb /Users/me/Downloads/chrome-mac/Chromium.app/Contents/MacOS/Chromium</pre></blockquote>
 </li>
 
 <li>
-In GDB, start Google Chrome with the same flags as before, plus *--single-process*, *--internal-pepper*, and *--load-plugin*. Set `--load-plugin` to the absolute path of the .plugin file for the development version of the example, which you can find under `examples/develop/your_platform`. For example:
+In GDB, start the browser with the same flags as before, plus *--single-process*, *--internal-pepper*, and *--load-plugin*. Set `--load-plugin` to the absolute path of the .plugin file for the development version of the example, which you can find under `examples/develop/your_platform`. For example:
 
 <blockquote>
 <pre>r --enable-nacl --no-sandbox --single-process --internal-pepper --load-plugin=/Users/me/Downloads/native_client_sdk_0_1_0_0/examples/develop/mac_x86/hello_world.plugin</pre></blockquote>
@@ -52,7 +49,7 @@ Answer *y* to the question "Make breakpoint pending on future shared library loa
 </li>
 
 <li>
-In the browser, instead of going to http://.../hello_world.html as you did in GettingStarted, add *#develop* to that URL. For example:
+In the browser, instead of going to http://.../publish/.../hello_world.html as you did in GettingStarted, change *publish* to *develop* and add *#develop* to the end of the URL. For example:
 
 http://localhost:5103/develop/mac_x86/hello_world.html#develop
 
@@ -62,6 +59,9 @@ Now debug to your heart's content.
 </ol>
 
 == More notes ==
+
+To launch gdb with Google Chrome:
+<blockquote><pre>gdb /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome</pre></blockquote>
 
 Some examples of commands you might use:
   * list
