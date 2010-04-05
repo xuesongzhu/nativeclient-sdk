@@ -10,7 +10,7 @@ This page tells you how to use the Native Client SDK to build and run a Native C
 A few platform notes:
 
   * So far, these instructions have been confirmed only on Mac and Linux. Builds on Mac were working but aren't right now; builds on Windows aren't working yet.
-  * On Windows when you get to the building step, you'll need cygwin (1.7 works; 1.5 doesn't) or some other UNIX toolchain.
+  * On Windows when you get to the building step, you'll need [http://www.cygwin.com/ Cygwin] (1.7 works; 1.5 doesn't) or some other UNIX toolchain.
   * Although you can use a 64-bit Windows or Linux system, the browser itself must be 32-bit software.
 
 A few terminology notes:
