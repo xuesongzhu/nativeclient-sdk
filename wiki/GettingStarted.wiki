@@ -15,11 +15,12 @@ A few platform notes:
 
 A few terminology notes:
 
-  * {TBD}
+  * You might see the term .nexe in places. It refers to a publishable, platform-independent Native Client module, without debug symbols. {TBD: check}
+  * To debug your Native Client module, you need to make a development version of it. {TBD: clarify}
 
 = Getting the software =
 
-To build and run .nexe files,
+To build and run Native Client modules,
 you need to get the Native Client SDK
 and make sure you have the right version of the browser.
 
@@ -86,7 +87,7 @@ If you're using 64-bit Windows, visit this page:
 
 </ol>
 
-Once you've successfully run a .nexe from the web,
+Once you've successfully run a published Native Client module,
 you're ready to build and run examples in the SDK.
 
 = Building and running the SDK examples =
