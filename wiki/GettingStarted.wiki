@@ -40,7 +40,7 @@ and make sure you have the right version of the browser.
 <li> If there are any spaces in the path to the SDK, remove them. {TBD: make sure this is necessary} For example:
 
 <blockquote>
-<pre> $ cd ~/My Documents/Downloads
+<pre> $ cd ~/My\ Documents/Downloads/
 $ mv native_client_sdk_0_1_127_0 /cygdrive/c/NaCl-testing</pre></blockquote>
 
 </li>
