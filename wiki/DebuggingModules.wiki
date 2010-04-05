@@ -9,7 +9,7 @@ Here are rough notes to help you debug SDK examples.
 Before you start debugging, do everything in GettingStarted, including:
   * Make sure your version of Google Chrome can run Native Client examples
   * Download and unarchive the SDK
-  * Build the SDK examples, be sure to use the 'debug' targets, for example: <pre>make debug</pre>
+  * Build the SDK examples, be sure to use the 'develop' targets, for example: <pre>make develop</pre>
   * Have an HTTP server, and use it to load one of the examples that you built
 </li>
 
@@ -28,10 +28,10 @@ Launch GDB, specifying the executable file for Google Chrome. For example:
 </li>
 
 <li>
-In GDB, start Google Chrome with the same flags as before, plus *--single-process*, *--internal-pepper*, and *--load-plugin*. Set `--load-plugin` to the absolute path of the .plugin file for the debug version of the example, which you can find under `examples/debug/your_platform`. For example:
+In GDB, start Google Chrome with the same flags as before, plus *--single-process*, *--internal-pepper*, and *--load-plugin*. Set `--load-plugin` to the absolute path of the .plugin file for the development version of the example, which you can find under `examples/develop/your_platform`. For example:
 
 <blockquote>
-<pre>r --enable-nacl --no-sandbox --single-process --internal-pepper --load-plugin=/Users/me/Downloads/native_client_sdk_0_1_0_0/examples/debug/mac_x86-32/npapi_helloworld.plugin</pre></blockquote>
+<pre>r --enable-nacl --no-sandbox --single-process --internal-pepper --load-plugin=/Users/me/Downloads/native_client_sdk_0_1_0_0/examples/develop/mac_x86/hello_world.plugin</pre></blockquote>
 </li>
 
 <li>
@@ -42,7 +42,7 @@ Interrupt the browser by pressing Ctl+C in GDB.
 Set a breakpoint. For example:
 
 <blockquote>
-<pre> break npapi_helloworld.cc:79
+<pre> break hello_world.cc:75
 or
 break InvokeHW</pre></blockquote>
 </li>
@@ -52,9 +52,9 @@ Answer *y* to the question "Make breakpoint pending on future shared library loa
 </li>
 
 <li>
-In the browser, instead of going to http://.../npapi_helloworld.html as you did in GettingStarted, add *#debug* to that URL. For example:
+In the browser, instead of going to http://.../hello_world.html as you did in GettingStarted, add *#develop* to that URL. For example:
 
-http://localhost:5103/release/mac_x86-32/npapi_helloworld.html#debug
+http://localhost:5103/develop/mac_x86/hello_world.html#develop
 
 You should hit the breakpoint.
 Now debug to your heart's content.
@@ -86,7 +86,7 @@ You often need to have breakpoints in one or more of these methods:
   * `NPP_GetScriptableInstance` - To make sure it's being called at all. This is how the browser gets your plugin object. 
   * `NPP_New`
 
-Possible exercise: In Chrome, look at source code of npapi_helloworld.html vs. .../#debug
+Possible exercise: In Chrome, look at source code of hello_world.html vs. .../#develop
 (.nexe vs. pepper code)
 
 Hello World will run in any browser. The other examples (Pepper 2D, Pepper 3D) require Google Chrome; they won't run in Safari (or whatever).
