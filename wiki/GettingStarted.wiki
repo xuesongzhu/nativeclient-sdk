@@ -64,7 +64,8 @@ you can run Native Client modules that are already on the web.
 For example, to run Chromium on a Mac from the command line:
 
 <blockquote>
-<pre>/Users/me/Downloads/chrome-mac/Chromium.app/Contents/MacOS/Chromium --enable-nacl --no-sandbox --user-data-dir=~/nacl-chrome-profile</pre></blockquote>
+<pre>/Users/me/Downloads/chrome-mac/Chromium.app/Contents/MacOS/Chromium \
+ --enable-nacl --no-sandbox --user-data-dir=~/nacl-chrome-profile</pre></blockquote>
 </li>
 
 <li> If you're using Linux, Mac, or 32-bit Windows, visit the following page:
