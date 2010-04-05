@@ -38,7 +38,7 @@ and make sure you have the right version of the browser.
 
 <li> Download and unarchive a recent version of Chromium from http://build.chromium.org/buildbot/continuous/. The following versions have been confirmed to work:
 
-  * <a href="http://build.chromium.org/buildbot/continuous/mac/2010-04-02/43509/chrome-mac.zip">43509</a> (Mac) {PENDING: 2D not working; 3D is flakey}
+  * <a href="http://build.chromium.org/buildbot/continuous/mac/2010-04-02/43509/chrome-mac.zip">43509</a> (Mac) {PENDING: 2D working for develop version only; 3D is flakey}
   * ... (Windows)
   * ... (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help in running a 32-bit browser)
   
@@ -65,7 +65,7 @@ For example, to run Chromium on a Mac from the command line:
 
 <li> If you're using Linux, Mac, or 32-bit Windows, visit the following page:
 
-     http://www/~kathyw/nacl-sdk/mac_x86-32/npapi_helloworld.html
+     http://www/~kathyw/nacl-sdk/mac_x86-32/hello_world.html
 
 If you're using 64-bit Windows, visit this page:
 
@@ -99,8 +99,8 @@ to load an example's page.
 <pre> cd native_client_sdk_0_1_0_0/examples
 make</pre></blockquote>
 
-This step creates release and debug versions of the SDK examples,
-placing the results under `release` and `debug` directories, respectively.
+This step creates publish and development versions of the SDK examples,
+placing the results under `publish` and `develop` directories, respectively.
 </li>
 
 <li> Run Chromium with the same flags as before. (If it's still running, you don't need to restart it.) {PENDING: is there a possibility of cache issues? maybe we should show a different example?} </li>
@@ -114,13 +114,13 @@ go to the `example` directory and execute `python httpd.py`.
 </li>
 
 <li>
-Load the npapi_helloworld example
-from `examples/release/PLATFORM_NAME/npapi_helloworld.html`.
+Load the hello_world example
+from `examples/publish/PLATFORM_NAME/hello_world.html`.
 For example, if you're using a Mac and
 the HTTP server that's included in the SDK,
 use this URL:
 
-  http://localhost:5103/release/mac_x86-32/npapi_helloworld.html
+  http://localhost:5103/publish/mac_x86/hello_world.html
 
 If you see SUCCESS under the Status heading,
 then you've successfully built and executed the hello world example.
@@ -167,5 +167,5 @@ Here are some of the most useful Make targets:
 || *Command* || *Description* ||
 || `make clean` || Clean everything ||
 || `make` || Build everything ||
-|| `make release` || Build the release version of your module (.nexe) ||
-|| `make debug` || Build the debug version ||
+|| `make publish` || Build the release version of your module (.nexe) ||
+|| `make develop` || Build the debug version ||
