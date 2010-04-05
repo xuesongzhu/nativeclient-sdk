@@ -166,7 +166,8 @@ If you aren't using the Dev channel, switch to it by following the instructions 
 For example, to run Google Chrome on a Mac from the command line:
 
 <blockquote>
-<pre>/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-nacl --no-sandbox --user-data-dir=~/nacl-chrome-profile</pre></blockquote>
+<pre>/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+ --enable-nacl --no-sandbox --user-data-dir=~/nacl-chrome-profile</pre></blockquote>
 
 == Make ==
 
