@@ -108,7 +108,7 @@ On Linux:
 <pre> cd ~/.mozilla/plugins
 ln -s ~/Downloads/native_client_sdk_0_1_0_0/examples/develop/linux_x86/libhello_world.so .</pre>
 </blockquote>
-Once you have established these symbolic links, you can re-compile the examples.  Any changes you made to the code will take effect ocne you hit the Reload button on the browser.
+Once you have established these symbolic links, you can re-compile the examples.  Any changes you made to the code will take effect once you click the browser's Reload button.
 
 You use the same URL as before when loading the development version of the example (remember to add the trailing #debug).
 
