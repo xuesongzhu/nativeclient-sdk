@@ -126,8 +126,8 @@ python httpd.py</pre></blockquote>
 </li>
 
 <li>
-Load the npapi_helloworld example
-from `examples/publish/PLATFORM_NAME/npapi_helloworld.html`.
+Load the hello_world example
+from `examples/publish/PLATFORM_NAME/hello_world.html`.
 For example, if you're using
 the HTTP server that's included in the SDK:
 
