@@ -22,7 +22,7 @@ Launch GDB, specifying the executable file for Chromium. For example:
 
 <blockquote>
 <pre>gdb /Users/me/Downloads/chrome-mac/Chromium.app/Contents/MacOS/Chromium</pre>
-Or on Lunix:
+Or on Linux:
 <pre>gdb chrome</pre></blockquote>
 </li>
 
@@ -31,7 +31,7 @@ In GDB, start the browser with the same flags as before, plus *--single-process*
 
 <blockquote>
 <pre>r --enable-nacl --no-sandbox --single-process --internal-pepper --load-plugin=/Users/me/Downloads/native_client_sdk_0_1_0_0/examples/develop/mac_x86/hello_world.plugin</pre>
-Or on Lunix:
+Or on Linux:
 <pre>r --enable-nacl --single-process --internal-pepper --load-plugin=/usr/me/native_client_sdk_0_1_0_0/examples/develop/linux_x86/libhello_world.so</pre>
 </blockquote>
 </li>
@@ -67,7 +67,7 @@ Now debug to your heart's content.
 
 To launch gdb with Google Chrome:
 <blockquote><pre>gdb /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome</pre>
-Or on Lunix:
+Or on Linux:
 <pre>gdb chrome</pre>
 </blockquote>
 
