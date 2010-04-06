@@ -178,7 +178,7 @@ For example, to run Google Chrome on a Mac from the command line:
 
 Our old doc had a page per platform with details about the OS version and tools you should use. Some of these notes might still be applicable; some, such as plugin and browser details, are not.
 
-If you run into trouble building, check out the notes for your platform:
+If you run into trouble building, check out the old doc's notes for your platform:
 
   * [http://nativeclient.googlecode.com/svn/trunk/src/native_client/documentation/platform-linux.html Platform Details: Linux]
   * [http://nativeclient.googlecode.com/svn/trunk/src/native_client/documentation/platform-mac.html Platform Details: Mac]
