@@ -27,10 +27,13 @@ Or on Lunix:
 </li>
 
 <li>
-In GDB, start the browser with the same flags as before, plus *--single-process*, *--internal-pepper*, and *--load-plugin*. Set `--load-plugin` to the absolute path of the .plugin file for the development version of the example, which you can find under `examples/develop/your_platform`. For example:
+In GDB, start the browser with the same flags as before, plus *--single-process*, *--internal-pepper*, and *--load-plugin*. Set `--load-plugin` to the absolute path of the file containing the development version of the example, which you can find under `examples/develop/your_platform`. For example:
 
 <blockquote>
-<pre>r --enable-nacl --no-sandbox --single-process --internal-pepper --load-plugin=/Users/me/Downloads/native_client_sdk_0_1_0_0/examples/develop/mac_x86/hello_world.plugin</pre></blockquote>
+<pre>r --enable-nacl --no-sandbox --single-process --internal-pepper --load-plugin=/Users/me/Downloads/native_client_sdk_0_1_0_0/examples/develop/mac_x86/hello_world.plugin</pre>
+Or on Lunix:
+<pre>r --enable-nacl --single-process --internal-pepper --load-plugin=/usr/me/native_client_sdk_0_1_0_0/examples/develop/linux_x86/libhello_world.so</pre>
+</blockquote>
 </li>
 
 <li>
@@ -63,7 +66,10 @@ Now debug to your heart's content.
 == More notes ==
 
 To launch gdb with Google Chrome:
-<blockquote><pre>gdb /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome</pre></blockquote>
+<blockquote><pre>gdb /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome</pre>
+Or on Lunix:
+<pre>gdb chrome</pre>
+</blockquote>
 
 Some examples of commands you might use:
   * list
@@ -92,6 +98,19 @@ Possible exercise: In Chrome, look at source code of hello_world.html vs. .../#d
 (.nexe vs. pepper code)
 
 Hello World will run in any browser. The other examples (Pepper 2D, Pepper 3D) require Google Chrome; they won't run in Safari (or whatever).
+
+Note: If you prefer, on Windows and Mac, you can make symbolic links to the development versions of the examples.   If you do, you will not need to use the --load-plugin= flag when debugging.  There is a special directory on each platform: on Mac it's `~/Library/Internet\ Plug-Ins'; on Linux it's `~/.mozilla/plugins'.  To make the necessary symbolic links, cd into the directory for your platform and use `ln -s develop_moduel_path .'  (note the final '.'). For example:
+<blockquote>
+On Mac:
+<pre> cd ~/Library/Internet\ Plug-Ins
+ln -s ~/Downloads/native_client_sdk_0_1_0_0/examples/develop/mac_x86/hello_world.plugin .</pre>
+On Linux:
+<pre> cd ~/.mozilla/plugins
+ln -s ~/Downloads/native_client_sdk_0_1_0_0/examples/develop/linux_x86/libhello_world.so .</pre>
+</blockquote>
+Once you have established these symbolic links, you can re-compile the examples.  Any changes you made to the code will take effect ocne you hit the Reload button on the browser.
+
+You use the same URL as before when loading the development version of the example (remember to add the trailing #debug).
 
 == API notes {PENDING: move these elsewhere} ==
 Pepper APIs are documented here:
