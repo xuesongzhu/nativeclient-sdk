@@ -99,7 +99,7 @@ Possible exercise: In Chrome, look at source code of hello_world.html vs. .../#d
 
 Hello World will run in any browser. The other examples (Pepper 2D, Pepper 3D) require Google Chrome; they won't run in Safari (or whatever).
 
-Note: If you prefer, on Windows and Mac, you can make symbolic links to the development versions of the examples.   If you do, you will not need to use the --load-plugin= flag when debugging.  There is a special directory on each platform: on Mac it's `~/Library/Internet\ Plug-Ins'; on Linux it's `~/.mozilla/plugins'.  To make the necessary symbolic links, cd into the directory for your platform and use `ln -s develop_moduel_path .'  (note the final '.'). For example:
+Note: If you prefer, on Windows and Mac, you can make symbolic links to the development versions of the examples.   If you do, you will not need to use the --load-plugin= flag when debugging.  There is a special directory on each platform: on Mac it's `~/Library/Internet\ Plug-Ins`; on Linux it's `~/.mozilla/plugins`.  To make the necessary symbolic links, cd into the directory for your platform and use `ln -s develop_module_path .`  (note the final '.'). For example:
 <blockquote>
 On Mac:
 <pre> cd ~/Library/Internet\ Plug-Ins
