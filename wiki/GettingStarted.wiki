@@ -1,7 +1,7 @@
 #summary Instructions for building and running examples
 #labels Featured
 
-This page tells you how to use the Native Client SDK to build and run a Native Client module. {PENDING: This page is preliminary. Please send suggestions for improvement to kathyw.}
+This page tells you how to use the Native Client SDK to build and run a Native Client module. {PENDING: This page is preliminary. We plan to split it up into one page per platform. Please send other suggestions for improvement to kathyw.}
 
 <wiki:toc />
 
@@ -33,13 +33,13 @@ and the right version of the browser.
 <li> Unarchive the SDK. You can probably just double-click the archive file. If you prefer to use the command line, try something like this:
 
 <blockquote>
-<pre>tar xvf naclsdk_mac.tgz</pre></blockquote>
+<pre>tar xvf naclsdk_mac.tgz (Linux, Mac) </pre></blockquote>
 </li>
 
 <li> If there are any spaces in the path to the SDK, remove them. {TBD: make sure this is necessary; give examples}
 </li>
 
-<li> Download and unarchive a recent version of Chromium from http://build.chromium.org/buildbot/continuous/. The following versions have been confirmed to work:
+<li> Download and unarchive a recent build of Google Chrome Version 5 Beta 3 from http://build.chromium.org/buildbot/continuous/. The following builds have been confirmed to work {PENDING: We need to update these links and confirm this procedure.}:
 
   * [http://build.chromium.org/buildbot/continuous/mac/2010-04-02/43509/chrome-mac.zip 43509] (Mac)
   * ... (Windows)
@@ -51,15 +51,28 @@ and the right version of the browser.
 = Building and running the SDK examples =
 
 Before you can run any of the examples in the SDK, you need to build them.
-Then you need to use an HTTP URL
-to load an example's page.
+Then you need to start Google Chrome with the `--enable-nacl` command-line flag,
+and use an HTTP URL to load an example's page.
+The SDK makes all of this easy,
+as long as you tell the SDK where to find your copy of Google Chrome 5 Beta 3.
 
 <ol>
-<li> Invoke `make run_hello_world` from the `examples` directory of the SDK to build and run the Hello World example:
+
+<li>
+In the examples directory of the SDK,
+create a symbolic link in this directory to the executable file for Google Chrome Version 5 Beta 3.
+Call the link `chrome`.
+{PENDING: This is quite possibly wrong.}
 
 <blockquote>
 <pre> cd native_client_sdk_0_1_0_0/examples
-make run_hello_world</pre></blockquote>
+ln -s /home/me/NaCl/chrome-linux/chrome chrome </pre></blockquote>
+</li>
+
+<li> Invoke `make run_hello_world` from the `examples` directory of the SDK to build and run the Hello World example:
+
+<blockquote>
+<pre>make run_hello_world</pre></blockquote>
 
 This step creates publishable and development versions of the Hello World example,
 placing the results under `publish` and `develop` directories, respectively. It then starts up an HTTP server and Google Chrome, and brings up the Hello World example's page.
