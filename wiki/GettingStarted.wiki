@@ -184,15 +184,3 @@ If you run into trouble building, check out the old doc's notes for your platfor
   * [http://nativeclient.googlecode.com/svn/trunk/src/native_client/documentation/platform-windows.html Platform Details: Windows]
 
 {Note: We should list the platforms in some standard order -- alphabetically or by percentage of users or in whatever order readers are least likely to find confusing. This won't be as much of an issue when we move to having separate pages for each platform.}
-
-== Make ==
-
-<p>
-Here are some of the most useful Make targets:
-</p>
-
-|| *Command* || *Description* ||
-|| `make clean` || Clean everything ||
-|| `make` || Build everything ||
-|| `make publish` || Build the publishable version of your module (.nexe) ||
-|| `make develop` || Build the development version ||
