@@ -21,7 +21,7 @@ A few terminology notes:
 
 To build and run Native Client modules,
 you need to get the Native Client SDK
-and make sure you have the right version of the browser.
+and the right version of the browser.
 
 <ol>
 <li> Download the SDK for your platform.
@@ -36,64 +36,17 @@ and make sure you have the right version of the browser.
 <pre>tar xvf naclsdk_mac.tgz</pre></blockquote>
 </li>
 
-<li> If there are any spaces in the path to the SDK, remove them. {TBD: make sure this is necessary} For example:
-
-<blockquote>
-<pre> $ cd ~/My\ Documents/Downloads/
-$ mv native_client_sdk_0_1_127_0 /cygdrive/c/NaCl-testing</pre></blockquote>
-
+<li> If there are any spaces in the path to the SDK, remove them. {TBD: make sure this is necessary; give examples}
 </li>
 
 <li> Download and unarchive a recent version of Chromium from http://build.chromium.org/buildbot/continuous/. The following versions have been confirmed to work:
 
-  * [http://build.chromium.org/buildbot/continuous/mac/2010-04-02/43509/chrome-mac.zip 43509] (Mac) {PENDING: 2D not working; 3D is flakey}
+  * [http://build.chromium.org/buildbot/continuous/mac/2010-04-02/43509/chrome-mac.zip 43509] (Mac)
   * ... (Windows)
   * [http://build.chromium.org/buildbot/continuous/linux/2010-04-05/43622/chrome-linux.zip 43622] (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help in running a 32-bit browser)
-  
-{Note: Before we release these instructions to the public, the Dev channel will be sufficient.}
 </li>
 
 </ol>
-
-= Running pre-built examples =
-
-Your first step is to make sure that
-you can run Native Client modules that are already on the web.
-
-<ol>
-<li> Run Chromium with *--enable-nacl* flag. You probably want to use *--user-data-dir* as well, so that you can have two instances of Google Chrome running (letting you surf the web using an ordinary version of Google Chrome, without Native Client enabled).
-
-*Note:* On the Mac, you also need *--no-sandbox*.
-
-For example, to run Chromium on a Mac from the command line:
-
-<blockquote>
-<pre>/Users/me/Downloads/chrome-mac/Chromium.app/Contents/MacOS/Chromium \
- --enable-nacl --no-sandbox --user-data-dir=~/nacl-chrome-profile</pre></blockquote>
-</li>
-
-<li> If you're using Linux, Mac, or 32-bit Windows, visit the following page:
-
-     http://www/~kathyw/nacl-sdk/x86-32/hello_world.html
-
-If you're using 64-bit Windows, visit this page:
-
-    {TBD: point to page with a 64-bit .nexe}
-</li>
-
-<li> Look at and interact with the page to see whether the module loaded successfully.
-
-  * Look at the *Status* heading. If you see SUCCESS, then the example is working. If not, try reloading the page. If you still don't see SUCCESS — for example, if it says the Client modules are loading too slowly — the example might still be OK.
-  * Click the *Call fortytwo()* button. <br /> A dialog should come up, saying that the page says: *42*
-  * Click the *Call helloworld()* button. <br /> A dialog should come up, saying that the page says: *hello, world.*
-
-{PENDING: Troubleshoot common issues. Refer to the [https://groups.google.com/group/native-client-discuss native-client-discuss group]. Until this is external, just email the nacl team to see if someone else has had the same problem.}
-</li>
-
-</ol>
-
-Once you've successfully run a published Native Client module,
-you're ready to build and run examples in the SDK.
 
 = Building and running the SDK examples =
 
@@ -102,47 +55,32 @@ Then you need to use an HTTP URL
 to load an example's page.
 
 <ol>
-<li> Invoke `make` from the `examples` directory of the SDK to build the examples:
+<li> Invoke `make run_hello_world` from the `examples` directory of the SDK to build and run the Hello World example:
 
 <blockquote>
 <pre> cd native_client_sdk_0_1_0_0/examples
-make</pre></blockquote>
+make run_hello_world</pre></blockquote>
 
-This step creates publishable and development versions of the SDK examples,
-placing the results under `publish` and `develop` directories, respectively.
+This step creates publishable and development versions of the Hello World example,
+placing the results under `publish` and `develop` directories, respectively. It then starts up an HTTP server and Google Chrome, and brings up the Hello World example's page.
+
+{PENDING: Describe what they should see. Troubleshoot common issues. Refer to the [https://groups.google.com/group/native-client-discuss native-client-discuss group]. Until this is external, just email the nacl team to see if someone else has had the same problem.}
 </li>
 
-<li> Run Chromium with the same flags as before. (If it's still running, you don't need to restart it.) </li>
+<li> Look at and interact with the page.
 
-<li>
-If you don't already have an HTTP server running,
-start one up
-so that you can get to the examples' built files using HTTP.
-To use the HTTP server that's included in the SDK:
-<blockquote>
-<pre> cd native_client_sdk_0_1_0_0/examples
-python httpd.py</pre></blockquote>
+  * Look at the *Status* heading. If you see SUCCESS, then the example is working. If not, try reloading the page. If you still don't see SUCCESS — for example, if it says the Client modules are loading too slowly — the example might still be OK.
+  * Click the *Call fortytwo()* button. <br /> A dialog should come up, saying that the page says: *42*
+  * Click the *Call helloworld()* button. <br /> A dialog should come up, saying that the page says: *hello, world.*
+
 </li>
 
-<li>
-Load the hello_world example
-from `examples/publish/PLATFORM_NAME/hello_world.html`.
-For example, if you're using
-the HTTP server that's included in the SDK:
-
-  http://localhost:5103/publish/mac_x86/hello_world.html (Mac)<br />
-  http://localhost:5103/publish/linux_x86/hello_world.html (Linux)
-
-If you see SUCCESS under the Status heading,
-then you've successfully built and executed the hello world example.
-Woohoo!
-</li>
 </ol>
 
 = What to do next =
 
-  * Try running the [http://www/~kathyw/nacl-sdk/x86-32/pi_generator.html Pi Generator example]. {Note: This example uses Pepper 2D drawing, which doesn't currently work on Mac in publishable Native Client modules.} 
-  * Try running the [http://www/~kathyw/nacl-sdk/x86-32/tumbler.html Tumbler example]. {Note: This example uses Pepper 3D drawing.} 
+  * Try `make run_pi_generator` to run the Pi Generator example, which uses the Pepper 2D API.
+  * Try `make run_tumbler` to run the Tumbler example, which uses the Pepper 3D API.
   * See DebuggingModules
   * See WritingModules
 
