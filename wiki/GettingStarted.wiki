@@ -66,7 +66,7 @@ Call the link `chrome`.
 
 <blockquote>
 <pre> cd native_client_sdk_0_1_0_0/examples
-ln -s /home/me/NaCl/chrome-linux/chrome chrome </pre></blockquote>
+ln -s /home/me/nacl/chrome-linux/chrome chrome </pre></blockquote>
 </li>
 
 <li> Invoke `make run_hello_world` from the `examples` directory of the SDK to build and run the Hello World example:
