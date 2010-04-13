@@ -84,5 +84,4 @@ placing the results under `publish` and `develop` directories, respectively. It 
   * See DebuggingModules
   * See WritingModules
 
-{PENDING: Other pages that might be useful: OLDreadme, OLDgs}
-
+{PENDING: Other pages that might be useful: OldReadMe, OldGs}
