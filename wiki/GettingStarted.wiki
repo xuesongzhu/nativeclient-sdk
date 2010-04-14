@@ -33,7 +33,7 @@ and the right version of the browser.
 <li> Unarchive the SDK. You can probably just double-click the archive file. If you prefer to use the command line, try something like this:
 
 <blockquote>
-<pre>tar xvf naclsdk_mac.tgz (Linux, Mac) </pre></blockquote>
+<pre>tar xvf naclsdk_mac.tgz</pre></blockquote>
 </li>
 
 <li> If there are any spaces in the path to the SDK, remove them. {TBD: make sure this is necessary; give examples}
