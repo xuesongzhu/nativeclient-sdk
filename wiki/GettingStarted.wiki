@@ -62,7 +62,7 @@ as long as you tell the SDK where to find your copy of Google Chrome 5 Beta 3.
 In the examples directory of the SDK,
 create a symbolic link in this directory to the executable file for Google Chrome Version 5 Beta 3.
 Call the link `chrome`.
-{PENDING: This is quite possibly wrong.}
+{PENDING: These directions have been confirmed only on Linux.}
 
 <blockquote>
 <pre> cd native_client_sdk_0_1_0_0/examples
@@ -75,7 +75,7 @@ ln -s /home/me/nacl/chrome-linux/chrome chrome </pre></blockquote>
 <pre>make run_hello_world</pre></blockquote>
 
 This step creates publishable and development versions of the Hello World example,
-placing the results under `publish` and `develop` directories, respectively. It then starts up an HTTP server and Google Chrome, and brings up the Hello World example's page.
+placing the results under `publish` and `develop` directories, respectively. It then starts up an HTTP server and Google Chrome, and brings up the Hello World example's page (at the URL http://localhost:5103/publish/linux_x86/hello_world.html).
 
 {PENDING: Describe what they should see. Troubleshoot common issues. Refer to the [https://groups.google.com/group/native-client-discuss native-client-discuss group]. Until this is external, just email the nacl team to see if someone else has had the same problem.}
 </li>
