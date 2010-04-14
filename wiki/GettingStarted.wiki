@@ -33,16 +33,18 @@ and the right version of the browser.
 
 <blockquote>
 <pre>tar xvf naclsdk_mac.tgz</pre></blockquote>
-</li>
 
-<li> If there are any spaces in the path to the SDK, move the SDK to a directory that has no spaces in its path. For example, the path `C:\Documents and Settings\kathyw\My Documents\nacl-sdk` is bad; you can't successfully build examples under that directory. Instead, you could put the SDK under a directory at `C:\nacl-sdk`. 
+
+<p> <b>Important:</b>
+Make sure there are no spaces in the path to the SDK. For example, the path `C:\Documents and Settings\kathyw\My Documents\nacl-sdk` is bad; you can't successfully build examples under that directory. Instead, you could put the SDK under a directory at `C:\nacl-sdk`. 
+</p>
 </li>
 
 <li> Download and unarchive a Chromium build from http://build.chromium.org/buildbot/continuous/. The following builds have been confirmed to work {PENDING: We need to update these links and confirm this procedure. We also need to determine whether we'll support dev or beta channel.}:
 
   * [http://build.chromium.org/buildbot/continuous/mac/2010-04-02/43509/chrome-mac.zip 43509] (Mac)
   * ... (Windows)
-  * [http://build.chromium.org/buildbot/continuous/linux/2010-04-14/44475/chrome-linux.zip 44475] (Linux; even if you have a 64-bit machine, you must use a 32-bit browser; see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help)
+  * [http://build.chromium.org/buildbot/continuous/linux/2010-04-14/44475/chrome-linux.zip 44475] (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help on using a 32-bit browser)
 </li>
 
 </ol>
