@@ -26,7 +26,7 @@ and the right version of the browser.
 <ol>
 <li> Download the SDK for your platform.
 
-  http://build.chromium.org/buildbot/snapshots/nacl_new_sdk/
+  http://build.chromium.org/buildbot/nacl_archive/nacl_new_sdk/
 
 </li>
 
