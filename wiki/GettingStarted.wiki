@@ -60,14 +60,28 @@ as long as you tell the SDK where to find your copy of Google Chrome.
 <ol>
 
 <li>
-In the examples directory of the SDK,
+Make sure the SDK can find your copy of Google Chrome.
+<dl>
+<dt> Linux:</dt>
+<dd> In the examples directory of the SDK,
 create a symbolic link in this directory to the executable file for the appropriate version of Google Chrome.
 Call the link `chrome`.
-{PENDING: These directions have been confirmed only on Linux.}
 
 <blockquote>
 <pre> cd native_client_sdk_0_1_0_0/examples
 ln -s /home/me/nacl/chrome-linux/chrome chrome </pre></blockquote>
+</dd>
+
+<dt> Mac: </dt>
+<dd> Put `Chromium.app` under /Applications. For example:
+<blockquote>
+<pre>mv ~/Downloads/chrome-mac/Chromium.app /Applications
+</pre></blockquote>
+</dd>
+
+<dt> Windows: </dt>
+<dd> ... </dd>
+</dl>
 </li>
 
 <li> Invoke `make run_hello_world` from the `examples` directory of the SDK to build and run the Hello World example:
