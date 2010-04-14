@@ -35,7 +35,7 @@ and the right version of the browser.
 <pre>tar xvf naclsdk_mac.tgz</pre></blockquote>
 </li>
 
-<li> If there are any spaces in the path to the SDK, move the SDK to a folder that has no spaces in its path. For example, the directory name {PENDING} is bad; you won't be able to build examples. Instead, you could put the SDK under a directory named {PENDING}. 
+<li> If there are any spaces in the path to the SDK, move the SDK to a directory that has no spaces in its path. For example, the path `C:\Documents and Settings\kathyw\My Documents\nacl-sdk` is bad; you can't successfully build examples under that directory. Instead, you could put the SDK under a directory at `C:\nacl-sdk`. 
 </li>
 
 <li> Download and unarchive a Chromium build from http://build.chromium.org/buildbot/continuous/. The following builds have been confirmed to work {PENDING: We need to update these links and confirm this procedure. We also need to determine whether we'll support dev or beta channel.}:
