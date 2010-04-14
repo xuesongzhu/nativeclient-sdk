@@ -39,7 +39,7 @@ and the right version of the browser.
 <li> If there are any spaces in the path to the SDK, remove them. {TBD: make sure this is necessary; give examples}
 </li>
 
-<li> Download and unarchive a recent build of Google Chrome Version 5 Beta 3 from http://build.chromium.org/buildbot/continuous/. The following builds have been confirmed to work {PENDING: We need to update these links and confirm this procedure.}:
+<li> Download and unarchive a Chromium build from http://build.chromium.org/buildbot/continuous/. The following builds have been confirmed to work {PENDING: We need to update these links and confirm this procedure. We also need to determine whether we'll support dev or beta channel.}:
 
   * [http://build.chromium.org/buildbot/continuous/mac/2010-04-02/43509/chrome-mac.zip 43509] (Mac)
   * ... (Windows)
