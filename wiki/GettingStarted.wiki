@@ -36,7 +36,7 @@ and the right version of the browser.
 
 
 <p> <b>Important:</b>
-Make sure there are no spaces in the path to the SDK. For example, the path `C:\Documents and Settings\kathyw\My Documents\nacl-sdk` is bad; you can't successfully build examples under that directory. Instead, you could put the SDK under a directory at `C:\nacl-sdk`. 
+Make sure there are no spaces in the path to the SDK. For example, the path `C:\Documents and Settings\kathyw\My Documents\nacl-sdk` is bad; you can't successfully build examples under that directory. Instead, you could put the SDK under `C:\nacl-sdk`. 
 </p>
 </li>
 
