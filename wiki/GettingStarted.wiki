@@ -9,7 +9,6 @@ This page tells you how to use the Native Client SDK to build and run a Native C
 
 A few platform notes:
 
-  * Although you can use a 64-bit Windows or Linux system, the browser itself must be 32-bit software. {PENDING: once you've installed, how do you know whether you have 32- or 64-bit chrome?}
   * ...
 
 A few terminology notes:
@@ -43,7 +42,7 @@ and the right version of the browser.
 
   * [http://build.chromium.org/buildbot/continuous/mac/2010-04-02/43509/chrome-mac.zip 43509] (Mac)
   * ... (Windows)
-  * [http://build.chromium.org/buildbot/continuous/linux/2010-04-14/44475/chrome-linux.zip 44475] (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help in running a 32-bit browser)
+  * [http://build.chromium.org/buildbot/continuous/linux/2010-04-14/44475/chrome-linux.zip 44475] (Linux; even if you have a 64-bit machine, you must use a 32-bit browser; see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help)
 </li>
 
 </ol>
@@ -98,3 +97,7 @@ placing the results under `publish` and `develop` directories, respectively. It 
   * See WritingModules
 
 {PENDING: Other pages that might be useful: OldReadMe, OldGs}
+
+= Questions = 
+
+  * Once you've installed on Linux, how do you know whether you have 32- or 64-bit chrome?
