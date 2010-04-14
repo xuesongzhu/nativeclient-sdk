@@ -9,7 +9,7 @@ This page tells you how to use the Native Client SDK to build and run a Native C
 
 A few platform notes:
 
-  * Although you can use a 64-bit Windows or Linux system, the browser itself must be 32-bit software.
+  * Although you can use a 64-bit Windows or Linux system, the browser itself must be 32-bit software. {PENDING: once you've installed, how do you know whether you have 32- or 64-bit chrome?}
   * ...
 
 A few terminology notes:
