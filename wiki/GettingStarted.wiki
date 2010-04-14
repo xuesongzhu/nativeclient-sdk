@@ -15,6 +15,7 @@ A few terminology notes:
 
   * The term _.nexe_ refers to a publishable, platform-independent executable file for a Native Client module.
   * To debug your Native Client module, you need to make a _development_ version of it, as opposed to a _publishable_ version of it.
+  * This page uses _Chromium_ to refer to the most recent browser builds provided by the open-source project behind Google Chrome. 
 
 = Getting the software =
 
@@ -52,19 +53,19 @@ Make sure there are no spaces in the path to the SDK. For example, the path `C:\
 = Building and running the SDK examples =
 
 Before you can run any of the examples in the SDK, you need to build them.
-Then you need to start Google Chrome with the `--enable-nacl` command-line flag,
+Then you need to start Chromium with the `--enable-nacl` command-line flag,
 and use an HTTP URL to load an example's page.
 The SDK makes all of this easy,
-as long as you tell the SDK where to find your copy of Google Chrome.
+as long as you tell the SDK where to find your copy of Chromium.
 
 <ol>
 
 <li>
-Make sure the SDK can find your copy of Google Chrome.
+Make sure the SDK can find your copy of Chromium.
 <dl>
 <dt> Linux:</dt>
 <dd> In the examples directory of the SDK,
-create a symbolic link in this directory to the executable file for the appropriate version of Google Chrome.
+create a symbolic link in this directory to the executable file for the appropriate version of Chromium.
 Call the link `chrome`.
 
 <blockquote>
@@ -90,7 +91,7 @@ ln -s /home/me/nacl/chrome-linux/chrome chrome </pre></blockquote>
 <pre>make run_hello_world</pre></blockquote>
 
 This step creates publishable and development versions of the Hello World example,
-placing the results under `publish` and `develop` directories, respectively. It then starts up an HTTP server and Google Chrome, and brings up the Hello World example's page (at the URL http://localhost:5103/publish/linux_x86/hello_world.html).
+placing the results under `publish` and `develop` directories, respectively. It then starts up an HTTP server and Chromium, and brings up the Hello World example's page (at the URL http://localhost:5103/publish/linux_x86/hello_world.html).
 
 {PENDING: Describe what they should see. Troubleshoot common issues. Refer to the [https://groups.google.com/group/native-client-discuss native-client-discuss group]. Until this is external, just email the nacl team to see if someone else has had the same problem.}
 </li>
