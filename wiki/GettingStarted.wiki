@@ -43,7 +43,7 @@ and the right version of the browser.
 
   * [http://build.chromium.org/buildbot/continuous/mac/2010-04-02/43509/chrome-mac.zip 43509] (Mac)
   * ... (Windows)
-  * [http://build.chromium.org/buildbot/continuous/linux/2010-04-05/43622/chrome-linux.zip 43622] (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help in running a 32-bit browser)
+  * [http://build.chromium.org/buildbot/continuous/linux/2010-04-05/43622/chrome-linux.zip 43622] {PENDING: now trying [http://build.chromium.org/buildbot/continuous/linux/2010-04-14/44475/chrome-linux.zip 44475]} (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help in running a 32-bit browser)
 </li>
 
 </ol>
