@@ -55,13 +55,13 @@ Before you can run any of the examples in the SDK, you need to build them.
 Then you need to start Google Chrome with the `--enable-nacl` command-line flag,
 and use an HTTP URL to load an example's page.
 The SDK makes all of this easy,
-as long as you tell the SDK where to find your copy of Google Chrome 5 Beta 3.
+as long as you tell the SDK where to find your copy of Google Chrome.
 
 <ol>
 
 <li>
 In the examples directory of the SDK,
-create a symbolic link in this directory to the executable file for Google Chrome Version 5 Beta 3.
+create a symbolic link in this directory to the executable file for the appropriate version of Google Chrome.
 Call the link `chrome`.
 {PENDING: These directions have been confirmed only on Linux.}
 
@@ -100,6 +100,4 @@ placing the results under `publish` and `develop` directories, respectively. It 
 
 {PENDING: Other pages that might be useful: OldReadMe, OldGs}
 
-= Questions = 
-
-  * Once you've installed on Linux, how do you know whether you have 32- or 64-bit chrome?
+{PENDING: Note that you can't currently use Native Client with 64-bit browsers.}
