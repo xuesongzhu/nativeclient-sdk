@@ -108,8 +108,8 @@ placing the results under `publish` and `develop` directories, respectively. It 
 
 = What to do next =
 
-  * Try `make run_pi_generator` to run the Pi Generator example, which uses the Pepper 2D API. {PENDING: this works for me on Linux. I navigated directly to http://localhost:5103/publish/linux_x86/pi_generator.html without using make.}
-  * Try `make run_tumbler` to run the Tumbler example, which uses the Pepper 3D API. {PENDING: this isn't working for me on Linux. I navigated directly to http://localhost:5103/publish/linux_x86/tumbler.html without using make, fwiw.}
+  * Try `make run_pi_generator` to run the Pi Generator example, which uses the Pepper 2D API. {PENDING: This works on Linux and Mac, at least. Instead of running make, you can instead just navigate directly to http://localhost:5103/publish/linux_x86/pi_generator.html.}
+  * Try `make run_tumbler` to run the Tumbler example, which uses the Pepper 3D API. {PENDING: this isn't working for me on Linux; it worked after one reload on Mac. I navigated directly to http://localhost:5103/publish/linux_x86/tumbler.html without using make.}
   * See DebuggingModules
   * See WritingModules
 
