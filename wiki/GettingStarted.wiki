@@ -32,15 +32,21 @@ and the right version of the browser.
 
 <li> Extract the SDK's files.
 
-  * On Windows, run the self-extracting zip:
+<dl>
+<dt> Windows: </dt>
+<dd> Run the self-extracting zip:
 <blockquote>
 <pre>naclsdk_win.exe</pre>
 </blockquote>
+</dd>
 
-  * On Mac or Linux, you can use the `tar` command:
+<dt> Mac or Linux: </dt>
+<dd> Use the `tar` command:
 <blockquote>
 <pre>tar xvf naclsdk_mac.tgz</pre>
 </blockquote>
+</dd>
+</dl>
 
 <p> <b>Important:</b>
 Make sure there are no spaces in the path to the SDK. For example, the path `C:\Documents and Settings\kathyw\My Documents\nacl-sdk` is bad; you can't successfully build examples under that directory. Instead, you could put the SDK under `C:\nacl-sdk`. 
@@ -49,8 +55,8 @@ Make sure there are no spaces in the path to the SDK. For example, the path `C:\
 
 <li> Download and unarchive a Chromium build from http://build.chromium.org/buildbot/continuous/. The following builds have been confirmed to work {PENDING: We need to update these links and confirm this procedure.}:
 
-  * [http://build.chromium.org/buildbot/continuous/mac/2010-04-14/44474/chrome-mac.zip 44474] (Mac)
   * ... {PENDING: Currently testing [http://build.chromium.org/buildbot/continuous/win/2010-04-14/44475/chrome-win32.zip 44475]; [http://build.chromium.org/buildbot/continuous/win/2010-04-14/44475/mini_installer.exe mini-installer] isn't working for me} (Windows)
+  * [http://build.chromium.org/buildbot/continuous/mac/2010-04-14/44474/chrome-mac.zip 44474] (Mac)
   * [http://build.chromium.org/buildbot/continuous/linux/2010-04-14/44475/chrome-linux.zip 44475] (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help on using a 32-bit browser)
 </li>
 
@@ -69,19 +75,18 @@ as long as you tell the SDK where to find your copy of Chromium.
 <li>
 Make sure the SDK can find your copy of Chromium.
 <dl>
-<dt> Linux:</dt>
-<dd> By default, the run script looks for Google Chrome in `/opt/google/chrome`.  The easiest thing to do is copy your downloaded version there.
-</dd>
-
-<dt> Mac: </dt>
-<dd> Put `Chromium.app` under /Applications. For example:
-<blockquote>
-<pre>mv ~/Downloads/chrome-mac/Chromium.app /Applications
-</pre></blockquote>
-</dd>
 
 <dt> Windows: </dt>
 <dd> By default, the run script looks for Google Chrome in `c:\AppData\Local\Chromium\Application`. </dd>
+
+<dt> Mac: </dt>
+<dd> Put `Chromium.app` under `/Applications`. For example:
+`mv ~/Downloads/chrome-mac/Chromium.app /Applications`
+</dd>
+
+<dt> Linux:</dt>
+<dd> By default, the run script looks for Google Chrome in `/opt/google/chrome`.  The easiest thing to do is copy your downloaded version there.
+</dd>
 </dl>
 </li>
 
