@@ -26,16 +26,20 @@ and the right version of the browser.
 <ol>
 <li> Download the SDK for your platform: 
 
-    [http://build.chromium.org/buildbot/nacl_archive/nacl_new_sdk/naclsdk_win.exe Windows SDK] | [http://build.chromium.org/buildbot/nacl_archive/nacl_new_sdk/naclsdk_linux.tgz Linux SDK] | [http://build.chromium.org/buildbot/nacl_archive/nacl_new_sdk/naclsdk_mac.tgz Mac SDK]
+    [http://build.chromium.org/buildbot/nacl_archive/nacl_new_sdk/naclsdk_win.exe Windows SDK] | [http://build.chromium.org/buildbot/nacl_archive/nacl_new_sdk/naclsdk_mac.tgz Mac SDK] | [http://build.chromium.org/buildbot/nacl_archive/nacl_new_sdk/naclsdk_linux.tgz Linux SDK]
 
 </li>
 
-<li> Unarchive the SDK. You can probably just double-click the archive file. If you prefer to use the command line, try something like this:
+<li> Extract the SDK's files.
 
+  * On Windows, run the self-extracting zip:
+<blockquote>
+<pre>naclsdk_win.exe</pre>
+</blockquote>
+
+  * On Mac or Linux, you can use the `tar` command:
 <blockquote>
 <pre>tar xvf naclsdk_mac.tgz</pre>
-Or, on Windows you can run the self-extracting zip:
-<pre>naclsdk_win.exe</pre>
 </blockquote>
 
 <p> <b>Important:</b>
