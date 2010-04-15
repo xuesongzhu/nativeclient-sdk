@@ -14,6 +14,11 @@ Before you start debugging, do everything in GettingStarted, including:
   * Have an HTTP server, and use it to load one of the examples that you built
 </li>
 
+<li> 
+Build the development version of the SDK examples.
+<blockquote> <pre>make develop</pre> </blockquote>
+</li>
+
 <li>
 Quit Chromium.
 </li>
