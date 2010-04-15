@@ -65,16 +65,7 @@ Launch GDB, specifying the executable file for Chromium.
 <li>
 In GDB, start the browser with the following flags: *--enable-nacl --single-process --internal-pepper*
 
-<dl>
-<dt> Mac example: </dt>
-<dd>
-<pre>r --enable-nacl --single-process --internal-pepper</pre></dd>
-
-<dt> Linux example: </dt>
-<dd>
-<pre>r --enable-nacl --single-process --internal-pepper</pre>
-</dd>
-</dl>
+<blockquote><pre>r --enable-nacl --single-process --internal-pepper</pre></blockquote>
 </li>
 
 <li>
@@ -146,12 +137,12 @@ If you haven't created a link to the example's development version, you can use 
 <dt> Mac example: </dt>
 <dd>
 <pre>r --enable-nacl --single-process --internal-pepper \
---load-plugin=/Users/me/Downloads/native_client_sdk_0_1_0_0/examples/develop/mac_x86/hello_world.plugin</pre></dd>
+ --load-plugin=/Users/me/Downloads/native_client_sdk_0_1_0_0/examples/develop/mac_x86/hello_world.plugin</pre></dd>
 
 <dt> Linux example: </dt>
 <dd>
 <pre>r --enable-nacl --single-process --internal-pepper \
---load-plugin=/usr/me/native_client_sdk_0_1_0_0/examples/develop/linux_x86/libhello_world.so</pre>
+ --load-plugin=/usr/me/native_client_sdk_0_1_0_0/examples/develop/linux_x86/libhello_world.so</pre>
 </dd>
 </dl>
 
