@@ -1,15 +1,16 @@
 #summary Instructions for debugging examples
 #labels Featured
 
-Here are rough notes to help you debug SDK examples. {Note: These instructions feature Chromium. By the time this project is available externally, they'll feature Dev channel Google Chrome instead.}
+This page shows you how to inspect an SDK example using the GDB debugger, on Mac and Linux.
+
+*Note:* Windows does not yet have support for debugging.
 
 <ol>
-
 <li>
 Before you start debugging, do everything in GettingStarted, including:
   * Make sure your version of Chromium can run Native Client examples
   * Download and unarchive the SDK
-  * Build the SDK examples using `make` or `make develop`
+  * Build the SDK examples
   * Have an HTTP server, and use it to load one of the examples that you built
 </li>
 
@@ -18,22 +19,36 @@ Quit Chromium.
 </li>
 
 <li>
-Launch GDB, specifying the executable file for Chromium. For example:
+Launch GDB, specifying the executable file for Chromium.
 
-<blockquote>
-<pre>gdb /Users/me/Downloads/chrome-mac/Chromium.app/Contents/MacOS/Chromium</pre>
-Or on Linux:
-<pre>gdb chrome</pre></blockquote>
+<dl>
+<dt> Mac example: </dt>
+<dd>
+<pre>gdb /Applications/Chromium.app/Contents/MacOS/Chromium</pre>
+</dd>
+
+<dt> Linux example: </dt>
+<dd>
+<pre>gdb /opt/google/chrome</pre>
+</dd>
+</dl>
+
+
 </li>
 
 <li>
-In GDB, start the browser with the same flags as before, plus *--single-process*, *--internal-pepper*, and *--load-plugin*. Set `--load-plugin` to the absolute path of the file containing the development version of the example, which you can find under `examples/develop/your_platform`. For example:
+In GDB, start the browser with the following flags: *--enable-nacl --single-process --internal-pepper --load-plugin*. Set `--load-plugin` to the absolute path of the file containing the development version of the example, which you can find under `examples/develop/your_platform`. 
 
-<blockquote>
-<pre>r --enable-nacl --no-sandbox --single-process --internal-pepper --load-plugin=/Users/me/Downloads/native_client_sdk_0_1_0_0/examples/develop/mac_x86/hello_world.plugin</pre>
-Or on Linux:
+<dl>
+<dt> Mac example: </dt>
+<dd>
+<pre>r --enable-nacl --single-process --internal-pepper --load-plugin=/Users/me/Downloads/native_client_sdk_0_1_0_0/examples/develop/mac_x86/hello_world.plugin</pre></dd>
+
+<dt> Linux example: </dt>
+<dd>
 <pre>r --enable-nacl --single-process --internal-pepper --load-plugin=/usr/me/native_client_sdk_0_1_0_0/examples/develop/linux_x86/libhello_world.so</pre>
-</blockquote>
+</dd>
+</dl>
 </li>
 
 <li>
