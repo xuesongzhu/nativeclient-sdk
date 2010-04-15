@@ -26,13 +26,13 @@ In the platform-specific plugin directory, create a link to the development vers
 <dt> Mac example: </dt>
 <dd>
 <pre> cd ~/Library/Internet\ Plug-Ins/
-ln -s /!NaclTesting/native_client_sdk_0_1_199_0/examples/develop/mac_x86/hello_world.plugin .</pre>
+ln -s /nacl/native_client_sdk_0_1_199_0/examples/develop/mac_x86/hello_world.plugin .</pre>
 </dd>
 
 <dt> Linux example: </dt>
 <dd>
 <pre> cd ~/.mozilla/plugins
-ln -s /!NaclTesting/native_client_sdk_0_1_199_0/examples/develop/linux_x86/libhello_world.so .</pre>
+ln -s /nacl/native_client_sdk_0_1_199_0/examples/develop/linux_x86/libhello_world.so .</pre>
 
 </dd>
 </dl>
