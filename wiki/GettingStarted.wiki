@@ -43,7 +43,7 @@ and the right version of the browser.
 <dt> Mac or Linux: </dt>
 <dd> Use the `tar` command:
 <blockquote>
-<pre>tar xvf naclsdk_mac.tgz</pre>
+<pre>tar xvzf naclsdk_mac.tgz</pre>
 </blockquote>
 </dd>
 </dl>
