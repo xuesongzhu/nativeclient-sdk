@@ -49,7 +49,7 @@ Make sure there are no spaces in the path to the SDK. For example, the path `C:\
 
 <li> Download and unarchive a Chromium build from http://build.chromium.org/buildbot/continuous/. The following builds have been confirmed to work {PENDING: We need to update these links and confirm this procedure.}:
 
-  * [http://build.chromium.org/buildbot/continuous/mac/2010-04-02/43509/chrome-mac.zip 43509] {PENDING: Currently testing [http://build.chromium.org/buildbot/continuous/mac/2010-04-14/44474/chrome-mac.zip 44474]} (Mac)
+  * [http://build.chromium.org/buildbot/continuous/mac/2010-04-14/44474/chrome-mac.zip 44474] (Mac)
   * ... {PENDING: Currently testing [http://build.chromium.org/buildbot/continuous/win/2010-04-14/44475/chrome-win32.zip 44475]; [http://build.chromium.org/buildbot/continuous/win/2010-04-14/44475/mini_installer.exe mini-installer] isn't working for me} (Windows)
   * [http://build.chromium.org/buildbot/continuous/linux/2010-04-14/44475/chrome-linux.zip 44475] (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help on using a 32-bit browser)
 </li>
