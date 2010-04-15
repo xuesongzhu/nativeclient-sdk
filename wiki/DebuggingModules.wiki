@@ -1,7 +1,7 @@
 #summary Instructions for debugging examples
 #labels Featured
 
-This page shows you how to inspect an SDK example using the GDB debugger, on Mac and Linux.
+This page shows you how to inspect an SDK example using the GDB debugger on Mac or Linux.
 
 *Note:* Windows does not yet have support for debugging.
 
