@@ -33,7 +33,10 @@ and the right version of the browser.
 <li> Unarchive the SDK. You can probably just double-click the archive file. If you prefer to use the command line, try something like this:
 
 <blockquote>
-<pre>tar xvf naclsdk_mac.tgz</pre></blockquote>
+<pre>tar xvf naclsdk_mac.tgz</pre>
+Or, on Windows you can run the self-extracting zip:
+<pre>naclsdk_win.exe</pre>
+</blockquote>
 
 
 <p> <b>Important:</b>
@@ -64,13 +67,7 @@ as long as you tell the SDK where to find your copy of Chromium.
 Make sure the SDK can find your copy of Chromium.
 <dl>
 <dt> Linux:</dt>
-<dd> In the examples directory of the SDK,
-create a symbolic link in this directory to the executable file for the appropriate version of Chromium.
-Call the link `chrome`.
-
-<blockquote>
-<pre> cd native_client_sdk_0_1_0_0/examples
-ln -s /home/me/nacl/chrome-linux/chrome chrome </pre></blockquote>
+<dd> By default, the run script looks for Google Chrome in `/opt/google/chrome`.  The easiest thing to do is copy your downloaded version there.
 </dd>
 
 <dt> Mac: </dt>
@@ -81,17 +78,17 @@ ln -s /home/me/nacl/chrome-linux/chrome chrome </pre></blockquote>
 </dd>
 
 <dt> Windows: </dt>
-<dd> ... </dd>
+<dd> By default, the run script looks for Google Chrome in `c:\AppData\Local\Chromium\Application`. </dd>
 </dl>
 </li>
 
-<li> Invoke `make run_hello_world` from the `examples` directory of the SDK to build and run the Hello World example:
+<li> Invoke `run.py` script from the `examples` directory of the SDK to build and run the Hello World example:
 
 <blockquote>
-<pre>make run_hello_world</pre></blockquote>
+<pre>python run.py</pre></blockquote>
 
-This step creates publishable and development versions of the Hello World example,
-placing the results under `publish` and `develop` directories, respectively. It then starts up an HTTP server and Chromium, and brings up the Hello World example's page (at the URL http://localhost:5103/publish/linux_x86/hello_world.html).
+This step creates publishable versions of the Hello World example,
+placing the results under the `publish`directory. It then starts up an HTTP server and Chromium, and brings up the Hello World example's page (for example, at the URL http://localhost:5103/publish/linux_x86/hello_world.html).
 
 {PENDING: Describe what they should see. Troubleshoot common issues. Refer to the [https://groups.google.com/group/native-client-discuss native-client-discuss group]. Until this is external, just email the nacl team to see if someone else has had the same problem.}
 </li>
@@ -108,8 +105,8 @@ placing the results under `publish` and `develop` directories, respectively. It 
 
 = What to do next =
 
-  * Try `make run_pi_generator` to run the Pi Generator example, which uses the Pepper 2D API. {PENDING: This works on Linux and Mac, at least. Instead of running make, you can instead just navigate directly to http://localhost:5103/publish/linux_x86/pi_generator.html.}
-  * Try `make run_tumbler` to run the Tumbler example, which uses the Pepper 3D API. {PENDING: this isn't working for me on Linux; it worked after one reload on Mac. I navigated directly to http://localhost:5103/publish/linux_x86/tumbler.html without using make.}
+  * Try `python run.py --example=pi_generator` to run the Pi Generator example, which uses the Pepper 2D API. {PENDING: This works on Linux and Mac, at least. Instead of running make, you can instead just navigate directly to http://localhost:5103/publish/linux_x86/pi_generator.html.}
+  * Try `python run.py --example=tumbler ` to run the Tumbler example, which uses the Pepper 3D API. {PENDING: this isn't working for me on Linux; it worked after one reload on Mac. I navigated directly to http://localhost:5103/publish/linux_x86/tumbler.html without using make.}
   * See DebuggingModules
   * See WritingModules
 
