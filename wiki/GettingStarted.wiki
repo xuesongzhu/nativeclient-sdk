@@ -90,13 +90,13 @@ Make sure the SDK can find your copy of Chromium.
 </dl>
 </li>
 
-<li> Invoke `run.py` script from the `examples` directory of the SDK to build and run the Hello World example:
+<li> From the `examples` directory of the SDK, use the `run.py` script to build and run the Hello World example:
 
 <blockquote>
 <pre>python run.py</pre></blockquote>
 
-This step creates publishable versions of the Hello World example,
-placing the results under the `publish`directory. It then starts up an HTTP server and Chromium, and brings up the Hello World example's page (for example, at the URL http://localhost:5103/publish/linux_x86/hello_world.html).
+This step creates publishable versions of all the SDK examples,
+placing the results under the `publish`directory. It then starts up an HTTP server and Chromium, and brings up the Hello World example's page (using a URL that starts with http://localhost:5103).
 
 {PENDING: Describe what they should see. Troubleshoot common issues. Refer to the [https://groups.google.com/group/native-client-discuss native-client-discuss group]. Until this is external, just email the nacl team to see if someone else has had the same problem.}
 </li>
