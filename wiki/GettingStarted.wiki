@@ -34,7 +34,7 @@ and the right version of the browser.
 
 <dl>
 <dt> Windows: </dt>
-<dd> Run the self-extracting zip:
+<dd> Run the self-extracting archive:
 <blockquote>
 <pre>naclsdk_win.exe</pre>
 </blockquote>
