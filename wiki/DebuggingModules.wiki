@@ -20,6 +20,27 @@ Build the development version of the SDK examples.
 </li>
 
 <li>
+In the platform-specific plugin directory, create a link to the development version of the Hello World sample. On Mac, the plugin directory is `~/Library/Internet Plug-Ins`.  On Linux, it's `~/.mozilla/plugins`.
+
+<dl>
+<dt> Mac example: </dt>
+<dd>
+<pre> cd ~/Library/Internet\ Plug-Ins/
+ln -s /NaclTesting/native_client_sdk_0_1_199_0/examples/develop/mac_x86/hello_world.plugin .</pre>
+</dd>
+
+<dt> Linux example: </dt>
+<dd>
+<pre> cd ~/.mozilla/plugins
+ln -s /NaclTesting/native_client_sdk_0_1_199_0/examples/develop/linux_x86/libhello_world.so .</pre>
+
+</dd>
+</dl>
+
+*Note:* Don't forget the '.' at the end of the `ln` command line.
+</li>
+
+<li>
 Quit Chromium.
 </li>
 
@@ -42,16 +63,16 @@ Launch GDB, specifying the executable file for Chromium.
 </li>
 
 <li>
-In GDB, start the browser with the following flags: *--enable-nacl --single-process --internal-pepper --load-plugin*. Set `--load-plugin` to the absolute path of the file containing the development version of the example, which you can find under `examples/develop/your_platform`. 
+In GDB, start the browser with the following flags: *--enable-nacl --single-process --internal-pepper*
 
 <dl>
 <dt> Mac example: </dt>
 <dd>
-<pre>r --enable-nacl --single-process --internal-pepper --load-plugin=/Users/me/Downloads/native_client_sdk_0_1_0_0/examples/develop/mac_x86/hello_world.plugin</pre></dd>
+<pre>r --enable-nacl --single-process --internal-pepper</pre></dd>
 
 <dt> Linux example: </dt>
 <dd>
-<pre>r --enable-nacl --single-process --internal-pepper --load-plugin=/usr/me/native_client_sdk_0_1_0_0/examples/develop/linux_x86/libhello_world.so</pre>
+<pre>r --enable-nacl --single-process --internal-pepper</pre>
 </dd>
 </dl>
 </li>
@@ -64,9 +85,9 @@ Interrupt the browser by pressing Ctl+C in GDB.
 Set a breakpoint. For example:
 
 <blockquote>
-<pre> break hello_world.cc:75
+<pre> break hello_world.cc:67
 or
-break InvokeHW</pre></blockquote>
+break InvokeDefault</pre></blockquote>
 </li>
 
 <li>
@@ -119,18 +140,20 @@ Possible exercise: In Chrome, look at source code of hello_world.html vs. .../#d
 
 Hello World will run in any browser. The other examples (Pepper 2D, Pepper 3D) require Google Chrome; they won't run in Safari (or whatever).
 
-Note: If you prefer, on Linux and Mac, you can make symbolic links to the development versions of the examples.   If you do, you will not need to use the --load-plugin= flag when debugging.  There is a special directory on each platform: on Mac it's `~/Library/Internet\ Plug-Ins`; on Linux it's `~/.mozilla/plugins`.  To make the necessary symbolic links, cd into the directory for your platform and use `ln -s develop_module_path .`  (note the final '.'). For example:
-<blockquote>
-On Mac:
-<pre> cd ~/Library/Internet\ Plug-Ins
-ln -s ~/Downloads/native_client_sdk_0_1_0_0/examples/develop/mac_x86/hello_world.plugin .</pre>
-On Linux:
-<pre> cd ~/.mozilla/plugins
-ln -s ~/Downloads/native_client_sdk_0_1_0_0/examples/develop/linux_x86/libhello_world.so .</pre>
-</blockquote>
-Once you have established these symbolic links, you can re-compile the examples.  Any changes you made to the code will take effect once you click the browser's Reload button.
+If you haven't created a link to the example's development version, you can use the *--load-plugin* flag when starting the browser in GDB. Set `--load-plugin` to the absolute path of the file containing the development version of the example, which you can find under `examples/develop/your_platform`. 
 
-You use the same URL as before when loading the development version of the example (remember to add the trailing #develop).
+<dl>
+<dt> Mac example: </dt>
+<dd>
+<pre>r --enable-nacl --single-process --internal-pepper \
+--load-plugin=/Users/me/Downloads/native_client_sdk_0_1_0_0/examples/develop/mac_x86/hello_world.plugin</pre></dd>
+
+<dt> Linux example: </dt>
+<dd>
+<pre>r --enable-nacl --single-process --internal-pepper \
+--load-plugin=/usr/me/native_client_sdk_0_1_0_0/examples/develop/linux_x86/libhello_world.so</pre>
+</dd>
+</dl>
 
 == API notes {PENDING: move these elsewhere} ==
 Pepper APIs are documented here:
