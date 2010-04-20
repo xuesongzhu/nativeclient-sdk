@@ -103,14 +103,18 @@ Quit Google Chrome, if it's already running.
 <pre>python run.py</pre></blockquote>
 
 This step creates publishable versions of all the SDK examples,
-placing the results under the `publish` directory. It then starts up an HTTP server and Google Chrome, and brings up the Hello World example's page (using a URL under as http://localhost:5103/publish, such as http://localhost:5103/publish/mac_x86/hello_world.html).
+placing the results under the `publish` directory. It then starts up an HTTP server and Google Chrome, and brings up the Hello World example's page.
 
-{PENDING: Describe what they should see. Troubleshoot common issues. Refer to the [https://groups.google.com/group/native-client-discuss native-client-discuss group]. Until this is external, just email the nacl team to see if someone else has had the same problem.}
+If everything works, you see a bunch of output as the examples build.
+Then a Google Chrome window opens,
+displaying a page that has a URL starting with http://localhost:5103/publish (for example, http://localhost:5103/publish/mac_x86/hello_world.html).
 
 *Troubleshooting:* If everything appears to compile successfully but the browser doesn't start,
 try using *--chrome-path* to specify the location of the Google Chrome executable file.
 Example:
 <blockquote><pre>python run.py --chrome-path="C:\Path\To\Directory That Has chrome.exe"</pre></blockquote>
+
+{PENDING: More troubleshooting should go here, plus a reference to where feedback and additional info are.}
 </li>
 
 <li> Look at and interact with the page.
@@ -118,6 +122,8 @@ Example:
   * Look at the *Status* heading. If you see SUCCESS, then the example is working. If not, try reloading the page. If you still don't see SUCCESS — for example, if it says the Client modules are loading too slowly — the example might still be OK.
   * Click the *Call fortytwo()* button. <br /> A dialog should come up, saying that the page says: *42*
   * Click the *Call helloworld()* button. <br /> A dialog should come up, saying that the page says: *hello, world.*
+
+{PENDING: More troubleshooting should go here.}
 
 </li>
 
