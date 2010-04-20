@@ -58,8 +58,8 @@ Make sure there are no spaces in the path to the SDK. For example, the path `C:\
  
 Notes:
 
-  * On *64-bit Linux*, you must use the *32-bit* version of the browser.
   * If you already have the Dev channel, the About Google Chrome box will have "dev" after the version number.
+  * On *64-bit Linux*, you must use the *32-bit* version of the browser.
 
 </li>
 
