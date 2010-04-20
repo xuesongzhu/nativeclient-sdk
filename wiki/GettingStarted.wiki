@@ -118,7 +118,7 @@ placing the results under the `publish` directory. It then starts up an HTTP ser
 
   * Try `python run.py --example=pi_generator` to run the Pi Generator example, which uses the Pepper 2D API. {PENDING: This works on Linux and Mac, at least. Instead of running the script, you can instead just change `hello_world.html` to `pi_generator.html`.}
   * Try `python run.py --example=tumbler` to run the Tumbler example, which uses the Pepper 3D API. {PENDING: Tumbler isn't working for me on Linux; it worked after one reload on Mac. Instead of running the script, you can instead change the filename to `tumbler.html`.}
-  * See DebuggingModules
+  * If you're using Mac or Linux, try DebuggingModules
   * See WritingModules
 
 Notes:
