@@ -8,7 +8,7 @@ This page shows you how to inspect an SDK example using the GDB debugger on Mac 
 <ol>
 <li>
 Before you start debugging, do everything in GettingStarted, including:
-  * Make sure your version of Chromium can run Native Client examples
+  * Make sure your version of Google Chrome can run Native Client examples
   * Download and unarchive the SDK
   * Build the SDK examples
   * Have an HTTP server, and use it to load one of the examples that you built
@@ -41,16 +41,16 @@ ln -s /nacl-sdk/native_client_sdk_0_1_199_0/examples/develop/linux_x86/libhello_
 </li>
 
 <li>
-Quit Chromium.
+Quit Google Chrome.
 </li>
 
 <li>
-Launch GDB, specifying the executable file for Chromium.
+Launch GDB, specifying the executable file for Google Chrome.
 
 <dl>
 <dt> Mac example: </dt>
 <dd>
-<pre>gdb /Applications/Chromium.app/Contents/MacOS/Chromium</pre>
+<pre>gdb /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome</pre>
 </dd>
 
 <dt> Linux example: </dt>
@@ -63,9 +63,13 @@ Launch GDB, specifying the executable file for Chromium.
 </li>
 
 <li>
-In GDB, start the browser with the following flags: *--enable-nacl --single-process --internal-pepper*
+In GDB, start the browser with the following flags: *--enable-nacl --single-process --internal-pepper*. For now on Mac, add *--no-sandbox*.
 
+Linux:
 <blockquote><pre>r --enable-nacl --single-process --internal-pepper</pre></blockquote>
+
+Mac:
+<blockquote><pre>r --enable-nacl --single-process --internal-pepper --no-sandbox</pre></blockquote>
 </li>
 
 <li>
