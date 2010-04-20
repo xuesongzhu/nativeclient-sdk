@@ -63,7 +63,7 @@ Launch GDB, specifying the executable file for Google Chrome.
 </li>
 
 <li>
-In GDB, start the browser with the following flags: *--enable-nacl --single-process --internal-pepper*. For now on Mac, add *--no-sandbox*.
+In GDB, start the browser with the following flags: *--enable-nacl --single-process --internal-pepper*. For now on Mac, you also need *--no-sandbox*.
 
 Linux:
 <blockquote><pre>r --enable-nacl --single-process --internal-pepper</pre></blockquote>
