@@ -93,6 +93,11 @@ The easiest thing to do is to have the executable in the standard place for your
 </dl>
 </li>
 
+<li>
+Quit Google Chrome, if it's already running.
+{PENDING: We should use --user-data-dir so this isn't necessary.}
+</li>
+
 <li> From the `examples` directory of the SDK, use the `run.py` script to build and run the Hello World example:
 
 <blockquote>
