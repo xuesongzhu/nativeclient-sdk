@@ -1,21 +1,21 @@
 #summary Instructions for building and running examples
 #labels Featured
 
-This page tells you how to use the Native Client SDK to build and run a Native Client module. {PENDING: This page is preliminary. We plan to split it up into one page per platform. Please send other suggestions for improvement to kathyw.}
+This page tells you how to use the Native Client SDK to build and run a Native Client module. {PENDING: This page is preliminary. We plan to split it up into one page per platform.}
 
 <wiki:toc />
 
 = Before you start =
-
-A few platform notes:
-
-  * ...
 
 A few terminology notes:
 
   * The term _.nexe_ refers to a publishable, platform-independent executable file for a Native Client module.
   * To debug your Native Client module, you need to make a _development_ version of it, as opposed to a _publishable_ version of it.
   * This page uses _Chromium_ to refer to the most recent browser builds provided by the open-source project behind Google Chrome. 
+
+A few platform notes:
+
+  * ...
 
 = Getting the software =
 
@@ -53,15 +53,14 @@ Make sure there are no spaces in the path to the SDK. For example, the path `C:\
 </p>
 </li>
 
-<li> Download and unarchive a Dev-Channel build of Google Chrome build from here:
+<li> Get the Dev-channel version of the Google Chrome browser, using the instructions on this page:
 
     [http://dev.chromium.org/getting-involved/dev-channel]
  
 Notes:
 <ul>
-<li>64-bit Linux does not work, you have to use the 32-bit version of the browser.</li>
-<li>Google Chrome verison 5.0.375.9 on the Mac still requires a --no-sandbox flag.</li>
-<li>{PENDING: We need to update these links to point to Chrome 5 beta stable when ready.}</li>
+<li>On 64-bit Linux, you must use the 32-bit version of the browser.</li>
+<li>{PENDING: We need to update these instructions to use Chrome 5 beta stable when it's ready.}</li>
 </ul>
 
 </li>
@@ -71,27 +70,25 @@ Notes:
 = Building and running the SDK examples =
 
 Before you can run any of the examples in the SDK, you need to build them.
-Then you need to start Chromium with the `--enable-nacl` command-line flag,
+Then you need to start Google Chrome with the `--enable-nacl` command-line flag,
 and use an HTTP URL to load an example's page.
-The SDK makes all of this easy,
-as long as you tell the SDK where to find your copy of Chromium.
+The SDK has a run script that automates all of this.
 
 <ol>
 
 <li>
-Make sure the SDK can find your copy of Chromium.
+Make sure the SDK can find your copy of Google Chrome.
+The easiest thing to do is to have the executable in the standard place for your platform:
 <dl>
 
 <dt> Windows: </dt>
-<dd> By default, the run script looks for Google Chrome in the "standard" application location, which depends on your version of Windows.  For example, Windows 7 looks for Google Chrome in %USERPROFILE%\AppData\Local\Google\Chrome\Application. </dd>
+<dd> The "standard" application location, which depends on your version of Windows.  For example, Windows 7 looks for `chrome.exe` in `%USERPROFILE%\AppData\Local\Google\Chrome\Application`. </dd>
 
 <dt> Mac: </dt>
-<dd> Put `Google Chrome.app` under `/Applications`. For example:
-`mv ~/Downloads/chrome-mac/Google Chrome.app /Applications`
-</dd>
+<dd> `/Applications/Google Chrome.app`</dd>
 
 <dt> Linux:</dt>
-<dd> By default, the run script looks for Google Chrome in `/opt/google/chrome`.  The easiest thing to do is copy your downloaded version there.
+<dd> `/opt/google/chrome`
 </dd>
 </dl>
 </li>
@@ -124,6 +121,6 @@ placing the results under the `publish` directory. It then starts up an HTTP ser
   * See DebuggingModules
   * See WritingModules
 
-{PENDING: Other pages that might be useful: OldReadMe, OldGs}
-
-{PENDING: Note that you can't currently use Native Client with 64-bit browsers.}
+Notes:
+  * Google Chrome version 5.0.375.9 on the Mac still requires a --no-sandbox flag
+  * Other pages that might be useful: OldReadMe, OldGs
