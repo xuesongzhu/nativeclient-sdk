@@ -59,7 +59,9 @@ Make sure there are no spaces in the path to the SDK. For example, the path `C:\
 Notes:
 
   * If you already have the Dev channel, the About Google Chrome box will have "dev" after the version number.
-  * On *64-bit Linux*, you must use the *32-bit* version of the browser.
+  * On *64-bit Linux*, you must use the *32-bit* version of the browser.  To do so, after downloading the <tt>google-chrome-unstable_current_i386.deb</tt> file, you will need to type in
+    * <tt>sudo apt-get remove google-chrome-beta # if you have a 64-bit version of chrome installed </tt>
+    * <tt>sudo dpkg --force-architecture -i google-chrome-unstable_current_i386.deb</tt>
 
 </li>
 
