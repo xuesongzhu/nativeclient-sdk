@@ -1,6 +1,13 @@
 #summary Instructions for building and running examples
 #labels Featured
 
+<hr>
+<h1>Wait a minute!</h1>
+
+We're revising the SDK and instructions, based on tester feedback. If you can wait to try out the SDK, please check back tomorrow to see whether we've removed this warning.
+
+<hr>
+
 This page tells you how to use the Native Client SDK to build and run a Native Client module. {PENDING: This page is preliminary. We plan to split it up into one page per platform.}
 
 <wiki:toc />
