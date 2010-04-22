@@ -1,0 +1,5 @@
+#summary Detailed instructions for running already-built Native Client modules
+
+This page tells you everything you need to know to run a Native Client module that's already been published.
+
+{PENDING: No, it doesn't yet. But it will.}
