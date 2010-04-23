@@ -59,17 +59,10 @@ Make sure there are no spaces in the path to the SDK. For example, the path `C:\
 </p>
 </li>
 
-<li> If you don't already have the Dev-channel version of the Google Chrome browser, get it:
-
-    http://www.chromium.org/getting-involved/dev-channel
- 
-Notes:
-
-  * If you already have the Dev channel, the About Google Chrome box will have "dev" after the version number.
-  * On *64-bit Linux*, you must use the *32-bit* version of the browser.  To do so, after downloading the <tt>google-chrome-unstable_current_i386.deb</tt> file, you will need to type in
-    * <tt>sudo apt-get remove google-chrome-beta # if you have a 64-bit version of chrome installed </tt>
-    * <tt>sudo dpkg --force-architecture -i google-chrome-unstable_current_i386.deb</tt>
-
+<li> Download and unarchive a Chromium build from http://build.chromium.org/buildbot/continuous/. The following builds have been confirmed to work:
+  * {PENDING: Currently testing [http://build.chromium.org/buildbot/continuous/win/2010-04-14/44475/chrome-win32.zip 44475] and [http://build.chromium.org/buildbot/continuous/win/2010-04-19/44948/chrome-win32.zip 44948]} (Windows)
+  * [http://build.chromium.org/buildbot/continuous/mac/2010-04-14/44474/chrome-mac.zip 44474] (Mac)
+  * [http://build.chromium.org/buildbot/continuous/linux/2010-04-14/44475/chrome-linux.zip 44475] (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help on using a 32-bit browser)
 </li>
 
 </ol>
@@ -77,33 +70,30 @@ Notes:
 = Building and running the SDK examples =
 
 Before you can run any of the examples in the SDK, you need to build them.
-Then you need to start Google Chrome with the `--enable-nacl` command-line flag,
+Then you need to start Chromium with the `--enable-nacl` command-line flag,
 and use an HTTP URL to load an example's page.
+{PENDING: Point to page(s) with details on doing this all by hand.}
 The SDK has a run script that automates all of this.
 
 <ol>
 
 <li>
-Make sure the SDK can find your copy of Google Chrome.
+Make sure the SDK can find your copy of Chromium.
 The easiest thing to do is to have the executable in the standard place for your platform:
 <dl>
 
 <dt> Windows: </dt>
-<dd> The "standard" application location, which depends on your version of Windows.  For example, Windows 7 looks for `chrome.exe` in `%USERPROFILE%\AppData\Local\Google\Chrome\Application`. </dd>
-
+<dd> By default, the run script looks for Chromium in the "standard" application location, which depends on your version of Windows.  For example, Windows 7 looks for Chromium in %USERPROFILE%\AppData\Local\Chromium\Application. </dd>
 <dt> Mac: </dt>
-<dd> `/Applications/Google Chrome.app`</dd>
+<dd> `/Applications/Chromium.app`</dd>
 
 <dt> Linux:</dt>
-<dd> `/opt/google/chrome`
+<dd> `/opt/google/chromium`
 </dd>
 </dl>
 
-</li>
-
-<li>
-Quit Google Chrome, if it's already running.
-{PENDING: We should use --user-data-dir so this isn't necessary.}
+Alternatively, you can specify the location of Chromium
+using the *--chrome-path* option in the next step.
 </li>
 
 <li> From the `examples` directory of the SDK, use the `run.py` script to build and run the Hello World example:
@@ -112,16 +102,16 @@ Quit Google Chrome, if it's already running.
 <pre>python run.py</pre></blockquote>
 
 This step creates publishable versions of all the SDK examples,
-placing the results under the `publish` directory. It then starts up an HTTP server and Google Chrome, and brings up the Hello World example's page.
+placing the results under the `publish` directory. It then starts up an HTTP server and Chromium, and brings up the Hello World example's page.
 
 If everything works, you see a bunch of output as the examples build.
-Then a Google Chrome window opens,
+Then a Chromium window opens,
 displaying a page that has a URL starting with http://localhost:5103/publish (for example, http://localhost:5103/publish/mac_x86/hello_world.html).
 
 *Troubleshooting:* If everything appears to compile successfully but the browser doesn't start,
-try using *--chrome-path* to specify the location of the Google Chrome executable file.
+try using *--chrome-path* to specify the location of the Chromium executable file.
 Example:
-<blockquote><pre>python run.py --chrome-path="C:\Path\To\Directory That Has chrome.exe"</pre></blockquote>
+<blockquote><pre>python run.py --chrome-path="C:\nacl-test\chromium-44948\chrome-win32"</pre></blockquote>
 
 {PENDING: More troubleshooting should go here, plus a reference to where feedback and additional info are.}
 </li>
@@ -148,3 +138,8 @@ Example:
 Notes:
   * Google Chrome version 5.0.375.9 on the Mac still requires a --no-sandbox flag
   * Other pages that might be useful: OldReadMe, OldGs
+
+If you're using Google Chrome (not Chromium) and a 64-bit Linux machine:
+  * You must use the *32-bit* version of the browser.  To do so, after downloading the <tt>google-chrome-unstable_current_i386.deb</tt> file, you will need to type in
+    * <tt>sudo apt-get remove google-chrome-beta # if you have a 64-bit version of chrome installed </tt>
+    * <tt>sudo dpkg --force-architecture -i google-chrome-unstable_current_i386.deb</tt>
