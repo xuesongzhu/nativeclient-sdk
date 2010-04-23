@@ -68,79 +68,72 @@ Make sure there are no spaces in the path to the SDK. For example, the path `C:\
 
 </ol>
 
-= Building and running the SDK examples =
+= Running the SDK examples =
 
-Before you can run any of the examples in the SDK, you need to build them.
-Then you need to start Chromium with the `--enable-nacl` command-line flag,
-and use an HTTP URL to load an example's page.
-{PENDING: Point to page(s) with details on doing this all by hand.}
-The SDK has a run script that automates all of this.
-
+The examples in the SDK come pre-built, you can find them in the `publish` directory, under architecture-specific
+directories.  For example, the 32-bit x86 .nexes are in `publish/x86_32`.  There are three basic steps to running an
+example:
 <ol>
-
-<li>
-Make sure the SDK can find your copy of Chromium.
-The easiest thing to do is to have the executable in the standard place for your platform:
-<dl>
-
-<dt> Windows: </dt>
-<dd> By default, the run script looks for Chromium in the "standard" application location, which depends on your version of Windows.  For example, Windows 7 looks for Chromium in %USERPROFILE%\AppData\Local\Chromium\Application. </dd>
-<dt> Mac: </dt>
-<dd> `/Applications/Chromium.app`</dd>
-
-<dt> Linux:</dt>
-<dd> `/opt/google/chromium`
-</dd>
-</dl>
-
-Alternatively, you can specify the location of Chromium
-using the *--chrome-path* option in the next step.
+<li>Launch Chromium with the `--enable-nacl` flag</li>
+<li>Start a web server that can serve the pages under `publish`</li>
+<li>Visit the example's URL in Chromium</li>
+</ol>
+The steps in more detail:
+<ol>
+<li>Launch Chromium with the `--enable-nacl` flag.  You might consider using the `--user-data-dir` flag as well, which will protect your normal browser cache from your Native Client development.  In order to launch Chromium with these flags set, you have to run it from a command line. For example, on Windows, you can run it from cmd.exe.
+<ul>
+  <li>On Mac: <pre>Chromium/Contents/MacOS/Chromium --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre></li>
+  <li>On Windows: <pre>chrome-win32\chrome --enable-nacl --user-data-dir=%USERPROFILE%\nacl-chrome-profile</pre></li>
+  <li>On Linux: <pre>chromium/chrome  --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre></li>
+</ul>
 </li>
 
-<li> From the `examples` directory of the SDK, use the `run.py` script to build and run the Hello World example:
-
-<blockquote>
-<pre>python run.py</pre></blockquote>
-
-This step creates publishable versions of all the SDK examples,
-placing the results under the `publish` directory. It then starts up an HTTP server and Chromium, and brings up the Hello World example's page.
-
-If everything works, you see a bunch of output as the examples build.
-Then a Chromium window opens,
-displaying a page that has a URL starting with http://localhost:5103/publish (for example, http://localhost:5103/publish/mac_x86/hello_world.html).
-
-*Troubleshooting:* If everything appears to compile successfully but the browser doesn't start,
-try using *--chrome-path* to specify the location of the Chromium executable file.
-Example:
-<blockquote><pre>python run.py --chrome-path="C:\nacl-test\chromium-44948\chrome-win32"</pre></blockquote>
-
-{PENDING: More troubleshooting should go here, plus a reference to where feedback and additional info are.}
+<li>Start a web server that can serve the contents of `publish` in the `examples` directory.  A simple python-based HTTP server is provided with the SDK, in the `examples` directory:<br />
+<pre>python httpd.py 5103</pre>
+This starts a local server on port 5103.
 </li>
 
-<li> Look at and interact with the page.
+<li>Visit the URL corresponding to the example you want to run.  If you used the simple HTTP server in the SDK , these URLs have `localhost:5103` as the host. For example to run the hello_world example you would enter this URL in to Chromium:<br />
+<pre>http://localhost:5103/publish/x86_32/hello_world.html</pre>
+The URLs for the examples, served from the simple SDK server and on a 32-bit x86 computer are:
+<ul>
+<li>`http://localhost:5103/publish/x86_32/hello_world.html`</li>
+<li>`http://localhost:5103/publish/x86_32/pi_generator.html`</li>
+<li>`http://localhost:5103/publish/x86_32/tumbler.html`</li>
+</ul>
+</li>
 
+</ol>
+== What to expect ==
+
+=== Hello World ===
   * Look at the *Status* heading. If you see SUCCESS, then the example is working. If not, try reloading the page. If you still don't see SUCCESS — for example, if it says the Client modules are loading too slowly — the example might still be OK.
   * Click the *Call fortytwo()* button. <br /> A dialog should come up, saying that the page says: *42*
   * Click the *Call helloworld()* button. <br /> A dialog should come up, saying that the page says: *hello, world.*
 
+=== Pi Generator ===
+  * A text box should appear and start printing values of PI.
+  * A partially red square with an inscribed blue quarter-circle should appear.  Black speckles are painted on the square, these represent Monte Carlo points.
+  * The example stops by itself after iterating for a while.
+
+=== Tumbler ===
+  * A magenta square should appear.  This is the front face of a 3D cube.
+  * You can use the mouse to tumble the cube.  Click and drag over the cube and see what happens!
+
 {PENDING: More troubleshooting should go here.}
 
-</li>
-
-</ol>
 
 = What to do next =
 
-  * Try `python run.py --example=pi_generator` to run the Pi Generator example, which uses the Pepper 2D API. {PENDING: This works on Linux and Mac, at least. Instead of running the script, you can instead just change `hello_world.html` to `pi_generator.html`.}
-  * Try `python run.py --example=tumbler` to run the Tumbler example, which uses the Pepper 3D API. {PENDING: Tumbler isn't working for me on Linux; it worked after one reload on Mac. Instead of running the script, you can instead change the filename to `tumbler.html`.}
+  * Try building the examples yourself.  Each one comes with a Makefile, for example to build the Hello World example:<br /><pre>cd hello_world ; make publish</pre>
   * If you're using Mac or Linux, try DebuggingModules
   * See WritingModules
 
 Notes:
-  * Google Chrome version 5.0.375.9 on the Mac still requires a --no-sandbox flag
   * Other pages that might be useful: OldReadMe, OldGs
 
 If you're using Google Chrome (not Chromium) and a 64-bit Linux machine:
   * You must use the *32-bit* version of the browser.  To do so, after downloading the <tt>google-chrome-unstable_current_i386.deb</tt> file, you will need to type in
     * <tt>sudo apt-get remove google-chrome-beta # if you have a 64-bit version of chrome installed </tt>
     * <tt>sudo dpkg --force-architecture -i google-chrome-unstable_current_i386.deb</tt>
+  * Some Linux computers do not have drivers for hardware-accelerated 3D graphics installed.  These must be installed in order for the Tumbler example to work.
