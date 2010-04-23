@@ -90,7 +90,7 @@ The steps in more detail:
 
 <li>Start a web server that can serve the contents of `publish` in the `examples` directory.  A simple python-based HTTP server is provided with the SDK, in the `examples` directory:<br />
 <pre>python httpd.py 5103</pre>
-This starts a local server on port 5103.
+This starts a local server on port 5103.  You can shut this server down by adding a ?quit=1 parameter to the URL.  For example:<pre>http://localhost:5103/?quit=1</pre>
 </li>
 
 <li>Visit the URL corresponding to the example you want to run.  If you used the simple HTTP server in the SDK , these URLs have `localhost:5103` as the host. For example to run the hello_world example you would enter this URL in to Chromium:<br />
