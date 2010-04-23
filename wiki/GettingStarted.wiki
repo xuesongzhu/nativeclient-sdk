@@ -61,9 +61,9 @@ Make sure there are no spaces in the path to the SDK. For example, the path `C:\
 </li>
 
 <li> Download and unarchive a Chromium build from http://build.chromium.org/buildbot/continuous/. The following builds have been confirmed to work:
-  * {PENDING: Currently testing [http://build.chromium.org/buildbot/continuous/win/2010-04-14/44475/chrome-win32.zip 44475] and [http://build.chromium.org/buildbot/continuous/win/2010-04-19/44948/chrome-win32.zip 44948]} (Windows)
-  * [http://build.chromium.org/buildbot/continuous/mac/2010-04-14/44474/chrome-mac.zip 44474] (Mac)
-  * [http://build.chromium.org/buildbot/continuous/linux/2010-04-14/44475/chrome-linux.zip 44475] (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help on using a 32-bit browser)
+  * {PENDING: Currently testing [http://build.chromium.org/buildbot/continuous/win/2010-04-14/44475/chrome-win32.zip 44475] and [http://build.chromium.org/buildbot/continuous/win/2010-04-19/44948/chrome-win32.zip 44948]; about to test [http://build.chromium.org/buildbot/continuous/win/2010-04-23/45444/chrome-win32.zip 45444]} (Windows)
+  * [http://build.chromium.org/buildbot/continuous/mac/2010-04-14/44474/chrome-mac.zip 44474] {PENDING: about to test [http://build.chromium.org/buildbot/continuous/mac/2010-04-23/45445/chrome-mac.zip 45445]} (Mac)
+  * [http://build.chromium.org/buildbot/continuous/linux/2010-04-14/44475/chrome-linux.zip 44475] {PENDING: about to test [http://build.chromium.org/buildbot/continuous/linux/2010-04-23/45444/chrome-linux.zip 45444]} (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help on using a 32-bit browser)
 </li>
 
 </ol>
