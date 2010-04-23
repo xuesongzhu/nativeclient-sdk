@@ -56,36 +56,48 @@ and the right version of the browser.
 </dl>
 
 <p> <b>Important:</b>
-Make sure there are no spaces in the path to the SDK. For example, the path `C:\Documents and Settings\kathyw\My Documents\nacl-sdk` is bad; you can't successfully build examples under that directory. Instead, you could put the SDK under `C:\nacl-sdk`. 
+Make sure there are *no spaces* in the path to the SDK. For example, the path `C:\Documents and Settings\kathyw\My Documents\nacl-sdk` is bad; you can't successfully build examples under that directory. Instead, you could put the SDK under `C:\nacl-sdk`. 
 </p>
 </li>
 
 <li> Download and unarchive a Chromium build from http://build.chromium.org/buildbot/continuous/. The following builds have been confirmed to work:
-  * {PENDING: Currently testing [http://build.chromium.org/buildbot/continuous/win/2010-04-14/44475/chrome-win32.zip 44475] and [http://build.chromium.org/buildbot/continuous/win/2010-04-19/44948/chrome-win32.zip 44948]; about to test [http://build.chromium.org/buildbot/continuous/win/2010-04-23/45444/chrome-win32.zip 45444]} (Windows)
-  * [http://build.chromium.org/buildbot/continuous/mac/2010-04-14/44474/chrome-mac.zip 44474] {PENDING: about to test [http://build.chromium.org/buildbot/continuous/mac/2010-04-23/45445/chrome-mac.zip 45445]} (Mac)
-  * [http://build.chromium.org/buildbot/continuous/linux/2010-04-14/44475/chrome-linux.zip 44475] {PENDING: about to test [http://build.chromium.org/buildbot/continuous/linux/2010-04-23/45444/chrome-linux.zip 45444]} (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help on using a 32-bit browser)
+  * [http://build.chromium.org/buildbot/continuous/win/2010-04-23/45444/chrome-win32.zip 45444] (Windows)
+  * [http://build.chromium.org/buildbot/continuous/mac/2010-04-23/45445/chrome-mac.zip 45445] (Mac)
+  * [http://build.chromium.org/buildbot/continuous/linux/2010-04-23/45444/chrome-linux.zip 45444] (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help on using a 32-bit browser)
 </li>
 
 </ol>
 
 = Running the SDK examples =
 
-The examples in the SDK come pre-built, you can find them in the `publish` directory, under architecture-specific
-directories.  For example, the 32-bit x86 .nexes are in `publish/x86_32`.  There are three basic steps to running an
-example:
+Pre-built versions of the examples are under the SDK's `examples/publish` directory. For example, the 32-bit x86 .nexes are in `examples/publish/x86_32`. To run an example in the SDK, you need to do three things:
+
+  # Launch Chromium with the `--enable-nacl` flag
+  # Start a web server that can serve the pages under `examples/publish`
+  # Visit the example's URL in Chromium
+
+Here are the details.
+
 <ol>
-<li>Launch Chromium with the `--enable-nacl` flag</li>
-<li>Start a web server that can serve the pages under `publish`</li>
-<li>Visit the example's URL in Chromium</li>
-</ol>
-The steps in more detail:
-<ol>
-<li>Launch Chromium with the `--enable-nacl` flag.  You might consider using the `--user-data-dir` flag as well, which will protect your normal browser cache from your Native Client development.  In order to launch Chromium with these flags set, you have to run it from a command line. For example, on Windows, you can run it from cmd.exe.
-<ul>
-  <li>On Mac: <pre>Chromium/Contents/MacOS/Chromium --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre></li>
-  <li>On Windows: <pre>chrome-win32\chrome --enable-nacl --user-data-dir=%USERPROFILE%\nacl-chrome-profile</pre></li>
-  <li>On Linux: <pre>chromium/chrome  --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre></li>
-</ul>
+<li>Launch Chromium with the `--enable-nacl` flag. Consider also using the `--user-data-dir` flag, which will protect your normal browser cache from your Native Client development.
+
+To launch Chromium with these flags set, either you can run it from a command line or you can set up a platform-specific shortcut or alias. For example, on Windows, you can either run Chromium from `cmd.exe` or create a special shortcut. See [http://www.chromium.org/developers/creating-and-using-profiles Creating and Using Profiles] for tips on using `--user-data-dir` and setting up a shortcut.
+
+<dl>
+<dt> Windows: </dt>
+<dd> 
+<pre>chrome-win32\chrome --enable-nacl --user-data-dir=%USERPROFILE%\nacl-chrome-profile</pre>
+</dd>
+
+<dt> Mac: </dt>
+<dd> <pre>Chromium/Contents/MacOS/Chromium --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre>
+</dd>
+
+<dt> Linux: </dt>
+<dd> <pre>chromium/chrome --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre>
+</dd>
+</dl>
+
 </li>
 
 <li>Start a web server that can serve the contents of `publish` in the `examples` directory.  A simple python-based HTTP server is provided with the SDK, in the `examples` directory:<br />
@@ -129,8 +141,9 @@ The URLs for the examples, served from the simple SDK server and on a 32-bit x86
   * If you're using Mac or Linux, try DebuggingModules
   * See WritingModules
 
-Notes:
-  * Other pages that might be useful: OldReadMe, OldGs
+= Notes =
+
+Other pages that might be useful: OldReadMe, OldGs
 
 If you're using Google Chrome (not Chromium) and a 64-bit Linux machine:
   * You must use the *32-bit* version of the browser.  To do so, after downloading the <tt>google-chrome-unstable_current_i386.deb</tt> file, you will need to type in
