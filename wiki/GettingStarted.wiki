@@ -56,7 +56,7 @@ and the right version of the browser.
 </dl>
 
 <p> <b>Important:</b>
-Make sure there are *no spaces* in the path to the SDK. For example, the path `C:\Documents and Settings\kathyw\My Documents\nacl-sdk` is bad; you can't successfully build examples under that directory. Instead, you could put the SDK under `C:\nacl-sdk`. 
+Make sure there are *no spaces* in the path to the SDK. For example, the path `C:\Documents and Settings\me\My Documents\nacl-sdk` is bad; you can't successfully build examples under that directory. Instead, you could put the SDK under `C:\nacl-sdk`. 
 </p>
 </li>
 
@@ -79,9 +79,7 @@ Pre-built versions of the examples are under the SDK's `examples/publish` direct
 Here are the details.
 
 <ol>
-<li>Launch Chromium with the `--enable-nacl` flag. Consider also using the `--user-data-dir` flag, which will protect your normal browser cache from your Native Client development.
-
-To launch Chromium with these flags set, either you can run it from a command line or you can set up a platform-specific shortcut or alias. For example, on Windows, you can either run Chromium from `cmd.exe` or create a special shortcut. See [http://www.chromium.org/developers/creating-and-using-profiles Creating and Using Profiles] for tips on using `--user-data-dir` and setting up a shortcut.
+<li>Launch Chromium with the `--enable-nacl` flag. Consider also using the <a href="http://www.chromium.org/developers/creating-and-using-profiles">`--user-data-dir` flag</a>, which will protect your normal browser cache from your Native Client development. To launch Chromium with these flags set, either you can run it from a command line or you can set up a platform-specific shortcut or alias.
 
 <dl>
 <dt> Windows: </dt>
