@@ -1,13 +1,6 @@
 #summary Instructions for building and running examples
 #labels Featured
 
-<hr>
-<h1>Wait a minute!</h1>
-
-We're revising the SDK and instructions, based on tester feedback. If you can wait to try out the SDK, please check back tomorrow to see whether we've removed this warning.
-
-<hr>
-
 This page tells you how to use the Native Client SDK to build and run a Native Client module. {PENDING: This page is preliminary. We plan to split it up into one page per platform.}
 
 <wiki:toc />
@@ -99,18 +92,21 @@ Here are the details.
 </li>
 
 <li>Start a web server that can serve the contents of `publish` in the `examples` directory.  A simple python-based HTTP server is provided with the SDK, in the `examples` directory:<br />
-<pre>python httpd.py 5103</pre>
-This starts a local server on port 5103.  You can shut this server down by adding a ?quit=1 parameter to the URL.  For example:<pre>http://localhost:5103/?quit=1</pre>
+<blockquote><pre> cd examples
+python httpd.py 5103</pre></blockquote>
+This starts a local server on port 5103.
+
+<p>
+*Note:* Later, if you want to shut down this server, navigate to the following URL: http://localhost:5103/?quit=1
+</p>
 </li>
 
-<li>Visit the URL corresponding to the example you want to run.  If you used the simple HTTP server in the SDK , these URLs have `localhost:5103` as the host. For example to run the hello_world example you would enter this URL in to Chromium:<br />
-<pre>http://localhost:5103/publish/x86_32/hello_world.html</pre>
-The URLs for the examples, served from the simple SDK server and on a 32-bit x86 computer are:
-<ul>
-<li>`http://localhost:5103/publish/x86_32/hello_world.html`</li>
-<li>`http://localhost:5103/publish/x86_32/pi_generator.html`</li>
-<li>`http://localhost:5103/publish/x86_32/tumbler.html`</li>
-</ul>
+<li>Visit the URL corresponding to the example you want to run.
+You can find the HTML files for the examples under the `examples/publish/{platform}` directory. For example, if you use the SDK's simple HTTP server on a 32-bit x86 computer: <br /><br />
+
+  * `http://localhost:5103/publish/x86_32/hello_world.html`
+  * `http://localhost:5103/publish/x86_32/pi_generator.html`
+  * `http://localhost:5103/publish/x86_32/tumbler.html`
 </li>
 
 </ol>
@@ -122,7 +118,7 @@ The URLs for the examples, served from the simple SDK server and on a 32-bit x86
   * Click the *Call helloworld()* button. <br /> A dialog should come up, saying that the page says: *hello, world.*
 
 === Pi Generator ===
-  * A text box should appear and start printing values of PI.
+  * A text box should appear and start printing values of pi.
   * A partially red square with an inscribed blue quarter-circle should appear.  Black speckles are painted on the square, these represent Monte Carlo points.
   * The example stops by itself after iterating for a while.
 
@@ -135,8 +131,9 @@ The URLs for the examples, served from the simple SDK server and on a 32-bit x86
 
 = What to do next =
 
-  * Try building the examples yourself.  Each one comes with a Makefile, for example to build the Hello World example:<br /><pre>cd hello_world ; make publish</pre>
+  * Try building the examples yourself.  Each one comes with a Makefile. For example to build the Hello World example:<br /><pre>cd hello_world ; make publish</pre>
   * If you're using Mac or Linux, try DebuggingModules
+  
   * See WritingModules
 
 = Notes =
