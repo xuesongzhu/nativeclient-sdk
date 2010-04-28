@@ -35,16 +35,12 @@ and the right version of the browser.
 <dl>
 <dt> Windows: </dt>
 <dd> Run the self-extracting archive:
-<blockquote>
-<pre>naclsdk_win.exe</pre>
-</blockquote>
+<code>naclsdk_win.exe</code>
 </dd>
 
 <dt> Mac or Linux: </dt>
 <dd> Use the `tar` command:
-<blockquote>
-<pre>tar xvf naclsdk_mac.tgz</pre>
-</blockquote>
+<code>tar xvf naclsdk_mac.tgz</code>
 </dd>
 </dl>
 
@@ -84,23 +80,23 @@ Here are the details.
 <dl>
 <dt> Windows: </dt>
 <dd> 
-<pre>chrome-win32\chrome --enable-nacl --user-data-dir=%USERPROFILE%\nacl-chrome-profile</pre>
+<code>chrome-win32\chrome --enable-nacl --user-data-dir=%USERPROFILE%\nacl-chrome-profile</code>
 </dd>
 
 <dt> Mac: </dt>
-<dd> <pre>Chromium/Contents/MacOS/Chromium --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre>
+<dd> <code>Chromium/Contents/MacOS/Chromium --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</code>
 </dd>
 
 <dt> Linux: </dt>
-<dd> <pre>chromium/chrome --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre>
+<dd> <code>chromium/chrome --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</code>
 </dd>
 </dl>
 
 </li>
 
 <li>Start a web server that can serve the contents of `publish` in the `examples` directory.  A simple python-based HTTP server is provided with the SDK, in the `examples` directory:<br />
-<blockquote><pre> cd examples
-python httpd.py 5103</pre></blockquote>
+<code> cd examples
+python httpd.py 5103</code>
 This starts a local server on port 5103.
 
 <p>
@@ -138,7 +134,7 @@ You can find the HTML files for the examples under the `examples/publish/{platfo
 
 = What to do next =
 
-  * Try building the examples yourself.  Each one comes with a Makefile. For example to build the Hello World example:<br /><pre>cd hello_world ; make publish</pre>
+  * Try building the examples yourself.  Each one comes with a Makefile. For example to build the Hello World example:<br /><code>cd hello_world ; make publish</code>
   * If you're using Mac or Linux, try DebuggingModules
   
   * See WritingModules
