@@ -18,6 +18,7 @@ A few terminology notes:
 To build and run Native Client modules,
 you need to get the Native Client SDK
 and the right version of the browser.
+You might also need Python.
 
 <ol>
 <li> Download the SDK for your platform: 
