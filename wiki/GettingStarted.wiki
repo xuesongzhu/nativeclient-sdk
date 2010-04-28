@@ -129,8 +129,6 @@ You can find the HTML files for the examples under the `examples/publish/{platfo
 
 = Notes =
 
-Other pages that might be useful: OldReadMe, OldGs
-
 If you're using Google Chrome (not Chromium) and a 64-bit Linux machine:
   * You must use the *32-bit* version of the browser.  To do so, after downloading the <tt>google-chrome-unstable_current_i386.deb</tt> file, you will need to type in:
   <code>sudo apt-get remove google-chrome-beta # if you have a 64-bit version of chrome installed
