@@ -1,5 +1,94 @@
-#summary Detailed instructions for running already-built Native Client modules
+#summary Detailed instructions for running prebuilt Native Client modules
 
 This page tells you everything you need to know to run a Native Client module that's already been published.
 
-{PENDING: No, it doesn't yet. But it will. For now, see the instructions in GettingStarted.}
+<wiki:toc />
+
+= Before you start =
+
+A few terminology notes:
+
+  * The term _.nexe_ refers to a publishable, platform-independent executable file for a Native Client module.
+  * This page uses _Chromium_ to refer to the most recent browser builds provided by the open-source project behind Google Chrome
+
+A few platform notes:
+
+  * ...
+
+= Step 1: Get Chromium =
+
+Although you can use the Dev channel of Google Chrome to run .nexes, we recommend using Chromium because Native Client is still a work in progress and hasn't completed security testing. Using a known version of Chromium reduces the chance of Native Client bugs, and it lets you use Google Chrome as your primary browser without worrying about Native Client security. {PENDING: is that the best way to explain it?}
+
+Here's what we recommend:
+
+<ol>
+
+<li> Download a Chromium build from http://build.chromium.org/buildbot/continuous/. The following builds have been confirmed to work:
+  * [http://build.chromium.org/buildbot/continuous/win/2010-04-23/45444/chrome-win32.zip 45444] (Windows)
+  * [http://build.chromium.org/buildbot/continuous/mac/2010-04-23/45445/chrome-mac.zip 45445] (Mac)
+  * [http://build.chromium.org/buildbot/continuous/linux/2010-04-23/45444/chrome-linux.zip 45444] (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help on using a 32-bit browser)
+</li>
+
+<li> Unzip Chromium. It doesn't matter too much where you put it, but here are some typical places:
+
+<dl>
+<dt> Windows: </dt>
+<dd> <code> $!ProgramFiles\chrome-win32
+$APPDATA\Chromium\Application
+$USERPROFILE\!AppData\Chromium\Application </code>
+</dd>
+
+<dt> Mac: </dt>
+<dd> <code> /Applications/Chromium.app </code>
+</dd>
+
+<dt> Linux: </dt>
+<dd> <code> /opt/google/chromium </code>
+</dd>
+</dl>
+</li>
+
+</ol>
+
+= Step 2: Launch the browser with --enable-nacl =
+
+To run .nexes, you must launch the browser with the `--enable-nacl` flag. Consider also using the <a href="http://www.chromium.org/developers/creating-and-using-profiles">`--user-data-dir` flag</a>, so you'll have a separate browser cache for Native Client development.
+
+<dl>
+<dt> Windows: </dt>
+<dd> 
+<pre>chrome-win32\chrome --enable-nacl --user-data-dir=%USERPROFILE%\nacl-chrome-profile</pre>
+</dd>
+
+<dt> Mac: </dt>
+<dd> <pre>Chromium/Contents/MacOS/Chromium --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre>
+</dd>
+
+<dt> Linux: </dt>
+<dd> <pre>chromium/chrome --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre>
+</dd>
+</dl>
+
+To make launching the browser easier, you can set up a platform-specific shortcut or alias.
+
+{PENDING: give details here}
+
+= Step 3: Run the samples =
+
+To run a sample, you just visit the page that contains the sample. Here's the URL for the page that links to all the samples:
+
+{PENDING: URL goes here}
+
+= Troubleshooting =
+
+{PENDING: Put troubleshooting stuff here.}
+
+= Configuration details =
+
+== 64-bit Linux and Google Chrome ==
+
+If you're using Google Chrome (not Chromium) and a 64-bit Linux machine:
+  * You must use the *32-bit* version of the browser.  To do so, after downloading the <tt>google-chrome-unstable_current_i386.deb</tt> file, you will need to type in
+    * <tt>sudo apt-get remove google-chrome-beta # if you have a 64-bit version of chrome installed </tt>
+    * <tt>sudo dpkg --force-architecture -i google-chrome-unstable_current_i386.deb</tt>
+  * Some Linux computers do not have drivers for hardware-accelerated 3D graphics installed.  These *must* be installed in order for the Tumbler example to work.  To find out if you are using the software renderer, try running `glxinfo` and look for the Mesa driver.  If it is running, then you need to install a driver that does hardware acceleration. {PENDING: does this apply to 32-bit, as well as 64-bit?}
