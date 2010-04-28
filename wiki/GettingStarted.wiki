@@ -13,10 +13,6 @@ A few terminology notes:
   * To debug your Native Client module, you need to make a _development_ version of it, as opposed to a _publishable_ version of it.
   * This page uses _Chromium_ to refer to the most recent browser builds provided by the open-source project behind Google Chrome
 
-A few platform notes:
-
-  * ...
-
 = Getting the software =
 
 To build and run Native Client modules,
@@ -32,17 +28,13 @@ and the right version of the browser.
 
 <li> Extract the SDK's files.
 
-<dl>
-<dt> Windows: </dt>
-<dd> Run the self-extracting archive:
+<blockquote>
+*Windows:* Run the self-extracting archive.
 <code>naclsdk_win.exe</code>
-</dd>
 
-<dt> Mac or Linux: </dt>
-<dd> Use the `tar` command:
+*Mac or Linux:* Use the `tar` command.
 <code>tar xvf naclsdk_mac.tgz</code>
-</dd>
-</dl>
+</blockquote>
 
 <p> <b>Important:</b>
 Make sure there are *no spaces* in the path to the SDK. For example, the path `C:\Documents and Settings\me\My Documents\nacl-sdk` is bad; you can't successfully build examples under that directory. Instead, you could put the SDK under `C:\nacl-sdk`. 
@@ -77,21 +69,16 @@ Here are the details.
 <ol>
 <li>Launch Chromium with the `--enable-nacl` flag. Consider also using the <a href="http://www.chromium.org/developers/creating-and-using-profiles">`--user-data-dir` flag</a>, which will protect your normal browser cache from your Native Client development. To launch Chromium with these flags set, either you can run it from a command line or you can set up a platform-specific shortcut or alias.
 
-<dl>
-<dt> Windows: </dt>
-<dd> 
+<blockquote>
+*Windows:*
 <code>chrome-win32\chrome --enable-nacl --user-data-dir=%USERPROFILE%\nacl-chrome-profile</code>
-</dd>
 
-<dt> Mac: </dt>
-<dd> <code>Chromium/Contents/MacOS/Chromium --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</code>
-</dd>
+*Mac:*
+<code>Chromium/Contents/MacOS/Chromium --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</code>
 
-<dt> Linux: </dt>
-<dd> <code>chromium/chrome --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</code>
-</dd>
-</dl>
-
+*Linux:*
+<code>chromium/chrome --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</code>
+</blockquote>
 </li>
 
 <li>Start a web server that can serve the contents of `publish` in the `examples` directory.  A simple python-based HTTP server is provided with the SDK, in the `examples` directory:<br />
@@ -144,7 +131,7 @@ You can find the HTML files for the examples under the `examples/publish/{platfo
 Other pages that might be useful: OldReadMe, OldGs
 
 If you're using Google Chrome (not Chromium) and a 64-bit Linux machine:
-  * You must use the *32-bit* version of the browser.  To do so, after downloading the <tt>google-chrome-unstable_current_i386.deb</tt> file, you will need to type in
-    * <tt>sudo apt-get remove google-chrome-beta # if you have a 64-bit version of chrome installed </tt>
-    * <tt>sudo dpkg --force-architecture -i google-chrome-unstable_current_i386.deb</tt>
+  * You must use the *32-bit* version of the browser.  To do so, after downloading the <tt>google-chrome-unstable_current_i386.deb</tt> file, you will need to type in:
+  <code>sudo apt-get remove google-chrome-beta # if you have a 64-bit version of chrome installed
+sudo dpkg --force-architecture -i google-chrome-unstable_current_i386.deb</code>
   * Some Linux computers do not have drivers for hardware-accelerated 3D graphics installed.  These *must* be installed in order for the Tumbler example to work.  To find out if you are using the software renderer, try running `glxinfo` and look for the Mesa driver.  If it is running, then you need to install a driver that does hardware acceleration.
