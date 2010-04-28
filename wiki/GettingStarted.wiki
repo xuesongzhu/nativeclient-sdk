@@ -59,6 +59,13 @@ Make sure there are *no spaces* in the path to the SDK. For example, the path `C
   * [http://build.chromium.org/buildbot/continuous/linux/2010-04-23/45444/chrome-linux.zip 45444] (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help on using a 32-bit browser)
 </li>
 
+<li> Make sure you have Python (version 2.4, 2.5, or 2.6). Here's how to check your Python version:
+
+<code>python -V</code>
+
+If you don't have Python, download it. You can get it for free from http://www.python.org/download/.
+</li>
+
 </ol>
 
 = Running the SDK examples =
