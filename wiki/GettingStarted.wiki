@@ -63,10 +63,10 @@ If you don't have Python, download it. You can get it for free from http://www.p
 
 = Running the SDK examples =
 
-Pre-built versions of the examples are under the SDK's `examples/publish` directory. For example, the 32-bit x86 .nexes are in `examples/publish/x86_32`. To run an example in the SDK, you need to do three things:
+Pre-built 32-bit versions of the examples are under each of the SDK's individual example directories. For example, the 32-bit x86 hello_world.nexe is in `examples/hello_world/hello_world.nexe`. To run an example in the SDK, you need to do three things:
 
   # Launch Chromium with the `--enable-nacl` flag
-  # Start a web server that can serve the pages under `examples/publish`
+  # Start a web server that can serve the pages under `examples`
   # Visit the example's URL in Chromium
 
 Here are the details.
@@ -86,7 +86,7 @@ Here are the details.
 </blockquote>
 </li>
 
-<li>Start a web server that can serve the contents of `publish` in the `examples` directory.  A simple python-based HTTP server is provided with the SDK, in the `examples` directory:<br />
+<li>Start a web server that can serve the contents of the `examples` directory.  A simple python-based HTTP server is provided with the SDK, in the `examples` directory:<br />
 <code> cd examples
 python httpd.py 5103</code>
 This starts a local server on port 5103.
@@ -99,9 +99,9 @@ This starts a local server on port 5103.
 <li>Visit the URL corresponding to the example you want to run.
 You can find the HTML files for the examples under the `examples/publish/{platform}` directory. For example, if you use the SDK's simple HTTP server on a 32-bit x86 computer: <br /><br />
 
-  * `http://localhost:5103/publish/x86_32/hello_world.html`
-  * `http://localhost:5103/publish/x86_32/pi_generator.html`
-  * `http://localhost:5103/publish/x86_32/tumbler.html`
+  * `http://localhost:5103/hello_world/hello_world.html`
+  * `http://localhost:5103/pi_generator/pi_generator.html`
+  * `http://localhost:5103/tumbler/tumbler.html`
 </li>
 
 </ol>
