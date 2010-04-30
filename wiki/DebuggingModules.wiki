@@ -16,7 +16,7 @@ Before you start debugging, do everything in GettingStarted, including:
 
 <li> 
 Build the development version of the SDK examples.
-<blockquote> <pre>make develop</pre> </blockquote>
+<blockquote> <pre>make -f develop</pre> </blockquote>
 </li>
 
 <li>
