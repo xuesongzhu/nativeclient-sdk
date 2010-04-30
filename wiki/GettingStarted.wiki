@@ -5,6 +5,10 @@ This page tells you how to use the Native Client SDK to build and run a Native C
 
 <wiki:toc />
 
+= Wait! =
+
+Although you're welcome to try out the SDK, it's in the middle some big changes right now. The general flow of this page should be correct, but the details are likely to be wrong until this warning has been removed.
+
 = Before you start =
 
 A few terminology notes:
