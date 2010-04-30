@@ -79,7 +79,7 @@ Here are the details.
 <code>chrome-win32\chrome --enable-nacl --user-data-dir=%USERPROFILE%\nacl-chrome-profile</code>
 
 *Mac:*
-<code>Chromium/Contents/MacOS/Chromium --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</code>
+<code>Chromium.app/Contents/MacOS/Chromium --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</code>
 
 *Linux:*
 <code>chromium/chrome --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</code>
