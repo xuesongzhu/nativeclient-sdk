@@ -126,7 +126,7 @@ You can find the HTML files for the examples under the `examples/publish/{platfo
 
 = What to do next =
 
-  * Try building the examples yourself.  Each one comes with a Makefile. For example to build the Hello World example:<br /><code>cd hello_world ; make publish</code>
+  * Try building the examples yourself.  Each one comes with a Makefile. For example to build the Hello World example:<br /><code>cd hello_world ; make</code>
   * If you're using Mac or Linux, try DebuggingModules
   
   * See WritingModules
