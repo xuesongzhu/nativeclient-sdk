@@ -1,5 +1,0 @@
-=How to send feedback on the Native Client SDK=
-
-You can send feedback to the Native Client team in a variety of ways
-  * The best way to send feedback and get help is publicly on our [http://groups.google.com/group/native-client-discuss discussion group] 
-  * If you'd like to send private feedback to the team, you can [mailto:nacl-developer-feedback@google.com NaCl-Developer-Feedback@google.com]
