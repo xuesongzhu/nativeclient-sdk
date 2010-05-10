@@ -1,4 +1,4 @@
-#summary How to give feedback on the Native Client SDK=
+#summary How to give feedback on the Native Client SDK
 
 You can give feedback to the Native Client team (and get help) in a couple of ways. The *preferred* way is posting to the public discussion group:
 
