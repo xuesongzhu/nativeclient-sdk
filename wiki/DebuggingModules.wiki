@@ -1,5 +1,4 @@
 #summary Instructions for debugging examples
-#labels Featured
 
 This page shows you how to inspect an SDK example using the GDB debugger on Mac or Linux.
 
