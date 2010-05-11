@@ -4,6 +4,8 @@ This page shows you how to inspect an SDK example using the GDB debugger on Mac 
 
 *Note:* Windows does not yet have support for debugging.
 
+{PENDING: This page is an early draft. It and the debugging story will change!}
+
 <ol>
 <li>
 Before you start debugging, do everything in GettingStarted, including:
@@ -148,14 +150,3 @@ If you haven't created a link to the example's development version, you can use 
  --load-plugin=/usr/me/native_client_sdk_0_1_0_0/examples/develop/linux_x86/libhello_world.so</pre>
 </dd>
 </dl>
-
-== API notes {PENDING: move these elsewhere} ==
-Pepper APIs are documented here:
-https://wiki.mozilla.org/Plugins:PlatformIndependentNPAPI
-
-Plugin development documented here:
-https://developer.mozilla.org/en/Gecko_Plugin_API_Reference
-
-.nexe files have NPAPI baked in. They also use NPRuntime (a subset of NPAPI that lets you call C++ from !JavaScript). Pepper is an extension of NPAPI.
-
-The Native Client implementation of NPAPI is built on top of SRPC. (You could use SRPC directly, but most people wouldn't.)
