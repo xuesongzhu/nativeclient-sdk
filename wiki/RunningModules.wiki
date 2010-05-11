@@ -2,6 +2,9 @@
 
 This page tells you everything you need to know to run a Native Client module that's already been published.
 
+{PENDING: These instructions are preliminary. For now, you should probably use GettingStarted instead.}
+
+
 <wiki:toc />
 
 = Before you start =
@@ -17,7 +20,7 @@ A few platform notes:
 
 = Step 1: Get Chromium =
 
-Although you can use the Dev channel of Google Chrome to run .nexes, we recommend using Chromium because Native Client is still a work in progress and hasn't completed security testing. Using a known version of Chromium reduces the chance of Native Client bugs, and it lets you use Google Chrome as your primary browser without worrying about Native Client security. {PENDING: is that the best way to explain it?}
+Although you can use the Dev channel of Google Chrome to run .nexes, we recommend using Chromium because Native Client is still a work in progress and hasn't completed security testing. Using a known version of Chromium reduces the chance of Native Client bugs, and it lets you use Google Chrome as your primary browser without worrying about Native Client security.
 
 Here's what we recommend:
 
