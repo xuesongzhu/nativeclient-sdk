@@ -1,4 +1,4 @@
-#summary This code walkthrough describes the structure of a simple Google Chrome application displaying a 3D cube that rotates as the user clicks and drags the mouse over its surface.
+#summary This simple example displays a 3D cube that rotates as the user clicks and drags the mouse over its surface.
 
 <wiki:toc max_depth="2" />
 
