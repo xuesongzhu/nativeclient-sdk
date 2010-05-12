@@ -1,4 +1,5 @@
 #summary Anatomy of a simple Google Chrome web app that uses Native Client
+#labels Featured
 
 <wiki:toc max_depth="2" />
 
