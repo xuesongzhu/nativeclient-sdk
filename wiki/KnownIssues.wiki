@@ -8,5 +8,8 @@ Here are the most important issues in the initial release of the SDK:
   * The SDK provides no facility for debugging at the moment other than printf().  We plan to offer improved debugging support long-term.  ([http://code.google.com/p/nativeclient-sdk/issues/detail?id=12 12])
   * There is no Windows IDE support. ([http://code.google.com/p/nativeclient-sdk/issues/detail?id=13 13])
   * Only the low-level NPAPI and Pepper layers are exposed.  We plan to add a higher-level API for convenience.
+  * We need more samples, with samples that demonstrate all Pepper APIs, threading, intrinsics, and other critical features.
+  * SDK needs a process for community contribution of samples and libraries
+
  
 Also see the [http://code.google.com/p/nativeclient-sdk/issues/list issue tracker] and [http://code.google.com/p/nativeclient-sdk/source/browse/trunk/src/README README].
