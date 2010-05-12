@@ -17,7 +17,7 @@ You have a number of choices for 3D graphics programming in the Google Chrome br
 
 If you're a C++ programmer, your Native Client module can use the standard OpenGL ES 2.0 library, as shown in this example. For simplicity, the Tumbler example uses this approach, since many programmers are familiar with the OpenGL standard. Advanced C++ programmers can also use the Google Chrome [http://src.chromium.org/viewvc/chrome/trunk/src/gpu/command_buffer/docs/gles2_cmd_format_docs.txt?view=markup command buffer interface], which is the lowest level for a Native Client module to access graphics capabilities.
 
-= Program Structure =  
+= Program structure =  
 
 This program provides a good example of how to use both the high- and low-level programming environments offered by Google Chrome. Functionally, Tumbler can be divided into three main parts, as shown in this diagram:
 
