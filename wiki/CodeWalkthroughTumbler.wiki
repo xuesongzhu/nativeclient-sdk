@@ -1,4 +1,4 @@
-#summary Anatomy of a simple Google Chrome web app that uses Native Client.
+#summary Anatomy of a simple Google Chrome web app that uses Native Client
 
 <wiki:toc max_depth="2" />
 
