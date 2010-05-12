@@ -9,4 +9,4 @@ Here are the most important issues in the initial release of the SDK:
   * There is no Windows IDE support. ([http://code.google.com/p/nativeclient-sdk/issues/detail?id=13 13])
   * Only the low-level NPAPI and Pepper layers are exposed.  We plan to add a higher-level API for convenience.
  
-Also see the [http://code.google.com/p/nativeclient-sdk/issues/list issue tracker].
+Also see the [http://code.google.com/p/nativeclient-sdk/issues/list issue tracker] and [http://code.google.com/p/nativeclient-sdk/source/browse/trunk/src/README README].
