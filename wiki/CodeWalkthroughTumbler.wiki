@@ -6,7 +6,7 @@
 
 Tumbler is an example of how to create a Google Chrome application that uses both C++ and !JavaScript. This example creates a simple 3D cube with a virtual (invisible) trackball and dragger that allow the user to spin the cube. The code illustrates the basic structure of a simple Google Chrome program that takes advantage of the simplicity of !JavaScript event handling as well as the powerful low-level computation and C++ graphics environment provided by Native Client.
 
-http://nativeclient-sdk.googlecode.com/svn/data/site/tumblerInPage.png"
+http://nativeclient-sdk.googlecode.com/svn/data/site/tumblerInPage.png
 
 See [http://code.google.com/p/nativeclient-sdk/wiki/GettingStarted Getting Started] for information on how to set up and run the `tumbler.html` example.
 
