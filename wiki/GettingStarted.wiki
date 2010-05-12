@@ -130,8 +130,9 @@ This starts a local server on port 5103.
 
 = Notes =
 
-If you're using Google Chrome (not Chromium) and a 64-bit Linux machine:
-  * You must use the *32-bit* version of the browser.  To do so, after downloading the <tt>google-chrome-unstable_current_i386.deb</tt> file, you will need to type in:
+  * If you're using Google Chrome (not Chromium) and a 64-bit Linux machine:
+    * You must use the *32-bit* version of the browser.  To do so, after downloading the <tt>google-chrome-unstable_current_i386.deb</tt> file, you will need to type in:
   <code>sudo apt-get remove google-chrome-beta # if you have a 64-bit version of chrome installed
 sudo dpkg --force-architecture -i google-chrome-unstable_current_i386.deb</code>
-  * Some Linux computers do not have drivers for hardware-accelerated 3D graphics installed.  These *must* be installed in order for the Tumbler example to work.  To find out if you are using the software renderer, try running `glxinfo` and look for the Mesa driver.  If it is running, then you need to install a driver that does hardware acceleration.
+    * Some Linux computers do not have drivers for hardware-accelerated 3D graphics installed.  These *must* be installed in order for the Tumbler example to work.  To find out if you are using the software renderer, try running `glxinfo` and look for the Mesa driver.  If it is running, then you need to install a driver that does hardware acceleration.
+  * The SDK is a work in progress. See KnownIssues.
