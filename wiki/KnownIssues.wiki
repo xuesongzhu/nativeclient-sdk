@@ -1,6 +1,6 @@
 #summary Known issues in the initial release of the SDK
 
-  * Chromium must be started with --enable-Knnacl to run NaCl modules
+  * Chromium must be started with --enable-nacl to run NaCl modules
   * [http://code.google.com/p/nativeclient-sdk/issues/detail?id=10 10]: Chromium doesn’t respect markup to choose the right architecture binary, so samples will not load if the wrong arch nexe is referenced.  
   * [http://code.google.com/p/nativeclient-sdk/issues/detail?id=11 11]: The ARM code generation path is not working in the SDK yet. 
   * [http://code.google.com/p/nativeclient-sdk/issues/detail?id=12 12]: The SDK provides no facility for debugging at the moment other than printf().  We plan to offer improved debugging support long-term.  
