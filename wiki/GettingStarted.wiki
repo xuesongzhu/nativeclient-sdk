@@ -63,7 +63,7 @@ Pre-built 32-bit versions of the examples are under each of the SDK's individual
 
   # Launch Chromium with the `--enable-nacl` flag
   # Start a web server that can serve the pages under `examples`
-  # Visit the example's URL in Chromium
+  # Visit the example's HTTP URL in Chromium
 
 Here are the details.
 
@@ -92,7 +92,7 @@ This starts a local server on port 5103.
 </p>
 </li>
 
-<li>Each example has its own directory and HTML file. Visit the URL corresponding to the example you want to run:<br />
+<li>Each example has its own directory and HTML file. Visit the HTTP URL corresponding to the example you want to run:<br />
 
   * `http://localhost:5103/hello_world/hello_world.html`
   * `http://localhost:5103/pi_generator/pi_generator.html`
