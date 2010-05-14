@@ -17,28 +17,23 @@ Before you start debugging, do everything in GettingStarted, including:
 
 <li> 
 Build the development version of the SDK examples.
-<blockquote> <pre>make -f develop</pre> </blockquote>
-</li>
-
-<li>
-In the platform-specific plugin directory, create a link to the development version of the Hello World sample. On Mac, the plugin directory is `~/Library/Internet Plug-Ins`.  On Linux, it's `~/.mozilla/plugins`.
-
 <dl>
 <dt> Mac example: </dt>
 <dd>
-<pre> cd ~/Library/Internet\ Plug-Ins/
-ln -s /nacl-sdk/native_client_sdk_0_1_199_0/examples/develop/mac_x86/hello_world.plugin .</pre>
+Open the supplied Xcode project (for example, `hello_world/hello_world.xcodeproj`), then select the target that ends in "develop" and build it.  You can optionally add a custom executable that points to your version of
+Chromium; be sure to add the flags: `--enable-nacl --internal-pepper --no-sandbox --single-process`.  The "develop" build target automatically sets up the develop version for you; for example, once you build the Hello World example, you should see `~/Library/Internet Plug-Ins/hello_world.plugin`
 </dd>
 
 <dt> Linux example: </dt>
 <dd>
+<blockquote> <pre>make -f develop.mk</pre> </blockquote>
+In the platform-specific plugin directory, create a link to the development version of the Hello World sample.  On Linux, it's `~/.mozilla/plugins`.
 <pre> cd ~/.mozilla/plugins
 ln -s /nacl-sdk/native_client_sdk_0_1_199_0/examples/develop/linux_x86/libhello_world.so .</pre>
 
+*Note:* Remember to add the '.' at the end of the `ln` command line.
 </dd>
 </dl>
-
-*Note:* Don't forget the '.' at the end of the `ln` command line.
 </li>
 
 <li>
