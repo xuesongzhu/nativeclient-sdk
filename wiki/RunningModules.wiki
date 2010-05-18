@@ -80,7 +80,7 @@ To make launching the browser easier, you can set up a platform-specific shortcu
 
 To run a sample, you just visit the page that contains the sample. Here's the URL for the page that links to all the samples:
 
-{PENDING: URL goes here}
+    http://nativeclient-sdk.googlecode.com/svn/trunk/src/docs/gallery/index.html
 
 = Troubleshooting =
 
