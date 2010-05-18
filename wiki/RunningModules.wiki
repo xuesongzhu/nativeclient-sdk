@@ -1,9 +1,6 @@
 #summary Detailed instructions for running prebuilt Native Client modules
 
-This page tells you everything you need to know to run a Native Client module that's already been published.
-
-{PENDING: These instructions are preliminary. For now, you should probably use GettingStarted instead.}
-
+This page tells you everything you need to know to run a Native Client module that's already been published. If you've already followed GettingStarted, much of this should be familiar.
 
 <wiki:toc />
 
