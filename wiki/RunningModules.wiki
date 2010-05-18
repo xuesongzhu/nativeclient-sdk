@@ -1,6 +1,10 @@
 #summary Detailed instructions for running prebuilt Native Client modules
 
-This page tells you everything you need to know to run a Native Client module that's already been published. If you've already followed GettingStarted, much of this should be familiar.
+This page tells you everything you need to know to run a Native Client module that's already been published.
+
+-------
+*Note:* If you've already followed GettingStarted, this information should look familiar. The differences: this goes into more detail about how to run modules, and this page points to some precompiled examples that are already online.
+-------
 
 <wiki:toc />
 
@@ -78,8 +82,12 @@ To make launching the browser easier, you can set up a platform-specific shortcu
 
 To run a sample, you just visit the page that contains the sample. Here's the URL for the page that links to all the samples:
 
-    http://nativeclient-sdk.googlecode.com/svn/trunk/src/docs/gallery/index.html
+    `http://nativeclient-sdk.googlecode.com/svn/trunk/src/docs/gallery/index.html`
+
+Copy that URL into your Native Client-enabled copy of Chromium.
+
+{PENDING: say what to expect.}
 
 = Troubleshooting =
 
-{PENDING: Put troubleshooting stuff here.}
+{PENDING: TBD}
