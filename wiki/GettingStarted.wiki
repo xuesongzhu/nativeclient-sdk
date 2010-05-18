@@ -1,7 +1,9 @@
 #summary Instructions for building and running examples
 #labels Featured
 
-This page tells you how to use the Native Client SDK to build and run a Native Client module. {PENDING: This page is preliminary. We plan to split it up into one page per platform.}
+This page tells you how to use the Native Client SDK to build and run a Native Client module. If you don't want to use the SDK — if you're interested only in running some prebuilt Native Client modules — then instead see RunningModules.
+
+*Note:* This page and the procedures it describes are preliminary. We expect using the SDK to get easier, and we expect to have a separate page for each platform.
 
 <wiki:toc />
 
