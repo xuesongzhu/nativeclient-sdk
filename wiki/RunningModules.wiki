@@ -2,9 +2,9 @@
 
 This page tells you everything you need to know to run a Native Client module that's already been published.
 
--------
-*Note:* If you've already followed GettingStarted, this information should look familiar. The differences: this goes into more detail about how to run modules, and this page points to some precompiled examples that are already online.
--------
+  -------
+  <b>Note:</b> If you've already followed GettingStarted, this information should look familiar. The differences: this goes into more detail about how to run modules, and this page points to some precompiled examples that are already online.
+  -------
 
 <wiki:toc />
 
