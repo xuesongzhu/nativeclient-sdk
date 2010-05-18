@@ -80,7 +80,7 @@ To make launching the browser easier, you can set up a platform-specific shortcu
 
 = Step 3: Run the samples =
 
-To run a sample, you just visit the page that contains the sample. Here's the URL for a page that includes a few samples:
+To run a Native Client module, you just visit the page that includes it. Here's the URL for a page that includes a few samples:
 
     `http://nativeclient-sdk.googlecode.com/svn/trunk/src/docs/gallery/index.html`
 
