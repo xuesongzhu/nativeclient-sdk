@@ -57,7 +57,7 @@ $USERPROFILE\!AppData\Chromium\Application </code>
 
 = Step 2: Launch the browser with --enable-nacl =
 
-To run .nexes, you must launch the browser with the `--enable-nacl` flag. Consider also using the <a href="http://www.chromium.org/developers/creating-and-using-profiles">`--user-data-dir` flag</a>, so you'll have a separate browser cache for Native Client development.
+To run .nexes, you must launch the browser with the `--enable-nacl` flag. Consider also using the <a href="http://www.chromium.org/developers/creating-and-using-profiles">`--user-data-dir` flag</a>, so you'll have a separate browser cache for Native Client.
 
 <dl>
 <dt> Windows: </dt>
