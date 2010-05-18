@@ -86,8 +86,8 @@ To run a Native Client module, you just visit the page that includes it. Here's 
 
 Copy that URL into your Native Client-enabled copy of Chromium.
 
-{PENDING: say what to expect.}
+When the page loads, you should see two columns. The left column describes each sample; the right one contains the sample.
 
 = Troubleshooting =
 
-{PENDING: TBD}
+  * If you visit the URL from Step 3 and don't see anything in the second column, then you're probably using the wrong browser to visit the URL. Be sure to start Chromium with --enable-nacl, and to use that copy of the browser to visit the URL.
