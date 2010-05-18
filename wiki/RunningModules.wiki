@@ -72,7 +72,7 @@ To run .nexes, you must launch the browser with the `--enable-nacl` flag. Consid
 
 To make launching the browser easier, you can set up a platform-specific shortcut or alias.
 
-{PENDING: give details here}
+<wiki:comment> PENDING: give details here </wiki:comment>
 
 = Step 3: Run the samples =
 
@@ -86,4 +86,4 @@ When the page loads, you should see two columns. The left column describes each 
 
 = Troubleshooting =
 
-  * If you visit the URL from Step 3 and don't see anything in the second column, then you're probably using the wrong browser to visit the URL. Be sure to use a recent version of Chromium (see Step 1), to start it with --enable-nacl (see Step 2), and to use that browser to visit the URL.
+  * If you visit the URL from Step 3 and don't see anything in the second column, then you're probably using the wrong browser to visit the URL. Be sure to use a recent version of Chromium (see Step 1), start it with --enable-nacl (see Step 2), and use that browser to visit the URL.
