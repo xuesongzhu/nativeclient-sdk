@@ -45,7 +45,8 @@ Make sure there are *no spaces* in the path to the SDK. For example, the path `C
 <li> Download and unarchive a Chromium build from http://build.chromium.org/buildbot/continuous/. The following builds have been confirmed to work:
   * [http://build.chromium.org/buildbot/continuous/win/2010-05-14/47357/chrome-win32.zip 47357] (Windows)
   * [http://build.chromium.org/buildbot/continuous/mac/2010-05-14/47357/chrome-mac.zip 47357] (Mac)
-  * [http://build.chromium.org/buildbot/continuous/linux/2010-05-14/47357/chrome-linux.zip 47357] (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help on using a 32-bit browser)
+  * [http://build.chromium.org/buildbot/continuous/linux/2010-05-14/47357/chrome-linux.zip 47357] (32-bit Linux)
+  * [http://build.chromium.org/buildbot/continuous/linux64/2010-05-14/47357/chrome-linux.zip 47357] (64-bit Linux)
 </li>
 
 <li> Make sure you have Python (version 2.4, 2.5, or 2.6). Here's how to check your Python version:
@@ -134,5 +135,6 @@ This starts a local server on port 5103.
     * You must use the *32-bit* version of the browser.  To do so, after downloading the <tt>google-chrome-unstable_current_i386.deb</tt> file, you will need to type in:
   <code>sudo apt-get remove google-chrome-beta # if you have a 64-bit version of chrome installed
 sudo dpkg --force-architecture -i google-chrome-unstable_current_i386.deb</code>
+    * See https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help on using a 32-bit browser with a 64-bit Linux OS.
     * Some Linux computers do not have drivers for hardware-accelerated 3D graphics installed.  These *must* be installed in order for the Tumbler example to work.  To find out if you are using the software renderer, try running `glxinfo` and look for the Mesa driver.  If it is running, then you need to install a driver that does hardware acceleration.
   * The SDK is a work in progress. See KnownIssues.
