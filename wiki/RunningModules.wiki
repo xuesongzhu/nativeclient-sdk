@@ -82,7 +82,9 @@ To run a Native Client module, you just visit the page that includes it. Here's 
 
 Copy that URL into your Native Client-enabled copy of Chromium.
 
-When the page loads, you should see two columns. The left column describes each sample; the right one contains the sample.
+When the page loads, you should see two columns. The left column describes each sample; the right one contains the sample. It should look something like this:
+
+    http://nativeclient-sdk.googlecode.com/svn/data/site/onlineSamples.png
 
 = Troubleshooting =
 
