@@ -13,7 +13,7 @@ A few terminology notes:
 
   * The term _.nexe_ refers to a publishable, platform-independent executable file for a Native Client module.
   * To debug your Native Client module, you need to make a _development_ version of it, as opposed to a _publishable_ version of it.
-  * This page uses _Chromium_ to refer to the most recent browser builds provided by the open-source project behind Google Chrome
+  * This page uses _Chromium_ to refer to the most recent browser builds provided by the open-source project behind Google Chrome.
 
 = Getting the software =
 
