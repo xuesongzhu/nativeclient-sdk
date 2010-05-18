@@ -27,9 +27,10 @@ Here's what we recommend:
 <ol>
 
 <li> Download a Chromium build from http://build.chromium.org/buildbot/continuous/. The following builds have been confirmed to work:
-  * [http://build.chromium.org/buildbot/continuous/win/2010-04-23/45444/chrome-win32.zip 45444] (Windows)
-  * [http://build.chromium.org/buildbot/continuous/mac/2010-04-23/45445/chrome-mac.zip 45445] (Mac)
-  * [http://build.chromium.org/buildbot/continuous/linux/2010-04-23/45444/chrome-linux.zip 45444] (Linux; if you have a 64-bit machine, see https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help on using a 32-bit browser)
+  * [http://build.chromium.org/buildbot/continuous/win/2010-05-14/47357/chrome-win32.zip 47357] (Windows)
+  * [http://build.chromium.org/buildbot/continuous/mac/2010-05-14/47357/chrome-mac.zip 47357] (Mac)
+  * [http://build.chromium.org/buildbot/continuous/linux/2010-05-14/47357/chrome-linux.zip 47357] (32-bit Linux)
+  * [http://build.chromium.org/buildbot/continuous/linux64/2010-05-14/47357/chrome-linux.zip 47357] (64-bit Linux)
 </li>
 
 <li> Unzip Chromium. It doesn't matter too much where you put it, but here are some typical places:
@@ -85,13 +86,3 @@ To run a sample, you just visit the page that contains the sample. Here's the UR
 = Troubleshooting =
 
 {PENDING: Put troubleshooting stuff here.}
-
-= Configuration details =
-
-== 64-bit Linux and Google Chrome ==
-
-If you're using Google Chrome (not Chromium) and a 64-bit Linux machine:
-  * You must use the *32-bit* version of the browser.  To do so, after downloading the <tt>google-chrome-unstable_current_i386.deb</tt> file, you will need to type in
-    * <tt>sudo apt-get remove google-chrome-beta # if you have a 64-bit version of chrome installed </tt>
-    * <tt>sudo dpkg --force-architecture -i google-chrome-unstable_current_i386.deb</tt>
-  * Some Linux computers do not have drivers for hardware-accelerated 3D graphics installed.  These *must* be installed in order for the Tumbler example to work.  To find out if you are using the software renderer, try running `glxinfo` and look for the Mesa driver.  If it is running, then you need to install a driver that does hardware acceleration. {PENDING: does this apply to 32-bit, as well as 64-bit?}
