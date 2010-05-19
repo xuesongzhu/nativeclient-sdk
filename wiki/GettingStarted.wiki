@@ -97,9 +97,10 @@ This starts a local server on port 5103.
 
 <li>Each example has its own directory and HTML file. Visit the HTTP URL corresponding to the example you want to run:<br />
 
-  * `http://localhost:5103/hello_world/hello_world.html`
-  * `http://localhost:5103/pi_generator/pi_generator.html`
-  * `http://localhost:5103/tumbler/tumbler.html`
+  * http://localhost:5103/hello_world/hello_world.html
+  * http://localhost:5103/pi_generator/pi_generator.html
+  * http://localhost:5103/sine_synth/sine_synth.html
+  * http://localhost:5103/tumbler/tumbler.html
 </li>
 
 </ol>
