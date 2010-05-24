@@ -1,0 +1,7 @@
+#summary Links to where APIs are documented
+
+This page has links to the APIs that you can use while developing your Native Client module.
+
+NPAPI:
+  * [https://developer.mozilla.org/en/Gecko_Plugin_API_Reference NPAPI Reference]
+  * [https://wiki.mozilla.org/NPAPI:Pepper Pepper API Proposal]
