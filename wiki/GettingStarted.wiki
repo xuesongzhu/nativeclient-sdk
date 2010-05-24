@@ -134,6 +134,8 @@ This starts a local server on port 5103.
   
   * Read CodeWalkthroughTumbler.
 
+  * Read up on the APIs that Native Client modules can use: ApiDoc
+
 = Notes =
 
   * If you're using Google Chrome (not Chromium) and a 64-bit Linux machine:
