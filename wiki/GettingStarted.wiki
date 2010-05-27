@@ -95,7 +95,7 @@ This starts a local server on port 5103.
 </p>
 </li>
 
-<li>Each example has its own directory and HTML file. Visit the HTTP URL corresponding to the example you want to run:<br />
+<li>Each example has its own directory and HTML file. *In a browser that you started with --enable-nacl*, visit the HTTP URL corresponding to the example you want to run:<br />
 
   * http://localhost:5103/hello_world/hello_world.html
   * http://localhost:5103/pi_generator/pi_generator.html
