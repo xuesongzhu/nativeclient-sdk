@@ -116,13 +116,15 @@ This starts a local server on port 5103.
   * A partially red square with an inscribed blue quarter-circle should appear.  Black speckles are painted on the square, these represent Monte Carlo points.
   * The example stops by itself after iterating for a while.
 
+=== Sine Wave Synthesizer ===
+  * Click the Play button to play a tone.
+  * Try typing in a new frequency (say, 880) and click Play again (or press Enter).
+
 === Tumbler ===
-  * A magenta square should appear.  This is the front face of a 3D cube.
+  * A magenta square should appear.  (If it doesn't, click the blank area below the text.) This square is the front face of a 3D cube.
   * You can use the mouse to tumble the cube.  Click and drag over the cube and see what happens!
 
 *Bonus:* Details about the implementation of the Tumbler example are in CodeWalkthroughTumbler.
-
-{PENDING: More troubleshooting should go here.}
 
 
 = What to do next =
