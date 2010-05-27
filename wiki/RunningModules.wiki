@@ -62,7 +62,7 @@ To run .nexes, you must launch the browser with the `--enable-nacl` flag. Consid
 </dd>
 
 <dt> Mac: </dt>
-<dd> <pre>Chromium/Contents/MacOS/Chromium --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre>
+<dd> <pre>Chromium.app/Contents/MacOS/Chromium --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre>
 </dd>
 
 <dt> Linux: </dt>
