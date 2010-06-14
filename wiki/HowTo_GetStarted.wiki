@@ -124,7 +124,7 @@ This starts a local server on port 5103.
   * A magenta square should appear.  (If it doesn't, click the blank area below the text.) This square is the front face of a 3D cube.
   * You can use the mouse to tumble the cube.  Click and drag over the cube and see what happens!
 
-*Bonus:* Details about the implementation of the Tumbler example are in CodeWalkthroughTumbler.
+*Bonus:* Details about the implementation of the Tumbler example are in CodeWalkthrough_Tumbler.
 
 
 = What to do next =
@@ -134,7 +134,7 @@ This starts a local server on port 5103.
  
   * If you're using Mac or Linux, try HowTo_DebugModules.
   
-  * Read CodeWalkthroughTumbler.
+  * Read CodeWalkthrough_Tumbler.
 
   * Read up on the APIs that Native Client modules can use: Ref_ApiDoc
 
