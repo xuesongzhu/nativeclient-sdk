@@ -1,7 +1,7 @@
 #summary Instructions for building and running examples
 #labels Featured
 
-This page tells you how to use the Native Client SDK to build and run a Native Client module. If you don't want to use the SDK — if you're interested only in running some prebuilt Native Client modules — then instead see RunningModules.
+This page tells you how to use the Native Client SDK to build and run a Native Client module. If you don't want to use the SDK — if you're interested only in running some prebuilt Native Client modules — then instead see HowTo_RunModules.
 
 *Note:* This page and the procedures it describes are preliminary. We expect using the SDK to get easier, and we expect to have a separate page for each platform.
 
@@ -130,13 +130,13 @@ This starts a local server on port 5103.
 = What to do next =
 
   * Try building the examples yourself.  Each one comes with a Makefile. For example to build the Hello World example:<br /><code>cd examples/hello_world ; make</code>
-  * If you haven't already run the online examples as described in RunningModules, run them.
+  * If you haven't already run the online examples as described in HowTo_RunModules, run them.
  
-  * If you're using Mac or Linux, try DebuggingModules.
+  * If you're using Mac or Linux, try HowTo_DebugModules.
   
   * Read CodeWalkthroughTumbler.
 
-  * Read up on the APIs that Native Client modules can use: ApiDoc
+  * Read up on the APIs that Native Client modules can use: Ref_ApiDoc
 
 = Notes =
 
@@ -146,4 +146,4 @@ This starts a local server on port 5103.
 sudo dpkg --force-architecture -i google-chrome-unstable_current_i386.deb</code>
     * See https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help on using a 32-bit browser with a 64-bit Linux OS.
     * Some Linux computers do not have drivers for hardware-accelerated 3D graphics installed.  These *must* be installed in order for the Tumbler example to work.  To find out if you are using the software renderer, try running `glxinfo` and look for the Mesa driver.  If it is running, then you need to install a driver that does hardware acceleration.
-  * The SDK is a work in progress. See KnownIssues.
+  * The SDK is a work in progress. See Ref_KnownIssues.
