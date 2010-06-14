@@ -8,7 +8,7 @@ This page shows you how to inspect an SDK example using the GDB debugger on Mac 
 
 <ol>
 <li>
-Before you start debugging, do everything in GettingStarted, including:
+Before you start debugging, do everything in HowTo_GetStarted, including:
   * Make sure your version of Google Chrome can run Native Client examples
   * Download and unarchive the SDK
   * Build the SDK examples
@@ -86,7 +86,7 @@ Answer *y* to the question "Make breakpoint pending on future shared library loa
 </li>
 
 <li>
-In the browser, instead of going to http://.../publish/.../hello_world.html as you did in GettingStarted, change *publish* to *develop* and add *#develop* to the end of the URL. For example:
+In the browser, instead of going to http://.../publish/.../hello_world.html as you did in HowTo_GetStarted, change *publish* to *develop* and add *#develop* to the end of the URL. For example:
 
      http://localhost:5103/develop/mac_x86/hello_world.html#develop
 
