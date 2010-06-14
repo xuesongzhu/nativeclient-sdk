@@ -1,2 +1,3 @@
 #summary {obsolete}
-This page has been replaced by HowTo_GetStarted.
+
+This page has been replaced by HowTo_GetStarted. Please update your links.
