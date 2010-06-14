@@ -11,7 +11,7 @@ Tumbler is an example of how to create a Google Chrome application that uses bot
 
 http://nativeclient-sdk.googlecode.com/svn/data/site/tumblerInPage.png
 
-See [http://code.google.com/p/nativeclient-sdk/wiki/GettingStarted Getting Started] for information on how to set up and run the `tumbler.html` example.
+See [HowTo_GetStarted Getting Started] for information on how to set up and run the `tumbler.html` example.
 
 
 
