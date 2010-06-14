@@ -1,4 +1,3 @@
 #summary {obsolete}
-#labels Featured
 
 This page has moved to HowTo_GiveFeedback. Please update your links.
