@@ -3,7 +3,7 @@
 This page tells you everything you need to know to run a Native Client module that's already been published.
 
   -------
-  <b>Note:</b> If you've already followed GettingStarted, the information on this page probably looks familiar. This page has more details about how to run modules, with the goal of helping you run examples that are already online.
+  <b>Note:</b> If you've already followed HowTo_GetStarted, the information on this page probably looks familiar. This page has more details about how to run modules, with the goal of helping you run examples that are already online.
   -------
 
 <wiki:toc />
