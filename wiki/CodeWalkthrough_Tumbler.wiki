@@ -1,0 +1,283 @@
+#summary Anatomy of a simple Google Chrome web app that uses Native Client
+#labels Featured
+
+<h1>Code Walkthrough: Tumbler Example</h1>
+
+<wiki:toc max_depth="2" />
+
+= Introduction =
+
+Tumbler is an example of how to create a Google Chrome application that uses both C++ and !JavaScript. This example creates a simple 3D cube with a virtual (invisible) trackball and dragger that allow the user to spin the cube. The code illustrates the basic structure of a simple Google Chrome program that takes advantage of the simplicity of !JavaScript event handling as well as the powerful low-level computation and C++ graphics environment provided by Native Client.
+
+http://nativeclient-sdk.googlecode.com/svn/data/site/tumblerInPage.png
+
+See [HowTo_GetStarted Getting Started] for information on how to set up and run the `tumbler.html` example.
+
+
+
+*Note: About 3D graphics programming in Google Chrome.*
+You have a number of choices for 3D graphics programming in the Google Chrome browser. For !JavaScript, you can use the [https://www.khronos.org/webgl/wiki_1_15/index.php?title=Main_Page WebGL graphics library]. WebGL is based on OpenGL ES 2.0 and uses the OpenGL shading language, GLSL. This library is cross-platform and available on Windows, Macintosh, and Linux browsers. 
+
+If you're a C++ programmer, your Native Client module can use the standard OpenGL ES 2.0 library, as shown in this example. For simplicity, the Tumbler example uses this approach, since many programmers are familiar with the OpenGL standard. Advanced C++ programmers can also use the Google Chrome [http://src.chromium.org/viewvc/chrome/trunk/src/gpu/command_buffer/docs/gles2_cmd_format_docs.txt?view=markup command buffer interface], which is the lowest level for a Native Client module to access graphics capabilities.
+
+= Program structure =  
+
+This program provides a good example of how to use both the high- and low-level programming environments offered by Google Chrome. Functionally, Tumbler can be divided into three main parts, as shown in this diagram:
+
+http://nativeclient-sdk.googlecode.com/svn/data/site/tumblerStructure.png
+
+
+Each part typically performs these tasks:
+
+  * *!JavaScript application*: Provides the user interface and event handling mechanisms as well as the main HTML document; performs some computation.
+  * *!JavaScript bridge*: Forwards certain !JavaScript function calls to the Native Client module for processing; unpacks the !JavaScript function arguments and repackages them as arguments to C++ methods to be handled by Native Client.
+  * *Native Client module*: Provides powerful numerical computation as well as the graphics rendering engine. Controls rendering into the display area that is set up in the HTML document.
+
+The following paragraphs describe each part in more detail.
+
+= Example files and what they do =
+
+This example contains a number of small files.  Here is a description of what they do, with the most important files listed at the beginning of each list.
+
+== !JavaScript application files ==
+
+  * *`tumbler.html`*: The HTML document that contains the Tumbler application.  
+  * *`tumbler.js`*: Defines the application object, which loads the Native Client module, pulls in resources, initializes the application, and runs it.
+  * *`dragger.js`*: Performs standard !JavaScript event processing.  Listens for mouse events and calls appropriate functions. Uses standard !JavaScript functions, but you could substitute your favorite !JavaScript library for these tasks. 
+  * *`trackball.js`*: Maps 2D mouse drag events to 3D rotations by simulating a trackball that is rolled by moving a mouse.
+  * *`vector.js`*: A simple vector library.
+
+== Bridge files ==
+
+  * *`scripting bridge.cc`* (and `scripting bridge.h`): Calls C++ methods in the Native Client module that correspond to !JavaScript functions invoked in the !JavaScript application; unpacks the !JavaScript functions and arguments and repackages them for use by their corresponding C++ methods in Native Client.
+  * *`npp_gate.cc`*: NPAPI functions that enable the browser to make calls to the Native Client module.
+  * *`npn_bridge.cc`*: NPAPI functions that enable the Native Client module to make calls to the browser.
+  * *`tumbler_module.cc`*: Native Client module container that is called by the browser to perform one-time initialization and shutdown procedures. 
+
+== Native Client module files ==
+
+  * *`tumbler.cc`* (and `tumbler.h`):  The application controller in the Native Client module. Sets up the application context and the 3D graphics context.
+  * *`cube.cc`* (and `cube.h`): The render manager.  Creates and draws the cube.
+  * *`shader_util.cc`* (and `shader_util.h`): Simple helper functions that load shaders and create program objects.
+  * *`transforms.cc`* (and `transforms.h`): Simple set of 4x4 matrix routines.
+  * *`basicmacros.h`*: General-purpose C++ macros.
+
+== Other files ==
+
+The `debug_support` directory contains a number of files used for debugging on each platform.
+
+
+= A closer look at the !JavaScript application =
+
+The !JavaScript application includes the HTML document, which displays the rendered output, as well as the supporting !JavaScript files that create the application and run it. Most Google Chrome applications will contain at least an HTML document, a !JavaScript file that creates and runs the application object, and one or more supporting !JavaScript files for user interface objects and simple programming tasks and calculations suitable for the !JavaScript layer.
+
+== HTML document (tumbler.html) ==
+
+The HTML document is defined in the `tumbler.html` file. This document loads and runs the Tumbler application. It also references the !JavaScript files used by the app. The body heading and text appear in the browser window above the space where the application content (the cube) is displayed. The `run()` function (in `tumbler.js`) defines the width and height of the display window for the app. 
+
+Here is the complete `tumbler.html` file:
+
+{{{
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <!--
+  Copyright (c) 2009 The Native Client Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the LICENSE file.
+  -->
+  <head>
+    <title>Interactive Cube Example</title>
+    <script type="text/javascript">
+      // Provide the tumbler namespace
+      tumbler = {};
+    </script>
+    <script type="text/javascript" src="dragger.js"></script>
+    <script type="text/javascript" src="tumbler.js"></script>
+    <script type="text/javascript" src="vector3.js"></script>
+    <script type="text/javascript" src="trackball.js"></script>
+  </head>
+    <body id="bodyId">
+    <h1>Interactive Cube Example</h1>
+    <p>
+      The Native Client module executed in this page draws a 3D cube
+      and allows you to rotate it using a virtual trackball method.
+    </p>
+    <!-- For development, use a #develop location, which loads the develop
+    version of the module.
+    -->
+    <div id="tumbler_content"></div>
+    <script type="text/javascript">
+      // This function is called when the tumbler module is loaded.
+      function moduleDidLoad() {
+        var module =
+            document.getElementById(tumbler.Application.TUMBLER_MODULE_NAME);
+        tumbler.application.moduleDidLoad(module);
+      }
+
+      tumbler.application = new tumbler.Application();
+      tumbler.application.run('tumbler_content');
+    </script>
+  </body>
+</HTML>
+}}}
+
+== Application object (tumbler.js) ==
+
+The `tumbler.js` file creates and runs the application. This object creates the dragger object and connects it to the browser to receive raw mouse events (`mouse_down`, `mouse_move`, `mouse_up`).
+
+Here is the code for the `run()` function, found in `tumbler.js`:
+
+{{{
+tumbler.Application.prototype.run = function(opt_contentDivName) {
+  contentDivName = opt_contentDivName || tumbler.Application.DEFAULT_DIV_NAME;
+  var contentDiv = document.getElementById(contentDivName);
+  if (!contentDiv) {
+    alert('missing ' + contentDivName);
+    throw new Error('Application.run(): missing element ' + "'" +
+        contentDivName + "'");
+  }
+  // Load the module.
+  contentDiv.innerHTML = '<embed id="'
+                        + tumbler.Application.TUMBLER_MODULE_NAME + '" '
+                        + 'src="tumbler.nexe" '
+                        + 'type="application/x-nacl-srpc" '
+                        + 'width="480" height="480" '
+                        + 'dimensions="3" '
+                        + 'onload="moduleDidLoad()" />'
+}
+}}}
+
+
+== User interface (trackball.js and dragger.js) ==
+
+The `trackball.js` and `dragger.js` files provide the user interface for this application. This UI is essentially the _view_ in a model-view-controller structure. In this example, the trackball also functions as the _controller_ in a model-view-controller paradigm.
+
+Event handling in this example consists of three layers, all using standard !JavaScript event programming:
+
+  * Mouse events are captured by the browser and sent to the dragger.
+  * The dragger converts the mouse events to drag events (`drag_start`, `drag`, `drag_end`).
+  * The trackball converts the drag events to rotations, which are sent to the Native Client layer to modify the camera orientation.
+
+Here is the code in `trackball.js` where the trackball converts the drag events to quaternions that are eventually used to set the new camera orientation.
+
+{{{
+tumbler.Trackball.prototype.handleDrag =
+    function(controller, dragEvent) {
+  // Flip the y-coordinate so that the 2D origin is in the lower-left corner.
+  var frameSize = { width: controller.offsetWidth,
+                    height: controller.offsetHeight };
+  var flippedY = { x: dragEvent.clientX,
+                   y: frameSize.height - dragEvent.clientY };
+  controller.setCameraOrientation(
+      tumbler.multQuaternions(this.rollToPoint(flippedY),
+                              this.cameraOrientation_));
+};
+}}}
+
+The `setCameraOrientation()` function has three different incarnations:
+
+  * First, the trackball calls `setCameraOrientation()` to pass the rotation data to the Native Client controller.
+  * Next, the !JavaScript bridge calls `SetCameraOrientation()` to repackage the data from !JavaScript into C++ form so that Native Client can process the information.
+  * Finally, the Native Client module calls its version of `SetCameraOrientation()`, which actually sets the orientation for the scene. In model-view-controller terms, the _model_ is the cube itself (coordinates, colors, textures) and the camera orientation for viewing the cube.
+
+
+== Simple math ==
+
+Note that the quaternion calculations are performed directly in the `trackball.js` file.  ([http://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation Quaternions] are a common way to represent rotation and orientation of an object in 3D space.) !JavaScript can handle these calculations efficiently; there is no need to send them down to the Native Client module for processing.
+
+Here is the code used to multiply two quaternions:
+
+{{{
+tumbler.multQuaternions = function(q0, q1) {
+  // Return q0 * q1 (note the order).
+  var qMult = [
+      q0[3] * q1[0] + q0[0] * q1[3] + q0[1] * q1[2] - q0[2] * q1[1],
+      q0[3] * q1[1] - q0[0] * q1[2] + q0[1] * q1[3] + q0[2] * q1[0],
+      q0[3] * q1[2] + q0[0] * q1[1] - q0[1] * q1[0] + q0[2] * q1[3],
+      q0[3] * q1[3] - q0[0] * q1[0] - q0[1] * q1[1] - q0[2] * q1[2]
+  ];
+  return qMult;
+};
+}}}
+
+= A closer look at the !JavaScript bridge =
+
+The !JavaScript bridge consists of C++ code that unpacks !JavaScript functions that need to be passed to the Native Client module for processing. In Tumber, for example, the camera orientation is sent from the browser/!JavaScript layer to the Native Client layer, which performs the actual manipulation of the camera data. The scripting bridge (`scripting_bridge.cc`) unpacks the !JavaScript array object and reconstructs it as a C++ array.
+
+Packing and unpacking is a two-way process. When the browser calls the `GetCameraOrientation()` function, the Native Client data is repackaged from C++ into !JavaScript for use by the browser.
+
+Here is the `SetCameraOrientation()` function called by the !JavaScript bridge:
+
+{{{
+bool ScriptingBridge::SetCameraOrientation(const NPVariant* args,
+                                           uint32_t arg_count,
+                                           NPVariant* value) {
+  Tumbler* tumbler = static_cast<Tumbler*>(npp_->pdata);
+  if (!tumbler || arg_count != 1 || !NPVARIANT_IS_OBJECT(*args))
+    return false;
+
+  // Unpack the array object.  This is done by enumerating the identifiers on
+  // the array; the identifiers are the array subscripts.
+  bool success = false;
+  NPIdentifier* identifier = NULL;
+  uint32_t element_count = 0;
+  NPObject* array_object = NPVARIANT_TO_OBJECT(*args);
+  if (NPN_Enumerate(npp_, array_object, &identifier, &element_count)) {
+    if (element_count == kQuaternionElementCount) {
+      float orientation[4] = {0.0f, 0.0f, 0.0f, 1.0f};
+      tumbler->GetCameraOrientation(orientation);
+      for (uint32_t j = 0; j < element_count; ++j) {
+        if (NPN_HasProperty(npp_, array_object, identifier[j])) {
+          // Get each element out of the array by accessing the property whose
+          // identifier is the array subscript.
+          NPVariant array_elem;
+          VOID_TO_NPVARIANT(array_elem);
+          if (NPN_GetProperty(npp_,
+                              array_object,
+                              identifier[j],
+                              &array_elem)) {
+            // Process both integer and double values.  Other value types are
+            // not handled.
+            switch (array_elem.type) {
+            case NPVariantType_Int32:
+              orientation[j] =
+                  static_cast<float>(NPVARIANT_TO_INT32(array_elem));
+              break;
+            case NPVariantType_Double:
+              orientation[j] =
+                  static_cast<float>(NPVARIANT_TO_DOUBLE(array_elem));
+              break;
+            default:
+              break;
+            }
+          }
+        }
+      }
+      success = tumbler->SetCameraOrientation(orientation);
+      NPN_MemFree(identifier);
+    }
+  }
+
+  return success;
+}
+}}}
+
+= A closer look at the Native Client module =
+
+The Native Client module's `SetCameraOrientation()` function is where the camera orientation for this scene is actually modified. Here is the code for this function, from `tumbler.cc`:
+
+{{{
+bool Tumbler::SetCameraOrientation(const float* orientation) {
+  if (cube_view_ != NULL) {
+    cube_view_->SetOrientation(orientation);
+    PostRedrawNotification();
+    return true;
+  }
+  return false;
+}
+}}}
+
+= MVC design =
+
+The modular nature of a web app that uses Native Client, demonstrated in this simple example, illustrates how this structure lends itself to a standard model-view-controller architecture. A typical application uses the !JavaScript application layer for the view, which contains the user interface and event handling mechanisms (in this example, the dragger object and HTML document). The controller is also typically written in !JavaScript.  In this example, the trackball object functions as a controller.  The model is implemented in the Native Client module's C++ code. Here, the model is the cube itself, which consists of the coordinates and colors for the cube and the camera position. In a more complex application, this data could be part of an extensive database that the Native Client module accesses and modifies.
