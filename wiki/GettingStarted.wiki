@@ -1,2 +1,2 @@
-#summary Obsolete
-This page has been replaced by HowTo_GetStarted
+#summary {obsolete}
+This page has been replaced by HowTo_GetStarted.
