@@ -1,4 +1,4 @@
-Be sure to read GettingStarted before downloading the SDK
+Be sure to read HowTo_GetStarted before downloading the SDK.
 
 ==Download the SDK for your platform==
 
