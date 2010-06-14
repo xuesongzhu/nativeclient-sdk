@@ -1,0 +1,7 @@
+Be sure to read HowTo_GetStarted before downloading the SDK.
+
+==Download the SDK for your platform==
+
+  * [http://build.chromium.org/buildbot/nacl_archive/nacl_new_sdk/naclsdk_win.exe Windows SDK] 
+  * [http://build.chromium.org/buildbot/nacl_archive/nacl_new_sdk/naclsdk_mac.tgz Mac SDK]
+  * [http://build.chromium.org/buildbot/nacl_archive/nacl_new_sdk/naclsdk_linux.tgz Linux SDK]
