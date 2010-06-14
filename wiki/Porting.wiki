@@ -1,3 +1,3 @@
 #summary {obsolete}
 
-This page has been replaced by HowTo_PortCode.
+This page has been replaced by HowTo_PortCode. Please update your links.
