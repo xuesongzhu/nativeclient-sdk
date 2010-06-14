@@ -1,8 +1,4 @@
-#summary How to give feedback on the Native Client SDK
+#summary {obsolete}
 #labels Featured
 
-You can give feedback to the Native Client team (and get help) in a couple of ways. The *preferred* way is posting to the public discussion group:
-
-    [http://groups.google.com/group/native-client-discuss native-client-discuss]
-
-If you don't want to post publicly, you can send [mailto:nacl-developer-feedback@google.com private email] to the team.
+This page has moved to HowTo_GiveFeedback. Please update your links.
