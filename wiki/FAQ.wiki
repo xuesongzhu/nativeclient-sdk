@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Native Client SDK FAQ
 
 = Native Client SDK FAQ =
 
