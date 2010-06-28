@@ -131,12 +131,12 @@ This starts a local server on port 5103.
 
   * Try building the examples yourself.  Each one comes with a Makefile. For example to build the Hello World example:<br /><code>cd examples/hello_world ; make</code>
   * Be sure to read the makefiles to get a better idea of how they differ from those of regular binaries:
-    * Any references to the Natice Client tool chain are factored into examples/common.mk which can be included for any project you build.
-    * Targets are defined to be platform specific and executable targets are .nexe (even on linux)
+    * Any references to the Natice Client tool chain are factored into `examples/common.mk` which can be included for any project you build.
+    * Targets are defined to be platform specific and executable targets are `.nexe` (even on linux)
 
   * If you haven't already run the online examples as described in HowTo_RunModules, run them.
  
-  * If you're using Mac or Linux, try HowTo_Debug.
+  * If you're using Mac or Linux, try HowTo_DebugModules.
   
   * Read CodeWalkthrough_Tumbler.
 
