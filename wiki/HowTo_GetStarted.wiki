@@ -130,7 +130,7 @@ This starts a local server on port 5103.
 = What to do next =
 
   * Try building the examples yourself.  Each one comes with a Makefile. For example to build the Hello World example:<br /><code>cd examples/hello_world ; make</code>
-  * Be sure to read the makefiles to get a better idea of how they differ from those of regular binaries.
+  * Be sure to read the makefiles to get a better idea of how they differ from those of regular binaries:
     * Any references to the Natice Client tool chain are factored into examples/common.mk which can be included for any project you build.
     * Targets are defined to be platform specific and executable targets are .nexe (even on linux)
 
