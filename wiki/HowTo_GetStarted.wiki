@@ -142,6 +142,8 @@ This starts a local server on port 5103.
 
   * Read up on the APIs that Native Client modules can use: Ref_ApiDoc
 
+  * If you would like contribute, feel free to grab the latest from our source tree and "Request a Code Review" when you have constructive changes ready!
+
 = Notes =
 
   * If you're using Google Chrome (not Chromium) and a 64-bit Linux machine:
