@@ -279,21 +279,21 @@ bool Tumbler::SetCameraOrientation(const float* orientation) {
 }}}
 
 = A closer look at Native Client Makefiles ==
- * *`examples\tumbler\Makefile`*: Note that file specifies several targets and definitions not usually found in a Makefile.
-  * The `XP_UNIX|XP_WIN|XP_MACOSX` flag has to be defined in case the module uses NPAPI to control the definition of platform specific macros.
+ * `examples/tumbler/Makefile`: This Makefile includes `examples/common.mk` which defines rules to use NaCl-specific compilers and linkers to build the Tumbler module (see below).  There are a few NaCl-specific variables and targets defined in this Makefile.
+  * The `XP_UNIX` flag has to be defined so that the correct NPAPI structures are enabled for NaCl builds.
   * `LDFLAGS`: several NaCl specific libraries are included.
-   * `google_nacl_npruntime`: this library contains our wrapper for npapi functionality which can be used to interact with scripts running in a browser.
+   * `google_nacl_npruntime`: this library contains our wrapper for NPAPI functionality which can be used to interact with scripts running in a browser.
    * `srpc`: library for remote procedure calls
    * `google_nacl_imc`: defines the Inter-Module Communication primitives which can be used by NaCl modules to exchange information with each other.
    * `google_nacl_pgl` and `google_nacl_gpu`: These are NaCl's wrappers for OpenGL functionality.
    * etc: Note that there are other libraries in your `native_client_sdk/toolchain/PLATFORM/[nacl|nacl64]` directories.  Their corresponding header files will be located in the nearest include dir and should contain information about their usage.
   * Targets:
-   * Your top level target (`all`) should depend on `check_variables` to ensure that all the necessary definitions for a `.nexe` file exist.  These are defined in `common.mk`.
-   * Note that we are still having trouble ensuring inter-compatibility between 32-bit `nexe` files and 64 bit Operating Systems.  As a result all make targets have to include the system bit-width for which they were compiled for now.
+   * As a convenience, the top-level target (`all`) depends on `check_variables` to ensure that all the necessary definitions for a `.nexe` file exist.  These are defined in `examples/common.mk`.
+   * Note that we are still having trouble ensuring inter-compatibility between 32-bit `nexe` files and 64 bit Operating Systems.  As a result all make targets build 32- and 64-bit targets explicitly.
   * Includes:
-   * All NaCl-SDK Makefiles include `examples\common.mk` to provide the basic NaCl building context.  You may want to use it as well.
+   * All NaCl-SDK Makefiles include `examples/common.mk` to provide the basic NaCl building context.  You may want to use it as well.
 
- * `examples\common.mk`  This is the meat of the NaCl context for the low-level NaCl modules.  All NaCl-SDK Makefiles include this file to provide the basic NaCl build information and let the make system know about the NaCl tool chain.  You may want to include it as well.  For more complicated project, alternative build systems also exist.
+ * `examples/common.mk`:  All NaCl-SDK Makefiles include this file to provide the basic NaCl build information and let the make system know about the NaCl tool chain.  You may want to include it as well.  For more complicated project, alternative build systems also exist.
   * Determines the operating system
   * Determines the platform that `make` is being run on.
   * Finds the NaCl toolchain directory
