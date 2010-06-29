@@ -278,7 +278,7 @@ bool Tumbler::SetCameraOrientation(const float* orientation) {
 }
 }}}
 
-= A Closer look at Native Client Makefiles ==
+= A closer look at Native Client Makefiles ==
  * *`examples\tumbler\Makefile`*: Note that file specifies several targets and definitions not usually found in a Makefile.
   * The `XP_UNIX|XP_WIN|XP_MACOSX` flag has to be defined in case the module uses NPAPI to control the definition of platform specific macros.
   * `LDFLAGS`: several NaCl specific libraries are included.
