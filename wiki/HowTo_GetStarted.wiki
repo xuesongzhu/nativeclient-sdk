@@ -37,8 +37,7 @@ Make sure there are *no spaces* in the path to the SDK. For example, the path `C
 </p>
 </li>
 
-<li> Install a [http://dev.chromium.org/getting-involved/dev-channel Dev Channel build] of Google Chrome.  You can find the appropriate build here:
-[http://dev.chromium.org/getting-involved/dev-channel http://dev.chromium.org/getting-involved/dev-channel]
+<li> Install a [http://dev.chromium.org/getting-involved/dev-channel Dev Channel build] of Google Chrome.
 </li>
 
 <li> Make sure your Dev channel version of Google Chrome is at least *6.0.453.1 (r51400)* or later.  To find the version number, type `about:version` into the address bar.
