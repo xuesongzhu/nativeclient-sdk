@@ -63,7 +63,13 @@ Prebuilt 32-bit versions of the examples are under each of the SDK's individual 
 Here are the details.
 
 <ol>
-<li>Launch Google Chrome with the `--enable-nacl` flag. Consider also using the <a href="http://www.chromium.org/developers/creating-and-using-profiles">`--user-data-dir` flag</a>, which will protect your normal browser cache from your Native Client development. To launch Google Chrome with these flags set, either you can run it from a command line or you can set up a platform-specific shortcut or alias.
+<li>Quit Google Chrome if it's already running.
+
+  ----
+  <b>Note:</b> If you don't want to quit Google Chrome, or you want to protect your normal browser cache from your Native Client development, consider using the <a href="http://www.chromium.org/developers/creating-and-using-profiles">`--user-data-dir` flag</a>. 
+  ----
+  </li>
+<li>Launch Google Chrome with the `--enable-nacl` flag. To launch Google Chrome with flags, either you can run it from a command line or you can set up a platform-specific shortcut or alias.
 
 <blockquote>
 *Windows:*
