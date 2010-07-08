@@ -7,13 +7,6 @@ This page tells you how to use the Native Client SDK to build and run a Native C
 
 <wiki:toc />
 
-= Before you start =
-
-A few terminology notes:
-
-  * The term _.nexe_ refers to a publishable, platform-independent executable file for a Native Client module.
-  * To debug your Native Client module, you need to make a _development_ version of it, as opposed to a _publishable_ version of it.
-  * This page uses _Google Chrome_ to refer to the most recent browser builds provided by the open-source project behind Google Chrome.
 
 = Getting the software =
 
@@ -48,7 +41,7 @@ Make sure there are *no spaces* in the path to the SDK. For example, the path `C
 [http://dev.chromium.org/getting-involved/dev-channel http://dev.chromium.org/getting-involved/dev-channel]
 </li>
 
-<li> Make sure your Dev Channel version of Google Chrome is at least *6.0.453.1 (r51400)* or later.  To find the version number, type `about:version` into the URL address field.
+<li> Make sure your Dev channel version of Google Chrome is at least *6.0.453.1 (r51400)* or later.  To find the version number, type `about:version` into the address bar.
 </li>
 
 <li> Make sure you have Python (version 2.4, 2.5, or 2.6). Here's how to check your Python version:
@@ -62,7 +55,7 @@ If you don't have Python, download it. You can get it for free from http://www.p
 
 = Running the SDK examples =
 
-Pre-built 32-bit versions of the examples are under each of the SDK's individual example directories. For example, the 32-bit x86 hello_world.nexe is in `examples/hello_world/hello_world.nexe`. To run an example in the SDK, you need to do three things:
+Prebuilt 32-bit versions of the examples are under each of the SDK's individual example directories. For example, the 32-bit x86 hello_world.nexe is in `examples/hello_world/hello_world.nexe`. To run an example in the SDK, you need to do three things:
 
   # Launch Google Chrome with the `--enable-nacl` flag
   # Start a web server that can serve the pages under `examples`
@@ -130,9 +123,9 @@ This starts a local server on port 5103.
 = What to do next =
 
   * Try building the examples yourself.  Each one comes with a Makefile. For example to build the Hello World example:<br /><code>cd examples/hello_world ; make</code>
-  * Be sure to read the makefiles to get a better idea of how they differ from those of regular binaries:
-    * Any references to the Natice Client tool chain are factored into `examples/common.mk` which can be included for any project you build.
-    * Targets are defined to be platform specific and executable targets are `.nexe` (even on linux)
+  * Read the makefiles to get a better idea of how they differ from those of regular binaries:
+    * Any references to the Native Client toolchain are factored into `examples/common.mk`, which can be included in any project you build.
+    * Targets are defined to be platform-specific; executable targets are `.nexe` (even on Linux).
 
   * If you haven't already run the online examples as described in HowTo_RunModules, run them.
  
@@ -142,14 +135,23 @@ This starts a local server on port 5103.
 
   * Read up on the APIs that Native Client modules can use: Ref_ApiDoc
 
-  * If you would like contribute, feel free to grab the latest from our source tree and "Request a Code Review" when you have constructive changes ready!
-
+  * If you would like to contribute, grab the latest from our [http://code.google.com/p/nativeclient-sdk/source/checkout source tree] and [HowTo_GiveFeedback let us know] about your plans.
+  
 = Notes =
 
-  * If you're using Google Chrome and a 64-bit Linux machine:
-    * If you want to use the *32-bit* version of the browser, after downloading the <tt>google-chrome-unstable_current_i386.deb</tt> file, you will need to type in:
-  <code>sudo apt-get remove google-chrome-beta # if you have a 64-bit version of chrome installed
-sudo dpkg --force-architecture -i google-chrome-unstable_current_i386.deb</code>
-    * See https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help on using a 32-bit browser with a 64-bit Linux OS.
-    * Some Linux computers do not have drivers for hardware-accelerated 3D graphics installed.  These *must* be installed in order for the Tumbler example to work.  To find out if you are using the software renderer, try running `glxinfo` and look for the Mesa driver.  If it is running, then you need to install a driver that does hardware acceleration.
-  * The SDK is a work in progress. See Ref_KnownIssues.
+<ul>
+<li>If you're using Google Chrome and a 64-bit Linux machine: </li>
+<ul>
+<li>
+If you want to use the *32-bit* version of the browser, after downloading the <tt>google-chrome-unstable_current_i386.deb</tt> file, you will need to type in:
+<code> sudo apt-get remove google-chrome-beta # if you have a 64-bit version of chrome installed
+sudo dpkg --force-architecture -i google-chrome-unstable_current_i386.deb</code> </li>
+<li>
+See https://bugs.launchpad.net/ubuntu/+source/ia32-libs/+bug/253430 for help on using a 32-bit browser with a 64-bit Linux OS. </li>
+</ul>
+
+<li>
+Some Linux computers do not have drivers for hardware-accelerated 3D graphics installed.  These *must* be installed in order for the Tumbler example to work.  To find out if you are using the software renderer, try running `glxinfo` and look for the Mesa driver.  If it is running, then you need to install a driver that does hardware acceleration. </li>
+
+<li>The SDK is a work in progress. See Ref_KnownIssues. </li>
+</ul>
