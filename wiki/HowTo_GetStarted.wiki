@@ -75,7 +75,7 @@ Here are the details.
 
 <blockquote>
 *Windows:*
-<code>chrome --enable-nacl --user-data-dir=%USERPROFILE%\nacl-chrome-profile</code>
+<code>"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --enable-nacl --user-data-dir=%USERPROFILE%\nacl-chrome-profile</code>
 
 *Mac:*
 <code>"Google Chrome.app/Contents/MacOS/Google Chrome" --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</code>
