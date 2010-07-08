@@ -129,7 +129,7 @@ This starts a local server on port 5103.
 
   * If you haven't already run the online examples as described in HowTo_RunModules, run them.
  
-  * If you're using Mac or Linux, try HowTo_DebugModules.
+  * If you're using Mac or Linux, try HowTo_Debug.
   
   * Read CodeWalkthrough_Tumbler.
 
