@@ -8,65 +8,35 @@ This page tells you everything you need to know to run a Native Client module th
 
 <wiki:toc />
 
-= Before you start =
 
-A few terminology notes:
+= Step 1: Get the Dev channel of Google Chrome =
 
-  * The term _.nexe_ refers to a publishable, platform-independent executable file for a Native Client module.
-  * This page uses _Chromium_ to refer to the most recent browser builds provided by the open-source project behind Google Chrome
+Install a [http://dev.chromium.org/getting-involved/dev-channel Dev Channel build] of Google Chrome.
 
-= Step 1: Get Chromium =
-
-Although you can use the Dev channel of Google Chrome to run .nexes, we recommend using Chromium because Native Client is still a work in progress and hasn't completed security testing. Using a known version of Chromium reduces the chance of Native Client bugs, and it lets you use Google Chrome as your primary browser without worrying about Native Client security.
-
-Here's what we recommend:
-
-<ol>
-
-<li> Download a Chromium build from http://build.chromium.org/buildbot/continuous/. The following builds have been confirmed to work:
-  * [http://build.chromium.org/buildbot/continuous/win/2010-05-14/47357/chrome-win32.zip 47357] (Windows)
-  * [http://build.chromium.org/buildbot/continuous/mac/2010-05-14/47357/chrome-mac.zip 47357] (Mac)
-  * [http://build.chromium.org/buildbot/continuous/linux/2010-05-14/47357/chrome-linux.zip 47357] (32-bit Linux)
-  * [http://build.chromium.org/buildbot/continuous/linux64/2010-05-14/47357/chrome-linux.zip 47357] (64-bit Linux)
-</li>
-
-<li> Unzip Chromium. It doesn't matter too much where you put it, but here are some typical places:
-
-<dl>
-<dt> Windows: </dt>
-<dd> <code> $!ProgramFiles\chrome-win32
-$APPDATA\Chromium\Application
-$USERPROFILE\!AppData\Chromium\Application </code>
-</dd>
-
-<dt> Mac: </dt>
-<dd> <code> /Applications/Chromium.app </code>
-</dd>
-
-<dt> Linux: </dt>
-<dd> <code> /opt/google/chromium </code>
-</dd>
-</dl>
-</li>
-
-</ol>
+  ------
+  <b>Note:</b> Your version of Google Chrome must be at least *6.0.453.1 (revision 51400)* or later.  To find the version number, type `about:version` into the address bar.
+  ------
 
 = Step 2: Launch the browser with --enable-nacl =
 
-To run .nexes, you must launch the browser with the `--enable-nacl` flag. Consider also using the <a href="http://www.chromium.org/developers/creating-and-using-profiles">`--user-data-dir` flag</a>, so you'll have a separate browser cache for Native Client.
+To run Native Client modules, you must quit Google Chrome and then launch it with the `--enable-nacl` flag.
+
+  ------
+  <b>Note:</b> If you don't want to quit Google Chrome, you can use the <a href="http://www.chromium.org/developers/creating-and-using-profiles">`--user-data-dir` flag</a>, which sets up a new profile that lets you run two instances of Google Chrome.
+  ------
 
 <dl>
 <dt> Windows: </dt>
 <dd> 
-<pre>chrome-win32\chrome --enable-nacl --user-data-dir=%USERPROFILE%\nacl-chrome-profile</pre>
+<pre>"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe --enable-nacl --user-data-dir=%USERPROFILE%\nacl-chrome-profile</pre>
 </dd>
 
 <dt> Mac: </dt>
-<dd> <pre>Chromium.app/Contents/MacOS/Chromium --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre>
+<dd> <pre>"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre>
 </dd>
 
 <dt> Linux: </dt>
-<dd> <pre>chromium/chrome --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre>
+<dd> <pre>/opt/google/chrome/chrome --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre>
 </dd>
 </dl>
 
@@ -80,7 +50,7 @@ To run a Native Client module, you just visit the page that includes it. Here's 
 
     `http://nativeclient-sdk.googlecode.com/svn/trunk/src/docs/gallery/index.html`
 
-Copy that URL into your Native Client-enabled copy of Chromium.
+Copy that URL into your Native Client-enabled copy of Google Chrome.
 
 When the page loads, you should see two columns. The left column describes each sample; the right one contains the sample. It should look something like this:
 
@@ -88,4 +58,4 @@ When the page loads, you should see two columns. The left column describes each 
 
 = Troubleshooting =
 
-  * If you visit the URL from Step 3 and don't see anything in the second column, then you're probably using the wrong browser to visit the URL. Be sure to use a recent version of Chromium (see Step 1), start it with --enable-nacl (see Step 2), and use that browser to visit the URL.
+  * If you visit the URL from Step 3 and don't see anything in the second column, then you're probably using the wrong browser to visit the URL. Be sure to use a recent version of Google Chrome (see Step 1), start it with --enable-nacl (see Step 2), and use that browser to visit the URL.
