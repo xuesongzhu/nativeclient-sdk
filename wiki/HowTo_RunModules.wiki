@@ -26,16 +26,16 @@ To run Native Client modules, you must quit Google Chrome and then launch it wit
   ------
 
 <dl>
-<dt> Windows: </dt>
+<dt> *Windows:* </dt>
 <dd> 
 <pre>"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe --enable-nacl --user-data-dir=%USERPROFILE%\nacl-chrome-profile</pre>
 </dd>
 
-<dt> Mac: </dt>
+<dt> *Mac:* </dt>
 <dd> <pre>"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre>
 </dd>
 
-<dt> Linux: </dt>
+<dt> *Linux:* </dt>
 <dd> <pre>/opt/google/chrome/chrome --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile</pre>
 </dd>
 </dl>
@@ -58,4 +58,4 @@ When the page loads, you should see two columns. The left column describes each 
 
 = Troubleshooting =
 
-  * If you visit the URL from Step 3 and don't see anything in the second column, then you're probably using the wrong browser to visit the URL. Be sure to use a recent version of Google Chrome (see Step 1), start it with --enable-nacl (see Step 2), and use that browser to visit the URL.
+If you visit the URL from Step 3 and don't see anything in the second column, then you're probably using the wrong browser to visit the URL. Be sure to use a recent version of Google Chrome (see Step 1), start it with --enable-nacl (see Step 2), and use that browser to visit the URL.
