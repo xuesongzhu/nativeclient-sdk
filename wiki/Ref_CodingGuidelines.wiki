@@ -1,5 +1,3 @@
-#summary NaCl SDK coding guidelines..
-
 = NaCl SDK Coding Guidelines =
 
 This document describes coding guidelines that are specific to the NaCl SDK project.  Naturally, we rely on the Google style guides for most issues, but when we want to be consistent in an area that those guides don’t cover, we will put those project-specific guidelines here.
