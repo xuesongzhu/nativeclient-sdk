@@ -1,6 +1,6 @@
-= `NaCl` SDK Coding Guidelines =
+= !NaCl SDK Coding Guidelines =
 
-This document describes coding guidelines that are specific to the NaCl SDK project.  Naturally, we rely on the Google style guides for most issues, but when we want to be consistent in an area that those guides don’t cover, we will put those project-specific guidelines here.
+This document describes coding guidelines that are specific to the !NaCl SDK project.  Naturally, we rely on the Google style guides for most issues, but when we want to be consistent in an area that those guides don’t cover, we will put those project-specific guidelines here.
 
 == C++ Guidelines ==
 
@@ -12,12 +12,12 @@ For example:
 {{{
   typedef std::tr1::shared_ptr<Foo> SharedFoo;
 }}}
-`NaCl` header files should be treated as system libraries, and included using `<>`. 
+!NaCl header files should be treated as system libraries, and included using `<>`. 
 
-`NaCl` SDK files and NPAPI or PPAPI should be included using `“”`.
-Rationale:  NaCl is part of our platform and is therefore treated similarly to Unix headers, and so NaCl headers are included via `<>`.  Quotes would work as well, but we think that keeping a clean separation between system includes and project includes will improve readability.
+!NaCl SDK files and NPAPI or PPAPI should be included using `“”`.
+Rationale:  !NaCl is part of our platform and is therefore treated similarly to Unix headers, and so !NaCl headers are included via `<>`.  Quotes would work as well, but we think that keeping a clean separation between system includes and project includes will improve readability.
 
-== `JavaScript` Guidelines ==
+== !JavaScript Guidelines ==
 
 [http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml Google JavaScript Style Guide]
  
