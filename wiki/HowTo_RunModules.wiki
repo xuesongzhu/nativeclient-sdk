@@ -59,7 +59,3 @@ When the page loads, you should see two columns. The left column describes each 
 = Troubleshooting =
 
 If you visit the URL from Step 3 and don't see anything in the second column, then you're probably using the wrong browser to visit the URL. Be sure to use a recent version of Google Chrome (see Step 1), start it with --enable-nacl (see Step 2), and use that browser to visit the URL.
-
-= See more examples =
-
-To see more examples from the [http://naclports.googlecode.com naclports project], visit the [http://naclports.googlecode.com/svn/trunk/src/gallery/index.html Gallery Page]
