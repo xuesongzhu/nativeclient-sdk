@@ -1,16 +1,4 @@
-#summary One-sentence summary of this page.
-
-= Introduction =
-
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+#summary NaCl SDK coding guidelines..
 
 = NaCl SDK Coding Guidelines =
 
@@ -23,7 +11,9 @@ Extends:  [http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml Google
 === Typedefs of shared_ptr should be named with a prefix of “Shared” ===
 
 For example:
-{{{typedef std::tr1::shared_ptr<Foo> SharedFoo;}}}
+{{{
+  typedef std::tr1::shared_ptr<Foo> SharedFoo;
+}}}
 NaCl header files should be treated as system libraries, and included using `<>`. 
 
 NaCl SDK files and NPAPI or PPAPI should be included using `“”`.
