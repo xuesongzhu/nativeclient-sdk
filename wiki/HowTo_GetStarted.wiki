@@ -18,7 +18,7 @@ You might also need Python.
 <ol>
 <li> Download the SDK for your platform: 
 
-    [http://build.chromium.org/mirror/nacl/naclsdk_win.exe Windows SDK] | [http://build.chromium.org/mirror/nacl/naclsdk_mac.tgz Mac SDK] | [http://build.chromium.org/mirror/nacl/naclsdk_linux.tgz Linux SDK]
+    [http://build.chromium.org/mirror/nacl/naclsdk_win.exe Windows SDK] | [http://build.chromium.org/mirror/nacl/nacl_sdk_0_1_494/naclsdk_mac.tgz Mac SDK] | [http://build.chromium.org/mirror/nacl/nacl_sdk_0_1_494/naclsdk_linux.tgz Linux SDK]
 
 </li>
 
