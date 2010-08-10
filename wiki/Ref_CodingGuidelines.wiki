@@ -32,7 +32,8 @@ Rationale:  !NaCl is part of our platform and is therefore treated similarly to 
   * `Remove` means "remove is present, do nothing is absent"
 
 ==== Parameters ====
-Any by-reference parameters that are meant to be filled in with a return value can be NULL.  This means the caller is not interested in that return value.
+  * Any by-reference parameters that are meant to be filled in with a return value can be NULL.  This means the caller is not interested in that return value.
+  * Template parameter names follow [http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml#Type_Names Google type name conventions], also known as !CamelCase.
 
 == !JavaScript Guidelines ==
 
