@@ -14,9 +14,10 @@ For example:
 {{{
   typedef std::tr1::shared_ptr<Foo> SharedFoo;
 }}}
-!NaCl header files should be treated as system libraries, and included using `<>`. 
 
-!NaCl SDK files and NPAPI or PPAPI should be included using `“”`.
+=== NaCl header files should be treated as system libraries, and included using `<>`. ===
+
+NaCl SDK files, NPAPI headers, PPAPI headers, and other non-system libraries should be included using `“”`.
 Rationale:  !NaCl is part of our platform and is therefore treated similarly to Unix headers, and so !NaCl headers are included via `<>`.  Quotes would work as well, but we think that keeping a clean separation between system includes and project includes will improve readability.
 
 === General Naming Conventions ===
