@@ -1,3 +1,0 @@
-#summary {obsolete}
-
-This page has moved to Ref_ApiDoc. Please update your links.
