@@ -2,7 +2,7 @@
 
 = Native Client SDK FAQ =
 
-Note: see the Native Client FAQ for general information on the project.
+Note: see the [http://code.google.com/p/nativeclient/ Native Client project page] for general information on Native Client.
 
 Please don’t hesitate to ask question on [http://groups.google.com/group/native-client-discuss native-client-discuss] mailing list!
 
