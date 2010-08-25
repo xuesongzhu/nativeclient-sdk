@@ -1,3 +1,0 @@
-#summary {obsolete}
-
-This page has been replaced by Ref_KnownIssues. Please update your links.
