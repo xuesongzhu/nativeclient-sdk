@@ -9,7 +9,7 @@ This page tells you everything you need to know to run a Native Client module th
 <wiki:toc />
 
 
-= Step 1: Get the Dev channel of Google Chrome =
+= Step 1: Get Google Chrome =
 
 Install [http://www.google.com/chrome Google Chrome].
 
