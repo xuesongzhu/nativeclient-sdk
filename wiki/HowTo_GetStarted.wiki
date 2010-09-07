@@ -53,7 +53,7 @@ If you don't have Python, download it. You can get it for free from http://www.p
 
 = Running the SDK examples =
 
-Prebuilt 32-bit versions of the examples are under each of the SDK's individual example directories. For example, the 32-bit x86 hello_world.nexe is in `examples/hello_world/hello_world.nexe`. To run an example in the SDK, you need to do three things:
+Prebuilt 32-bit versions of the examples are under each of the SDK's individual example directories. For example, the 32-bit x86 hello_world.nexe is in `examples/hello_world/hello_world_x86_32.nexe`. To run an example in the SDK, you need to do three things:
 
   # Launch Google Chrome with the `--enable-nacl` flag
   # Start a web server that can serve the pages under `examples`
