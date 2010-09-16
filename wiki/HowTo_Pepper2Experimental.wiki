@@ -1,0 +1,72 @@
+#summary How to experiment with the latest Pepper 2 API.
+
+= Get the latest version of the SDK =
+
+You will need to check out and build *both* the [http://code.google.com/p/nativeclient/ NaCl repo] *and* this SDK repo.  Once you have the !NaCl repo checked out, follow these build steps:
+<blockquote><code>
+cd ~/nacl/native_client
+./scons --download --mode=dbg-<platform>,nacl
+./scons sel_ldr sdl=none
+</code></blockquote>
+*Note:* On Mac OSX 10.6, you might get a build error claiming that `nccopycode_stores.o` has the wrong CPU type.  This is a bug in the build system.  Find the line in the scons output that compiles nccopycode_stores.S, then copy it.  Paste it into your shell, adding the `-m32` flag to the `gcc` line.  Then re-run ./scons sel_ldr sdl=none.
+
+Once you have built `sel_ldr`, you will need to build the !NaCl Pepper plugin.
+
+=== Windows, Linux ===
+{{{
+./scons --mode=dbg-<platform> ppNaClPlugin
+}}}
+
+=== Mac ===
+{{{
+./scons --mode=dbg-mac scons-out/dbg-mac-x86-32/staging/ppNaClPlugin.bundle
+}}}
+
+= Set up your environment =
+
+You have to set a couple of environment variables in the shell where you run Chrome.
+
+`NACL_PPAPI_LOCAL_ORIGIN` is required until the URL loading support is completed.
+{{{
+export NACL_PPAPI_LOCAL_ORIGIN=/path/to/nacl-sdk/src/examples
+}}}
+
+{{{
+export NACL_SEL_LDR=/path/to/native_client/scons-out/dbg-<platform>-x86-32/staging/sel_ldr
+}}}
+Optionally, on the Mac, you can manually copy `sel_ldr` to `ppNaClPlugin.bundle/Contents/Resources/` under the `scons-out` dir.
+
+= Run Chrome with Pepper 2 enabled =
+
+Google Chrome M6 stable channel will work.  This is version *6.0.472.55 (Official Build 58392)*
+
+=== Mac ===
+{{{
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+    --no-sandbox\
+    --register-pepper-plugins="/path/to/native_client/scons-out/dbg-mac-x86-32/staging/ppNaClPlugin.bundle;application/x-ppapi-nacl-srpc"\
+    --user-data-dir=$HOME/nacl-profile
+}}}
+*Note:* You cannot use `$HOME` or `~` for the `--register-pepper-plugins` flag, you have to use a full path.
+
+=== Linux ===
+{{{
+/opt/google/chrome/chrome \
+    --no-sandbox\
+    --register-pepper-plugins="/path/to/native_client/scons-out/dbg-mac-x86-32/staging/ppNaClPlugin.bundle;application/x-ppapi-nacl-srpc"\
+    --user-data-dir=$HOME/nacl-profile
+}}}
+
+= Start up the local HTTP server =
+
+{{{
+cd examples
+python httpd.py 5103
+}}}
+
+= Run an example =
+
+Enter this into the Google Chrome address bar:
+{{{
+http://localhost:5103/hello_world/hello_world.html
+}}}
