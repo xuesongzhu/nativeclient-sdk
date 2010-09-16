@@ -2,7 +2,9 @@
 
 = Get the latest version of the SDK =
 
-You will need to check out and build *both* the [http://code.google.com/p/nativeclient/ NaCl repo] *and* this [HowTo_Checkout  SDK repo].  Once you have the !NaCl repo checked out, follow these build steps:
+You will need to check out and build *both* the [http://code.google.com/p/nativeclient/ NaCl repo] *and* this [HowTo_Checkout  SDK repo]. For Pepper 2 experimentation, you cannot use the published SDK, you must build the examples using the latest version of the toolchain in the repo.
+
+Once you have the !NaCl repo checked out, follow these build steps:
 <blockquote><code>
 cd ~/nacl/native_client
 ./scons --download --mode=dbg-<platform>,nacl
