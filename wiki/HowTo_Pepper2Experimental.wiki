@@ -76,3 +76,10 @@ Enter this into the Google Chrome address bar:
 {{{
 http://localhost:5103/hello_world/hello_world.html
 }}}
+
+= Debug environment variables =
+
+{{{
+export PPAPI_BROWSER_DEBUG=1  # Turn on useful PPAPI plugin debugging logs.
+export NACL_PLUGIN_DEBUG=1  # Turn on useful NaCl SRPC debugging logs.
+}}}
