@@ -5,12 +5,16 @@
 You will need to check out and build *both* the [http://code.google.com/p/nativeclient/ NaCl repo] *and* this [HowTo_Checkout  SDK repo]. For Pepper 2 experimentation, you cannot use the published SDK, you must build the examples using the latest version of the toolchain in the repo.
 
 Once you have the !NaCl repo checked out, follow these build steps:
-<blockquote><code>
+{{{
 cd ~/nacl/native_client
-./scons --download --mode=dbg-<platform>,nacl
+./scons --download --mode=<dbg|opt>-<platform>,nacl
 ./scons sel_ldr sdl=none
-</code></blockquote>
-*Note:* On Mac OSX 10.6, you might get a build error claiming that `nccopycode_stores.o` has the wrong CPU type.  This is a bug in the build system.  Find the line in the scons output that compiles nccopycode_stores.S, then copy it.  Paste it into your shell, adding the `-m32` flag to the `gcc` line.  Then re-run ./scons sel_ldr sdl=none.
+}}}
+For example, to build the optimized version of sel_ldr the Mac:
+{{{
+cd ~/nacl/native_client
+./scons --mode=opt-mac sel_ldr sdl=none
+}}}
 
 Once you have built `sel_ldr`, you will need to build the !NaCl Pepper plugin.
 
@@ -34,7 +38,7 @@ export NACL_PPAPI_LOCAL_ORIGIN=/path/to/nacl-sdk/src/examples
 }}}
 
 {{{
-export NACL_SEL_LDR=/path/to/native_client/scons-out/dbg-<platform>-x86-32/staging/sel_ldr
+export NACL_SEL_LDR=/path/to/native_client/scons-out/<dbg|opt>-<platform>-x86-32/staging/sel_ldr
 }}}
 Optionally, on the Mac, you can manually copy `sel_ldr` to `ppNaClPlugin.bundle/Contents/Resources/` under the `scons-out` dir.
 
