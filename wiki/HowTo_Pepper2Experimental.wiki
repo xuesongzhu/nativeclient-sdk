@@ -16,6 +16,9 @@ cd ~/nacl/native_client
 ./scons --mode=opt-mac sel_ldr sdl=none
 }}}
 
+*Note:* as of !NaCl rev 3332, it seems like this step is no longer needed.  Building the Pepper plugin is part of the default scons build now.
+
+<font color='gray'>
 Once you have built `sel_ldr`, you will need to build the !NaCl Pepper plugin.
 
 === Windows, Linux ===
@@ -27,7 +30,7 @@ Once you have built `sel_ldr`, you will need to build the !NaCl Pepper plugin.
 {{{
 ./scons --mode=dbg-mac scons-out/dbg-mac-x86-32/staging/ppNaClPlugin.bundle
 }}}
-
+</font>
 = Set up your environment =
 
 You have to set a couple of environment variables in the shell where you run Chrome.
@@ -44,7 +47,9 @@ Optionally, on the Mac, you can manually copy `sel_ldr` to `ppNaClPlugin.bundle/
 
 = Run Chrome with Pepper 2 enabled =
 
-Google Chrome M6 stable channel will work.  This is version *6.0.472.55 (Official Build 58392)*
+You will need a fairly recent [http://build.chromium.org/buildbot/snapshots/ trunk build of Chromium].  First, visit [http://chromium-status.appspot.com/lkgr the LKGR page]. Then, visit [http://build.chromium.org/buildbot/snapshots/], select your platform.  Use the LKGR version number to select a build.
+
+See [http://dev.chromium.org/Home The Chromium Project] for more info.
 
 === Mac ===
 {{{
@@ -59,7 +64,7 @@ Google Chrome M6 stable channel will work.  This is version *6.0.472.55 (Officia
 {{{
 /opt/google/chrome/chrome \
     --no-sandbox\
-    --register-pepper-plugins="/path/to/native_client/scons-out/dbg-mac-x86-32/staging/ppNaClPlugin.bundle;application/x-ppapi-nacl-srpc"\
+    --register-pepper-plugins="/path/to/native_client/scons-out/dbg-linux-x86-64/staging/ppNaClPlugin.bundle;application/x-ppapi-nacl-srpc"\
     --user-data-dir=$HOME/nacl-profile
 }}}
 
