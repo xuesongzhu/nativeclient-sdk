@@ -53,7 +53,7 @@ See [http://dev.chromium.org/Home The Chromium Project] for more info.
 
 === Mac ===
 {{{
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+Chromium.app/Contents/MacOS/Chromium \
     --no-sandbox\
     --register-pepper-plugins="/path/to/native_client/scons-out/dbg-mac-x86-32/staging/ppNaClPlugin.bundle;application/x-ppapi-nacl-srpc"\
     --user-data-dir=$HOME/nacl-profile
@@ -62,7 +62,7 @@ See [http://dev.chromium.org/Home The Chromium Project] for more info.
 
 === Linux ===
 {{{
-/opt/google/chrome/chrome \
+/opt/google/chromium/chromium \
     --no-sandbox\
     --register-pepper-plugins="/path/to/native_client/scons-out/dbg-linux-x86-64/staging/ppNaClPlugin.bundle;application/x-ppapi-nacl-srpc"\
     --user-data-dir=$HOME/nacl-profile
