@@ -39,12 +39,14 @@ OpenGL ES 2.0 is a subset of normal OpenGL commonly available on desktop machine
 
 - No support for fixed function pipeline.  All OpenGL ES 2.0 rendering requires vertex and pixel shaders.
 
-- No support for glBegin() / glEnd() or glColor(), glNormal(), glVertex(), or glTexCoord().
+- No support for glBegin() & glEnd().  No support for glColor(), glNormal(), glVertex(), & glTexCoord().
 
 - No support for desktop OpenGL's matrix strack (glMatrixMode(), glLoadIdentity(), glTranslatef(), glScalef(), glRotatef(), glPushMatrix(), and friends are not available)
 
-- Fragment shaders should specify a default precision such as "precision highp float;" or else they risk rendering "undefined" pixels (which show up as black pixels in OpenGL ES 2.0)
+- Fragment shaders should specify a default precision such as "precision highp float;" or else they risk rendering undefined pixels.
+
+- Undefined pixels will be rendered as black pixels.
 
 - Vertex shaders cannot use ftransform()
 
-- glNormalPointer(), glVertexPointer(), glColorPointer(), glTexCoordPointer() functions are not available, use the more generic glVertexAttribPointer() instead. 
+- glNormalPointer(), glVertexPointer(), glColorPointer(), glTexCoordPointer() functions are not available, use the more generic glVertexAttribPointer() instead.
