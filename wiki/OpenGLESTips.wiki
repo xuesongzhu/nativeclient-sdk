@@ -9,7 +9,7 @@ This page discusses tips and techniques using OpenGL ES 2.0 under Pepper & Nativ
 
 *Performance Tips*
 
-- Use server side VBOs whenever possible.  Avoid client side vertex & index data, except for low usage, one-off cases.
+- Use server side VBOs whenever possible, for both vertex data _and_ index data.  Avoid client side vertex & index data, except for low usage, one-off cases.
 
 - Updating indices is slow, as range checking needs to be done during validation.
 
