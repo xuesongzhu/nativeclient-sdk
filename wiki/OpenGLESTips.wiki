@@ -13,13 +13,13 @@ This page discusses tips and techniques using OpenGL ES 2.0 under Pepper & Nativ
 
 - Updating indices is slow, as range checking needs to be done during validation.
 
-- Updating VBOs, same thing. glBufferData() is slower than glSubBufferData() and if you're really doing a lot of VBO work (CPU skinning) then we also have a custom extension glMapBufferSubData()
+- Updating VBOs: glBufferData() is slower than glSubBufferData()  When doing a lot of VBO work (for example, CPU skinning) there is a custom extension: glMapBufferSubData()
 
-- Updating textures dynamically is slow.  glTexImage2D() is slower than glTexSubImage2D() because a new texture is allocated. If you're updating textures a lot we have a custom extension, glMapTexSubImage2D() you should be able to use.
+- Updating textures dynamically is slow.  glTexImage2D() is slower than glTexSubImage2D() because a new texture is allocated. When updating textures a lot there is a custom extension: glMapTexSubImage2D().
 
 - Any command that reads data back to the client is extremely slow. glGetError(), glGetUniform(), glReadPixels(), glGet anything.
 
-- Make sure GPU compositing is on.  (You may need to use command line option --enable-accelerated-compositing when launching Chrome.)  You can verify it's on by going to this page http://webkit.org/blog-files/3d-transforms/morphing-cubes.html
+- Make sure GPU compositing is on.  (note: may need to use command line option --enable-accelerated-compositing when launching Chrome.)  To verify, go to this page http://webkit.org/blog-files/3d-transforms/morphing-cubes.html
 
 * Porting Tips *
 
