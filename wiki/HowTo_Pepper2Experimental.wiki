@@ -1,5 +1,5 @@
 #summary How to experiment with the latest Pepper 2 API.
-Warning:  Currently, the NaCl bindings for pepper 2 are still under construction, and not everything will work yet.  Properties and methods are working, but anything requiring audio or graphics will not work.  
+Warning:  Currently, the !NaCl bindings for pepper 2 are still under construction, and not everything will work yet.  Properties and methods are working, but anything requiring audio or graphics will not work.  
 
 = Get the latest version of the SDK =
 
