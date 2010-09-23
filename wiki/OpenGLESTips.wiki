@@ -13,9 +13,9 @@ This page discusses tips and techniques using OpenGL ES 2.0 under Pepper & Nativ
 
 - Updating indices is slow, as range checking needs to be done during validation.
 
-- Updating VBOs: glBufferData() is slower than glSubBufferData()  When doing a lot of VBO work (for example, CPU skinning) there is a custom extension: glMapBufferSubData()
+- Updating VBOs: glBufferData() is slower than glSubBufferData()  When frequently updating VBOs (for example, CPU skinning) there is a custom extension: glMapBufferSubData()
 
-- Updating textures dynamically is slow.  glTexImage2D() is slower than glTexSubImage2D() because a new texture is allocated. When updating textures a lot there is a custom extension: glMapTexSubImage2D().
+- Updating textures dynamically is slow.  glTexImage2D() is slower than glTexSubImage2D() because a new texture is allocated. When updating textures frequently, there is a custom extension: glMapTexSubImage2D().
 
 - Any command that reads data back to the client is extremely slow. glGetError(), glGetUniform(), glReadPixels(), glGet anything.
 
