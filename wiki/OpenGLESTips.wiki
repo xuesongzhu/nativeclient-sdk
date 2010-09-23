@@ -9,46 +9,46 @@ This page discusses tips and techniques using OpenGL ES 2.0 under Pepper & Nativ
 
 *Performance Tips*
 
-- Use server side VBOs whenever possible, for both vertex data _and_ index data.  Avoid client side vertex & index data, except for low usage, one-off cases.
+  * Use server side VBOs whenever possible, for both vertex data _and_ index data.  Avoid client side vertex & index data, except for low usage, one-off cases.
 
-- Updating indices is slow, as range checking needs to be done during validation.
+  * Updating indices is slow, as range checking needs to be done during validation.
 
-- Updating VBOs: glBufferData() is slower than glSubBufferData()  When frequently updating VBOs (for example, CPU skinning) there is a custom extension: glMapBufferSubData()
+  * Updating VBOs: glBufferData() is slower than glSubBufferData()  When frequently updating VBOs (for example, CPU skinning) there is a custom extension: glMapBufferSubData()
 
-- Updating textures dynamically is slow.  glTexImage2D() is slower than glTexSubImage2D() because a new texture is allocated. When updating textures frequently, there is a custom extension: glMapTexSubImage2D().
+  * Updating textures dynamically is slow.  glTexImage2D() is slower than glTexSubImage2D() because a new texture is allocated. When updating textures frequently, there is a custom extension: glMapTexSubImage2D().
 
-- Any command that reads data back to the client is extremely slow. glGetError(), glGetUniform(), glReadPixels(), glGet anything.
+  * Any command that reads data back to the client is extremely slow. glGetError(), glGetUniform(), glReadPixels(), glGet anything.
 
-- Make sure GPU compositing is on.  (note: may need to use command line option --enable-accelerated-compositing when launching Chrome.)  To verify, go to this page: http://webkit.org/blog-files/3d-transforms/morphing-cubes.html  If you see a spinning cube in a cube it's on. If you see a spinning plane it's off.
+  * Make sure GPU compositing is on.  (note: may need to use command line option --enable-accelerated-compositing when launching Chrome.)  To verify, go to this page: http://webkit.org/blog-files/3d-transforms/morphing-cubes.html  If you see a spinning cube in a cube it's on. If you see a spinning plane it's off.
 
-- Fix any warnings reported in the console.
+  * Fix any warnings reported in the console.
 
 * Porting Tips *
 
 OpenGL ES 2.0 is a modern subset of normal OpenGL commonly available on desktop machines.  For the most part, OpenGL ES discards deprecated portions of the orginal OpenGL API.  It also supports a smaller set of texture and vertex formats.  Some of the more notable differences of OpenGL ES 2.0 are:
 
-- GL_BYTE, GL_UNSIGNED_BYTE, GL_SHORT, GL_UNSIGNED_SHORT, GL_FLOAT, GL_FIXED data types (extensions may be available for GL_HALF_FLOAT_OES, and GL_INT & GL_UNSIGNED_INT)
+  * GL_BYTE, GL_UNSIGNED_BYTE, GL_SHORT, GL_UNSIGNED_SHORT, GL_FLOAT, GL_FIXED data types (extensions may be available for GL_HALF_FLOAT_OES, and GL_INT & GL_UNSIGNED_INT)
 
-- Limited texture formats are supported: GL_RGB, GL_RGBA, GL_LUMINANCE, GL_LUMINANCE_ALPHA, GL_ALPHA
+  * Limited texture formats are supported: GL_RGB, GL_RGBA, GL_LUMINANCE, GL_LUMINANCE_ALPHA, GL_ALPHA
 
-- Limited pixel data types: GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_5_6_5
+  * Limited pixel data types: GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_5_6_5
 
-- Support for compressed textures via glCompressedTexImage2D()
+  * Support for compressed textures via glCompressedTexImage2D()
 
-- No support for glTexImage1D(), glTexImage3D(), glTexRect().  (an extension may be available for 3D texture support)
+  * No support for glTexImage1D(), glTexImage3D(), glTexRect().  (an extension may be available for 3D texture support)
 
-- Cube maps are supported via glTexImage2D() and GL_TEXTURE_CUBE_MAP_x targets.
+  * Cube maps are supported via glTexImage2D() and GL_TEXTURE_CUBE_MAP_x targets.
 
-- No support for fixed function pipeline.  All OpenGL ES 2.0 rendering requires vertex and pixel shaders.
+  * No support for fixed function pipeline.  All OpenGL ES 2.0 rendering requires vertex and pixel shaders.
 
-- No support for glBegin() & glEnd().  No support for glColor(), glNormal(), glVertex(), & glTexCoord().
+  * No support for glBegin() & glEnd().  No support for glColor(), glNormal(), glVertex(), & glTexCoord().
 
-- No support for desktop OpenGL's matrix strack (glMatrixMode(), glLoadIdentity(), glTranslatef(), glScalef(), glRotatef(), glPushMatrix(), and friends are not available)
+  * No support for desktop OpenGL's matrix strack (glMatrixMode(), glLoadIdentity(), glTranslatef(), glScalef(), glRotatef(), glPushMatrix(), and friends are not available)
 
-- Fragment shaders should specify a default precision such as "precision highp float;" or else they risk rendering undefined pixels.
+  * Fragment shaders should specify a default precision such as "precision highp float;" or else they risk rendering undefined pixels.
 
-- Undefined pixels will be rendered as black pixels.
+  * Undefined pixels will be rendered as black pixels.
 
-- Vertex shaders cannot use ftransform()
+  * Vertex shaders cannot use ftransform()
 
-- glNormalPointer(), glVertexPointer(), glColorPointer(), glTexCoordPointer() functions are not available, use the more generic glVertexAttribPointer() instead.
+  * glNormalPointer(), glVertexPointer(), glColorPointer(), glTexCoordPointer() functions are not available, use the more generic glVertexAttribPointer() instead.
