@@ -21,6 +21,8 @@ This page discusses tips and techniques using OpenGL ES 2.0 under Pepper & Nativ
 
 - Make sure GPU compositing is on.  (note: may need to use command line option --enable-accelerated-compositing when launching Chrome.)  To verify, go to this page http://webkit.org/blog-files/3d-transforms/morphing-cubes.html
 
+- Fix any warnings reported in the console.
+
 * Porting Tips *
 
 OpenGL ES 2.0 is a modern subset of normal OpenGL commonly available on desktop machines.  For the most part, OpenGL ES discards deprecated portions of the orginal OpenGL API.  It also supports a smaller set of texture and vertex formats.  Some of the more notable differences of OpenGL ES 2.0 are:
