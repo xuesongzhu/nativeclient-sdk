@@ -2,7 +2,7 @@
 
 = Introduction =
 
-This page will discuss tips and techniques using OpenGL ES 2.0 under Pepper & Native Client.  _Currently work in progress_.
+This page discusses tips and techniques using OpenGL ES 2.0 under Pepper & Native Client.  _Currently work in progress_.
 
 
 = Details =
