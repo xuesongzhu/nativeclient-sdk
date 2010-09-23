@@ -23,7 +23,7 @@ This page discusses tips and techniques using OpenGL ES 2.0 under Pepper & Nativ
 
 * Porting Tips *
 
-OpenGL ES 2.0 is a subset of normal OpenGL commonly available on desktop machines.  For the most part, OpenGL ES 2.0 is a modern subset, and discards deprecated portions of the orginal OpenGL API.  It also supports a smaller set of texture and vertex formats.  Some of the more notable differences of OpenGL ES 2.0 are:
+OpenGL ES 2.0 is a modern subset of normal OpenGL commonly available on desktop machines.  For the most part, OpenGL ES discards deprecated portions of the orginal OpenGL API.  It also supports a smaller set of texture and vertex formats.  Some of the more notable differences of OpenGL ES 2.0 are:
 
 - GL_BYTE, GL_UNSIGNED_BYTE, GL_SHORT, GL_UNSIGNED_SHORT, GL_FLOAT, GL_FIXED data types (extensions may be available for GL_HALF_FLOAT_OES, and GL_INT & GL_UNSIGNED_INT)
 
