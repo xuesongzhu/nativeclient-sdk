@@ -120,3 +120,5 @@ The `nosys` library defines some POSIX routines that aren't implemented by Nativ
 == See also ==
 
   * Mark Seaborn's notes on his glibc-related changes: http://plash.beasts.org/wiki/NativeClient/Changes
+
+  * [http://code.google.com/p/nativeclient-sdk/wiki/OpenGLESTips Tips on porting to OpenGL ES 2.0 available in Native Client.]
