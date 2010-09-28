@@ -4,10 +4,7 @@
 
 This page discusses tips and techniques for using OpenGL ES 2.0 under Pepper and Native Client.  _Currently work in progress_.
 
-
-= Details =
-
-*Performance Tips*
+= Performance Notes =
 
   * Use server-side VBOs for both vertex data _and_ index data (whenever possible).  Avoid client-side vertex & index data, except for low usage, one-off cases.
 
@@ -25,7 +22,7 @@ This page discusses tips and techniques for using OpenGL ES 2.0 under Pepper and
 
   * Fix any warnings reported in the console.
 
-* Porting Tips *
+= Porting Notes = 
 
 OpenGL ES 2.0 is a modern subset of normal OpenGL commonly available on desktop machines.  For the most part, OpenGL ES discards deprecated portions of the orginal OpenGL API.  It also supports a smaller set of texture and vertex formats.  Some of the more notable differences of OpenGL ES 2.0 are:
 
