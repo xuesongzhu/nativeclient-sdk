@@ -4,9 +4,9 @@
 
 OpenGL ES 2.0 is a modern subset of normal OpenGL commonly available on desktop machines.  OpenGL ES discards deprecated portions of the orginal OpenGL API.  It also supports a smaller set of texture and vertex formats.  
 
------
-Note: This document is a work-in-progress
------
+  -----------
+  Note: This document is a work-in-progress
+  -----------
 
 = Performance Notes =
 
