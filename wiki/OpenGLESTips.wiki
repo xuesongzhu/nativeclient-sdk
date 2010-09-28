@@ -40,30 +40,30 @@ Following are some tips and notes on OpenGL ES 2.0 and performance:
 
 Some of the more notable differences between OpenGL on desktop machines and OpenGL ES 2.0 are:
 
-  * GL_BYTE, GL_UNSIGNED_BYTE, GL_SHORT, GL_UNSIGNED_SHORT, GL_FLOAT, GL_FIXED data types (extensions may be available for GL_HALF_FLOAT_OES, and GL_INT & GL_UNSIGNED_INT)
+  * `GL_BYTE`, `GL_UNSIGNED_BYTE`, `GL_SHORT`, `GL_UNSIGNED_SHORT`, `GL_FLOAT`, `GL_FIXED` data types (extensions may be available for `GL_HALF_FLOAT_OES`, `GL_INT` and `GL_UNSIGNED_INT`).
 
-  * The following texture formats are supported: GL_RGB, GL_RGBA, GL_LUMINANCE, GL_LUMINANCE_ALPHA, GL_ALPHA
+  * The following texture formats are supported: `GL_RGB`, `GL_RGBA`, `GL_LUMINANCE`, `GL_LUMINANCE_ALPHA`, `GL_ALPHA`.
 
-  * The following pixel data types are supported: GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT_4_4_4_4, GL_UNSIGNED_SHORT_5_5_5_1, GL_UNSIGNED_SHORT_5_6_5
+  * The following pixel data types are supported: `GL_UNSIGNED_BYTE`, `GL_UNSIGNED_SHORT_4_4_4_4`, `GL_UNSIGNED_SHORT_5_5_5_1`, `GL_UNSIGNED_SHORT_5_6_5`.
 
-  * Support for compressed textures is supported using glCompressedTexImage2D().
+  * Support for compressed textures is supported using `glCompressedTexImage2D()`.
 
-  * There is no support for glTexImage1D(), glTexImage3D(), glTexRect().  However, an extension may be available for 3D texture support.
+  * There is no support for `glTexImage1D()`, `glTexImage3D()`, `glTexRect()`.  However, an extension may be available for 3D texture support.
 
-  * Cube maps are supported using glTexImage2D() and GL_TEXTURE_CUBE_MAP_x targets.
+  * Cube maps are supported using `glTexImage2D()` and `GL_TEXTURE_CUBE_MAP_x` targets.
 
   * There is no support for fixed function pipeline.  All OpenGL ES 2.0 rendering requires vertex and pixel shaders.
 
-  * There is no support for glBegin() and glEnd().  
+  * There is no support for `glBegin()` and `glEnd()`.  
 
-  * There is no support for glColor(), glNormal(), glVertex(), and glTexCoord().
+  * There is no support for `glColor()`, `glNormal()`, `glVertex()`, and `glTexCoord()`.
 
-  * There is no support for desktop OpenGL's matrix stack (glMatrixMode(), glLoadIdentity(), glTranslatef(), glScalef(), glRotatef(), glPushMatrix(), and friends are not available).
+  * There is no support for desktop OpenGL's matrix stack (`glMatrixMode()`, `glLoadIdentity()`, `glTranslatef()`, `glScalef()`, `glRotatef()`, `glPushMatrix()`, and friends are not available).
 
   * Fragment shaders should specify a default precision such as "precision highp float;" otherwise they risk rendering undefined pixels.
 
   * Undefined pixels will be rendered as black pixels.
 
-  * Vertex shaders cannot use ftransform().
+  * Vertex shaders cannot use `ftransform()`.
 
-  * These functions are not available: glNormalPointer(), glVertexPointer(), glColorPointer(), glTexCoordPointer(). Use the more generic glVertexAttribPointer() instead of these functions.
+  * These functions are not available: `glNormalPointer()`, `glVertexPointer()`, `glColorPointer()`, `glTexCoordPointer()`. Use the more generic `glVertexAttribPointer()` instead of these functions.
