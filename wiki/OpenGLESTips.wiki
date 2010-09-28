@@ -12,7 +12,7 @@ OpenGL ES 2.0 is a modern subset of the OpenGL commonly available on desktop mac
 
 Following are some tips and notes on OpenGL ES 2.0 and performance:
 
-  * Use server-side VBOs for both vertex data _and_ index data (whenever possible).  Avoid client-side vertex anbd index data, except for low usage, one-off cases.
+  * Use server-side vertex buffer object (VBOs) for both vertex data _and_ index data (whenever possible).  Avoid client-side vertex and index data, except for low usage, one-off cases.
 
  * Make sure GPU compositing is on. 
 
