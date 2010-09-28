@@ -28,11 +28,11 @@ Following are some tips and notes on OpenGL ES 2.0 and performance:
 
   * Updating indices is slow because range checking needs to be done during validation.
 
-  * Updating VBOs using `glBufferData()' is slower than using glSubBufferData().  There is a custom extension called glMapBufferSubData() for use when updating VBOs (for example, CPU skinning).
+  * Updating VBOs using `glBufferData()` is slower than using `glSubBufferData()`.  There is a custom extension called `glMapBufferSubData()` for use when updating VBOs (for example, CPU skinning).
 
-  * Updating textures dynamically is slow.  Using glTexImage2D() is slower than using glTexSubImage2D() because a new texture is allocated. There is a custom extension called glMapTexSubImage2D() for use when updating textures frequently.
+  * Updating textures dynamically is slow.  Using `glTexImage2D()` is slower than using `glTexSubImage2D()` because a new texture is allocated. There is a custom extension called `glMapTexSubImage2D()` for use when updating textures frequently.
 
-  * Any commands that read data back to the client is extremely slow. These commands include all glGet commands and glReadPixels().  
+  * Any commands that read data back to the client is extremely slow. These commands include all glGet commands and `glReadPixels()`.  
 
   * Fix any warnings reported in the console.
 
