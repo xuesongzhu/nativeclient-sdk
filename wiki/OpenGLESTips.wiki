@@ -17,13 +17,14 @@ Following are some tips and notes on OpenGL ES 2.0 and performance:
  * Make sure GPU compositing is on. 
 
      -----------
-     Note: You may need to use the command-line option `--enable-accelerated-compositing` when launching    
+     Note: Use the command-line option `--enable-accelerated-compositing` when launching    
      Chrome.  Visit this web page to verify that the command-line option is working: 
 
      {{{ http://webkit.org/blog-files/3d-transforms/morphing-cubes.html  }}}
 
      The command-line option is on if you see a spinning cube in a cube. The command-line option is off if you     
-     see a spinning 2D plane.
+     see a spinning 2D plane. This option is likely to be incorporated into the browser in the future. 
+
      -----------
 
   * Updating indices is slow because range checking needs to be done during validation.
@@ -40,7 +41,7 @@ Following are some tips and notes on OpenGL ES 2.0 and performance:
 
 Some of the more notable differences between OpenGL on desktop machines and OpenGL ES 2.0 are:
 
-  * `GL_BYTE`, `GL_UNSIGNED_BYTE`, `GL_SHORT`, `GL_UNSIGNED_SHORT`, `GL_FLOAT`, `GL_FIXED` data types (extensions may be available for `GL_HALF_FLOAT_OES`, `GL_INT` and `GL_UNSIGNED_INT`).
+  * `GL_BYTE`, `GL_UNSIGNED_BYTE`, `GL_SHORT`, `GL_UNSIGNED_SHORT`, `GL_FLOAT`, `GL_FIXED` data types. Query for `GL_HALF_FLOAT_OES`, `GL_INT` and `GL_UNSIGNED_INT` to see extensions are available from the back-end driver.
 
   * The following texture formats are supported: `GL_RGB`, `GL_RGBA`, `GL_LUMINANCE`, `GL_LUMINANCE_ALPHA`, `GL_ALPHA`.
 
@@ -48,7 +49,7 @@ Some of the more notable differences between OpenGL on desktop machines and Open
 
   * Support for compressed textures is supported using `glCompressedTexImage2D()`.
 
-  * There is no support for `glTexImage1D()`, `glTexImage3D()`, `glTexRect()`.  However, an extension may be available for 3D texture support.
+  * There is no support for `glTexImage1D()`, `glTexImage3D()`, `glTexRect()`.  However, an extension may be available for 3D texture support from the back-end driver.
 
   * Cube maps are supported using `glTexImage2D()` and `GL_TEXTURE_CUBE_MAP_x` targets.
 
