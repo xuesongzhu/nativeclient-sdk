@@ -2,29 +2,33 @@
 
 = Introduction =
 
-This page discusses tips and techniques for using OpenGL ES 2.0 under Pepper and Native Client.  _Currently work in progress_.
+OpenGL ES 2.0 is a modern subset of normal OpenGL commonly available on desktop machines.  OpenGL ES discards deprecated portions of the orginal OpenGL API.  It also supports a smaller set of texture and vertex formats.  
+
+-----
+Note: This document is a work-in-progress
+-----
 
 = Performance Notes =
 
-  * Use server-side VBOs for both vertex data _and_ index data (whenever possible).  Avoid client-side vertex & index data, except for low usage, one-off cases.
+Following are some tips and notes on OpenGL ES 2.0 and performance:
+
+  * Use server-side VBOs for both vertex data _and_ index data (whenever possible).  Avoid client-side vertex anbd index data, except for low usage, one-off cases.
 
  * Make sure GPU compositing is on.  (note: may need to use command-line option --enable-accelerated-compositing when launching Chrome.)  To verify, go to this page: http://webkit.org/blog-files/3d-transforms/morphing-cubes.html  If you see a spinning cube in a cube it's on. If you see a spinning plane it's off.
 
-  * Updating indices is slow, as range checking needs to be done during validation.
+  * Updating indices is slow because range checking needs to be done during validation.
 
-  * Updating VBOs: glBufferData() is slower than glSubBufferData()  When frequently updating VBOs (for example, CPU skinning) there is a custom extension: glMapBufferSubData()
+  * Updating VBOs using glBufferData() is slower than using glSubBufferData().  There is a custom extension called glMapBufferSubData() for use when updating VBOs (for example, CPU skinning).
 
-  * Updating textures dynamically is slow.  glTexImage2D() is slower than glTexSubImage2D() because a new texture is allocated. When updating textures frequently, there is a custom extension: glMapTexSubImage2D().
+  * Updating textures dynamically is slow.  Using glTexImage2D() is slower than using glTexSubImage2D() because a new texture is allocated. There is a custom extension called glMapTexSubImage2D() for use when updating textures frequently.
 
-  * Any command that reads data back to the client is extremely slow. glGetError(), glGetUniform(), glReadPixels(), glGet anything.
-
- 
+  * Any commands that read data back to the client is extremely slow. These commands include all glGet commands and glReadPixels().  
 
   * Fix any warnings reported in the console.
 
 = Porting Notes = 
 
-OpenGL ES 2.0 is a modern subset of normal OpenGL commonly available on desktop machines.  For the most part, OpenGL ES discards deprecated portions of the orginal OpenGL API.  It also supports a smaller set of texture and vertex formats.  Some of the more notable differences of OpenGL ES 2.0 are:
+Some of the more notable differences between OpenGL on desktop machines and OpenGL ES 2.0 are:
 
   * GL_BYTE, GL_UNSIGNED_BYTE, GL_SHORT, GL_UNSIGNED_SHORT, GL_FLOAT, GL_FIXED data types (extensions may be available for GL_HALF_FLOAT_OES, and GL_INT & GL_UNSIGNED_INT)
 
