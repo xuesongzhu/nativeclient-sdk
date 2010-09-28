@@ -20,7 +20,7 @@ Following are some tips and notes on OpenGL ES 2.0 and performance:
      Note: You may need to use the command-line option --enable-accelerated-compositing when launching    
      Chrome.  Visit this web page to verify that the command-line option is working: 
 
-     http://webkit.org/blog-files/3d-transforms/morphing-cubes.html  
+     {{{ http://webkit.org/blog-files/3d-transforms/morphing-cubes.html  }}}
 
      The command-line option is on if you see a spinning cube in a cube. The command-line option is off if you     
      see a spinning 2D plane.
@@ -28,7 +28,7 @@ Following are some tips and notes on OpenGL ES 2.0 and performance:
 
   * Updating indices is slow because range checking needs to be done during validation.
 
-  * Updating VBOs using glBufferData() is slower than using glSubBufferData().  There is a custom extension called glMapBufferSubData() for use when updating VBOs (for example, CPU skinning).
+  * Updating VBOs using 'glBufferData()' is slower than using glSubBufferData().  There is a custom extension called glMapBufferSubData() for use when updating VBOs (for example, CPU skinning).
 
   * Updating textures dynamically is slow.  Using glTexImage2D() is slower than using glTexSubImage2D() because a new texture is allocated. There is a custom extension called glMapTexSubImage2D() for use when updating textures frequently.
 
