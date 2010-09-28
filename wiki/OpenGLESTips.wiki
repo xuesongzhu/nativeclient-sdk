@@ -2,7 +2,7 @@
 
 = Introduction =
 
-OpenGL ES 2.0 is a modern subset of normal OpenGL commonly available on desktop machines.  OpenGL ES discards deprecated portions of the orginal OpenGL API.  It also supports a smaller set of texture and vertex formats.  
+OpenGL ES 2.0 is a modern subset of the OpenGL commonly available on desktop machines.  OpenGL ES discards deprecated portions of the original OpenGL API.  It also supports a smaller set of texture and vertex formats.  
 
   -----------
   Note: This document is a work-in-progress
@@ -14,7 +14,17 @@ Following are some tips and notes on OpenGL ES 2.0 and performance:
 
   * Use server-side VBOs for both vertex data _and_ index data (whenever possible).  Avoid client-side vertex anbd index data, except for low usage, one-off cases.
 
- * Make sure GPU compositing is on.  (note: may need to use command-line option --enable-accelerated-compositing when launching Chrome.)  To verify, go to this page: http://webkit.org/blog-files/3d-transforms/morphing-cubes.html  If you see a spinning cube in a cube it's on. If you see a spinning plane it's off.
+ * Make sure GPU compositing is on.  (note: 
+
+     -----------
+     Note: You may need to use the command-line option --enable-accelerated-compositing when launching    
+     Chrome.  Visit this web page to verify that the command-line option is working: 
+
+     http://webkit.org/blog-files/3d-transforms/morphing-cubes.html  
+
+     The command-line option is on if you see a spinning cube in a cube. The command-line option is off if you     
+     see a spinning 2D plane.
+     -----------
 
   * Updating indices is slow because range checking needs to be done during validation.
 
