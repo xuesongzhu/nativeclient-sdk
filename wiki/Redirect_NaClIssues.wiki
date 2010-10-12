@@ -1,0 +1,7 @@
+#summary Redirect to nativeclient.googlecode.com issue tracker
+
+== The Native Client SDK Issues ==
+
+The Native Client SDK issues are all being tracked in the [http://code.google.com/p/nativeclient/ Native Client repo].
+
+Visit this link: [http://code.google.com/p/nativeclient/issues/list NaCl Issue Tracker]
