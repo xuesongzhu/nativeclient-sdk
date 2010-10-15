@@ -83,6 +83,10 @@ Here are the details.
 </li>
 
 <li>Start a web server that can serve the contents of the `examples` directory.  A simple python-based HTTP server is provided with the SDK, in the `examples` directory:<br />
+*Windows:*
+<code> cd examples
+httpd.cmd 5103</code>
+*Mac, Linux:*
 <code> cd examples
 python httpd.py 5103</code>
 This starts a local server on port 5103.
