@@ -42,7 +42,7 @@ Make sure there are *no spaces* in the path to the SDK. For example, the path `C
 <li> Make sure your version of Google Chrome is at least *6.0.472.53* or later.  To find the version number, type `about:version` into the address bar.
 </li>
 
-<li> Make sure you have Python (version 2.4, 2.5, or 2.6). Here's how to check your Python version:
+<li> *Mac or Linux:* Make sure you have Python (version 2.4, 2.5, or 2.6). Here's how to check your Python version:
 
 <code>python -V</code>
 
