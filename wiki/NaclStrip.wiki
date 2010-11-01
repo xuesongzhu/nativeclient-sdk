@@ -1,0 +1,13 @@
+#How to use nacl-strip to reduce .nexe size
+
+= Introduction =
+
+nacl-strip is a binary that will compress your .nexe files.  This helps reduce latency when they are loaded from a web host.  The nacl-strip binary is contains in the NaCl SDK toolchain directory, which also contains nacl-g++.
+
+= Details =
+
+Basic usage is very simple.  For example, if we have a .nexe file named hello_world_x86_32.nexe, we can create a stripped version named hello_world_s_x86_32.nexe with this command line:
+
+{{{
+  nacl-strip hello_world_x86_32.nexe -o hello_world_s_x86_32.nexe
+}}}
