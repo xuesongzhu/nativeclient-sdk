@@ -1,4 +1,4 @@
-How to use nacl-strip to reduce .nexe size
+#summary How to use nacl-strip to reduce .nexe size
 
 = Introduction =
 
