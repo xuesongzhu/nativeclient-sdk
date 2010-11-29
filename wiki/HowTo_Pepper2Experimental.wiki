@@ -8,8 +8,8 @@ You will need to check out and build *both* the [http://code.google.com/p/native
 Once you have the !NaCl repo checked out, follow these build steps:
 {{{
 cd ~/nacl/native_client
-./scons --download --mode=<dbg|opt>-<platform>,nacl
-./scons sel_ldr sdl=none
+./scons --mode=opt-<platform>,nacl
+./scons --mode=opt-<platform> sel_ldr sdl=none
 }}}
 For example, to build the optimized version of sel_ldr the Mac:
 {{{
@@ -17,21 +17,6 @@ cd ~/nacl/native_client
 ./scons --mode=opt-mac sel_ldr sdl=none
 }}}
 
-*Note:* as of !NaCl rev 3332, it seems like this step is no longer needed.  Building the Pepper plugin is part of the default scons build now.
-
-<font color='gray'>
-Once you have built `sel_ldr`, you will need to build the !NaCl Pepper plugin.
-
-=== Windows, Linux ===
-{{{
-./scons --mode=dbg-<platform> ppNaClPlugin
-}}}
-
-=== Mac ===
-{{{
-./scons --mode=dbg-mac scons-out/dbg-mac-x86-32/staging/ppNaClPlugin.bundle
-}}}
-</font>
 = Set up your environment =
 
 You have to set an environment variable in the shell where you run Chrome.
@@ -51,7 +36,7 @@ See [http://dev.chromium.org/Home The Chromium Project] for more info.
 {{{
 Chromium.app/Contents/MacOS/Chromium \
     --no-sandbox\
-    --register-pepper-plugins="/path/to/native_client/scons-out/dbg-mac-x86-32/staging/ppNaClPlugin.bundle;application/x-ppapi-nacl-srpc"\
+    --register-pepper-plugins="/path/to/native_client/scons-out/opt-mac-x86-32/staging/ppNaClPlugin.bundle;application/x-ppapi-nacl-srpc"\
     --user-data-dir=$HOME/nacl-profile
 }}}
 *Note:* You cannot use `$HOME` or `~` for the `--register-pepper-plugins` flag, you have to use a full path.
