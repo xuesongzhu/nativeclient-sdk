@@ -34,12 +34,7 @@ Once you have built `sel_ldr`, you will need to build the !NaCl Pepper plugin.
 </font>
 = Set up your environment =
 
-You have to set a couple of environment variables in the shell where you run Chrome.
-
-`NACL_PPAPI_LOCAL_ORIGIN` is required until the URL loading support is completed.
-{{{
-export NACL_PPAPI_LOCAL_ORIGIN=/path/to/nacl-sdk/src/examples
-}}}
+You have to set an environment variable in the shell where you run Chrome.
 
 {{{
 export NACL_SEL_LDR=/path/to/native_client/scons-out/<dbg|opt>-<platform>-x86-32/staging/sel_ldr
