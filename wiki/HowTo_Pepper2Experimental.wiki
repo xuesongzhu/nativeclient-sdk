@@ -9,12 +9,11 @@ Once you have the !NaCl repo checked out, follow these build steps:
 {{{
 cd ~/nacl/native_client
 ./scons --mode=opt-<platform>,nacl
-./scons --mode=opt-<platform> sel_ldr sdl=none
 }}}
-For example, to build the optimized version of sel_ldr the Mac:
+For example, to build the optimized version of !NaCl the Mac:
 {{{
 cd ~/nacl/native_client
-./scons --mode=opt-mac sel_ldr sdl=none
+./scons --mode=opt-mac,nacl
 }}}
 
 = Set up your environment =
