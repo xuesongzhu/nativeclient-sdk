@@ -89,7 +89,7 @@ Note that there are only two slashes instead of three slashes before the `@{` an
 
 To document a member of a C++ class, you must also document the class itself. The same holds for namespaces. To document a global C function, typedef, enum or preprocessor definition you must first document the file that contains it (usually this will be a header file, because that file contains the information that is exported to other source files).
 
-Let's repeat that, because it is often overlooked: to document global objects (functions, typedefs, enum, macros, etc), you must document the file in which they are defined. In other words, there must at least be a `// @file`  in the file (C++) or `/** @file */` in the file (C).  See [Ref_DoxygenComments#Documenting_the_File Documenting the File].
+Let's repeat that, because it is often overlooked: to document global objects (functions, typedefs, enum, macros, etc), you must document the file in which they are defined. In other words, there must at least be a `// @file`  in the file (C++) or `/** @file */` in the file (C).  See [Ref_DoxygenComments#Documenting_the_File].
 
 Comments usually appear directly before the class declaration, function definition/declaration, argument, and so on.  If the comment does not appear directly in front of the item that it documents, then it is necessary to use additional markup to link back to the item that is receiving the documentation.  This mechanism should rarely be used, if ever.
 
@@ -117,7 +117,7 @@ Comments inside a function are ignored and considered implementation comments.  
 
 === API Groups ===
 
-Doxygen lets you group APIs using [http://www.stack.nl/~dimitri/doxygen/grouping.html *group tags]. In the resulting HTML, it organizes the results under a tab called "Modules". For example, the Pepper API currently has two top-level groups: C and C++. Specify what APIs belong to what groups in the `@file` section at the beginning of a file.  See [Ref_DoxygenComments#Documenting_the_File Documenting the File].
+Doxygen lets you group APIs using [http://www.stack.nl/~dimitri/doxygen/grouping.html *group tags]. In the resulting HTML, it organizes the results under a tab called "Modules". For example, the Pepper API currently has two top-level groups: C and C++. Specify what APIs belong to what groups in the `@file` section at the beginning of a file.  See [Ref_DoxygenComments#Documenting_the_File].
 
 == Section 2: Documenting Code for code.google.com ==
 
