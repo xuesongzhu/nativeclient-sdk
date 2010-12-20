@@ -4,6 +4,10 @@
 
 This document describes coding guidelines that are specific to the !NaCl SDK project.  Naturally, we rely on the Google style guides for most issues, but when we want to be consistent in an area that those guides don’t cover, we will put those project-specific guidelines here.
 
+== Code Review Rules & API Documentation ==
+
+If you write a header file that contains developer-facing API (for example, `src/c_salt/notification_center.h`), then your code *must* include [Ref_DoxygenComments Doxygen-style comments].  You cannot receive a final LGTM until your documentation has been reviewed for consistency and content.  
+
 == C++ Guidelines ==
 
 Extends:  [http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml Google C++ Style Guide].
