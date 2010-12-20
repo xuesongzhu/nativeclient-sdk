@@ -89,7 +89,7 @@ Note that there are only two slashes instead of three slashes before the `@{` an
 
 To document a member of a C++ class, you must also document the class itself. The same holds for namespaces. To document a global C function, typedef, enum or preprocessor definition you must first document the file that contains it (usually this will be a header file, because that file contains the information that is exported to other source files).
 
-Let's repeat that, because it is often overlooked: to document global objects (functions, typedefs, enum, macros, etc), you must document the file in which they are defined. In other words, there must at least be a `// @file`  in the file (C++) or `/** @file */` in the file (C).  See [[Documenting_the_File Documenting the File]].
+Let's repeat that, because it is often overlooked: to document global objects (functions, typedefs, enum, macros, etc), you must document the file in which they are defined. In other words, there must at least be a `// @file`  in the file (C++) or `/** @file */` in the file (C).  See [[#Documenting_the_File Documenting the File]].
 
 Comments usually appear directly before the class declaration, function definition/declaration, argument, and so on.  If the comment does not appear directly in front of the item that it documents, then it is necessary to use additional markup to link back to the item that is receiving the documentation.  This mechanism should rarely be used, if ever.
 
