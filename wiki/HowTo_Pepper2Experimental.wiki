@@ -35,7 +35,7 @@ See [http://dev.chromium.org/Home The Chromium Project] for more info.
 {{{
 Chromium.app/Contents/MacOS/Chromium \
     --no-sandbox\
-    --register-pepper-plugins="/path/to/native_client/scons-out/opt-mac-x86-32/staging/ppNaClPlugin.bundle;application/x-ppapi-nacl-srpc"\
+    --register-pepper-plugins="/path/to/native_client/scons-out/opt-mac-x86-32/staging/ppNaClPlugin.bundle;application/x-nacl"\
     --user-data-dir=$HOME/nacl-profile
 }}}
 *Note:* You cannot use `$HOME` or `~` for the `--register-pepper-plugins` flag, you have to use a full path.
@@ -45,7 +45,7 @@ Chromium.app/Contents/MacOS/Chromium \
 {{{
 /opt/google/chromium/chromium \
     --no-sandbox\
-    --register-pepper-plugins="/path/to/native_client/scons-out/dbg-linux-x86-32/staging/libppNaClPlugin.so;application/x-ppapi-nacl-srpc"\
+    --register-pepper-plugins="/path/to/native_client/scons-out/dbg-linux-x86-32/staging/libppNaClPlugin.so;application/x-nacl"\
     --user-data-dir=$HOME/nacl-profile
 }}}
 
