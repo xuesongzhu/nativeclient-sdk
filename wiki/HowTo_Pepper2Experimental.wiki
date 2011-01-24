@@ -68,4 +68,5 @@ http://localhost:5103/hello_world/hello_world.html
 {{{
 export PPAPI_BROWSER_DEBUG=1  # Turn on useful PPAPI plugin debugging logs.
 export NACL_PLUGIN_DEBUG=1  # Turn on useful NaCl SRPC debugging logs.
+export NACL_PPAPI_PROXY_DEBUG=1  # Turn on PPAPI-specific logging.
 }}}
