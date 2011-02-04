@@ -1,0 +1,159 @@
+#!/usr/bin/python
+#
+# Copyright (c) 2010 The Native Client SDK Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+""" Main scons script for Native Client SDK builds.
+"""
+
+import os
+import sys
+
+if os.getenv('NACL_SDK_ROOT') is None:
+  sys.stderr.write('NACL_SDK_ROOT must be defined as the root directory'
+                   ' of NaCl SDK.\n')
+  sys.exit(1)
+
+# Build a string representing the NaCl toolchain root.  This root points at the
+# platform-specific directory.
+def GetToolchainRoot(sdk_root=None):
+  if sdk_root is None:
+    sdk_root = os.getenv('NACL_SDK_ROOT', '')
+  if sys.platform == 'cygwin' or sys.platform.startswith('win'):
+    variant = 'win_x86'
+  elif sys.platform in ['darwin', 'macos']:
+    variant = 'mac_x86'
+  elif sys.platform in ['linux', 'linux2']:
+    variant = 'linux_x86'
+  else:
+    sys.stderr.write('Unrecognized build platform: %s\n' % sys.platform)
+    return ''
+
+  return os.path.join(sdk_root, 'toolchain', variant)
+
+
+# Check to make sure the necessary packages are installed.
+naclports_include = os.path.join(GetToolchainRoot(os.getenv('NACL_SDK_ROOT')),
+                                 'nacl', 'usr', 'include')
+for package in ['boost', 'gmock', 'gtest']:
+  if not os.path.exists(os.path.join(naclports_include, package)):
+    sys.stderr.write('Your NaCl toolchain does not have the necessary packages\n'
+                     'or the packages are not current.\n'
+                     'Run scripts/setup_naclports_packages.py\n')
+    sys.exit(1)
+
+environment_list = []
+
+base_env = Environment(
+  tools = ['component_setup'],
+  CPPPATH = ['$MAIN_DIR'],
+  CPPDEFINES = [
+    'BOOST_ALL_NO_LIB',
+  ],
+  NACL_TOOLCHAIN_ROOT = GetToolchainRoot(os.getenv('NACL_SDK_ROOT'))
+)
+
+#-----------------------------------------------------------------------------
+# Build environment for NaCl module.  Use this to create a basic env for both
+# 32- and 64-bit builds.
+nacl_env = base_env.Clone(
+    tools = ['naclsdk'],
+    BUILD_TYPE_DESCRIPTION = 'NaCl module',
+    BUILD_TYPE = 'nacl',
+    LIBS = ['google_nacl_imc',
+            'google_nacl_npruntime',
+            'pthread',
+            'srpc'],
+    NATIVE_CLIENT_SDK_DEFAULT_MODE = 'custom:' + base_env['NACL_TOOLCHAIN_ROOT']
+)
+
+nacl_env.Append(
+  BUILD_SCONSCRIPTS = [
+    '$MAIN_DIR/c_salt/c_salt.scons',
+  ],
+)
+
+nacl32_env = nacl_env.Clone(
+    CFLAGS = ['-m32'],
+    BUILD_TYPE_DESCRIPTION = '32-bit NaCl module',
+)
+nacl32_env.Append(CPPPATH = [os.path.join('$NACL_TOOLCHAIN_ROOT',
+                                          'nacl',
+                                          'usr',
+                                          'include')])
+
+nacl64_env = nacl_env.Clone(
+    CFLAGS = ['-m64'],
+    BUILD_TYPE_DESCRIPTION = '64-bit NaCl module',
+)
+nacl64_env.Append(CPPPATH = [os.path.join('$NACL_TOOLCHAIN_ROOT',
+                                          'nacl64',
+                                          'usr',
+                                          'include')])
+
+nacl32_dbg_env = nacl32_env.Clone(
+    BUILD_GROUPS = ['default'],
+    BUILD_TYPE = 'dbg32',
+    BUILD_TYPE_DESCRIPTION = '32-bit debug NaCl module',
+    tools = ['target_debug']
+)
+environment_list.append(nacl32_dbg_env)
+
+nacl64_dbg_env = nacl64_env.Clone(
+    BUILD_GROUPS = ['default'],
+    BUILD_TYPE = 'dbg64',
+    BUILD_TYPE_DESCRIPTION = '64-bit debug NaCl module',
+    tools = ['target_debug']
+)
+environment_list.append(nacl64_dbg_env)
+
+nacl32_opt_env = nacl32_env.Clone(
+    BUILD_TYPE = 'opt32',
+    BUILD_TYPE_DESCRIPTION = '32-bit optimized NaCl module',
+    tools = ['target_optimized']
+)
+environment_list.append(nacl32_opt_env)
+
+nacl64_opt_env = nacl64_env.Clone(
+    BUILD_TYPE = 'opt64',
+    BUILD_TYPE_DESCRIPTION = '64-bit optimized NaCl module',
+    tools = ['target_optimized']
+)
+environment_list.append(nacl64_opt_env)
+
+nacl_test_env = nacl32_env.Clone(
+    BUILD_TYPE = 'test',
+    BUILD_TYPE_DESCRIPTION = 'NaCl test build',
+    BUILD_SCONSCRIPTS = [
+      '$MAIN_DIR/c_salt/c_salt.scons',
+      '$MAIN_DIR/c_salt/test.scons',
+    ],
+    COMPONENT_TEST_CMDLINE = '$NACL_TOOLCHAIN_ROOT/bin/sel_ldr $PROGRAM_NAME',
+    LIBS = ['gmock', 'gtest', 'nosys', 'pthread', 'srpc',
+            'c_salt', 'google_nacl_npruntime', 'google_nacl_imc',
+            'google_nacl_pgl', 'google_nacl_gpu']
+)
+environment_list.append(nacl_test_env)
+
+# ----------------------------------------------------------
+# DOCUMENTATION HELPER
+# ----------------------------------------------------------
+
+doc_env = base_env.Clone(
+  NACL_BUILD_FAMILY = 'NO_PLATFORM',
+  BUILD_GROUPS = ['docs'],
+  BUILD_TYPE = 'doc',
+  BUILD_TYPE_DESCRIPTION = 'Doxygen build for c_salt and examples',
+  HOST_PLATFORMS = '*',
+  HOST_PLATFORM_SUFFIX='',
+)
+
+doc_env.Append(
+  BUILD_SCONSCRIPTS = [
+    'documentation/build.scons',
+  ],
+)
+environment_list.append(doc_env)
+
+BuildComponents(environment_list)
