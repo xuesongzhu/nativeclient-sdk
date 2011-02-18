@@ -2,7 +2,7 @@
 
 = Introduction =
 
-nacl-strip is a binary that will compress your .nexe files.  This helps reduce latency when they are loaded from a web host.  The nacl-strip binary is contains in the NaCl SDK toolchain directory, which also contains nacl-g++.
+nacl-strip is a binary that will compress your .nexe files.  This helps reduce latency when they are loaded from a web host.  The nacl-strip binary is contains in the !NaCl SDK toolchain directory, which also contains nacl-g++.
 
 = Details =
 
