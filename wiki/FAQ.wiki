@@ -1,4 +1,6 @@
 #summary Native Client SDK FAQ
+= This page is obsolete =
+Please visit [http://code.google.com/chrome/nativeclient/ Native Client Documentation] for the latest information.
 
 = Native Client SDK FAQ =
 
