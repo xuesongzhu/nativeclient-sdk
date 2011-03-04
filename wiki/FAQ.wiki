@@ -1,3 +1,4 @@
+#labels Deprecated
 Please visit the [http://code.google.com/chrome/nativeclient/ Native Client SDK website] for current information on programming with the Native Client SDK.
 
 
