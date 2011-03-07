@@ -7,7 +7,7 @@
 
 == Prerequisites ==
 
-You need to install [http://dev.chromium.org/developers/how-tos/install-gclient depot_tools] in order to use gclient.
+You need to install [http://dev.chromium.org/developers/how-tos/depottools depot_tools] in order to use gclient.
 
 == Create a Client View Directory ==
 
