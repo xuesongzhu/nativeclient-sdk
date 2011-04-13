@@ -40,8 +40,7 @@ import subprocess
 import sys
 
 # TODO(NaCl SDK team):  Put tumbler back in the package when it's ported.
-IGNORE_PATTERN = ('.download*', '.svn*', '.gitignore*', '.git*', 'tumbler*',
-                  'cygwin*', 'toolchain*')
+IGNORE_PATTERN = ('.download*', '.svn*', '.gitignore*', '.git*', 'tumbler*')
 INSTALLER_DIRS = ['examples',
                   'project_templates',
                   'third_party']
