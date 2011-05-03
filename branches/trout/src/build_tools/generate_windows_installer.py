@@ -22,6 +22,7 @@ EXTRA_WINDOWS_INSTALLER_CONTENTS = [
     'examples/httpd.cmd',
     'examples/make.cmd',
     'examples/scons.bat',
+    'third_party/cygwin/',
 ]
 
 def main(argv):
