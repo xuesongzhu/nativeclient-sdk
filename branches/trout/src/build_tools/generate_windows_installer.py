@@ -105,7 +105,7 @@ def main(argv):
   bot.BuildStep('build examples')
   bot.Print('generate_windows_installer is building examples.')
   example_path = os.path.join(home_dir, 'src', 'examples')
-  make = subprocess.Popen('scons.bat install_prebuilt',
+  make = subprocess.Popen('make install_prebuilt',
                           env=env,
                           cwd=example_path,
                           shell=True)
