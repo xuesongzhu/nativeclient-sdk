@@ -1,6 +1,6 @@
 # Note: NACL_REVISION is used by build_tools/generate_installers.py
-NACL_REVISION = "5417"
-TOOLCHAIN_REVISION = "5397"
+NACL_REVISION = "5493"
+TOOLCHAIN_REVISION = "5492"
 
 vars = {
   "native_client_trunk": "http://src.chromium.org/native_client/trunk",
@@ -9,8 +9,8 @@ vars = {
   "valgrind_version": NACL_REVISION,
   "pymox": "http://pymox.googlecode.com/svn/trunk",
   "pymox_version": "61",
-  "chromium_trunk": "http://src.chromium.org/svn/trunk",
-  "chromium_version": "79704",
+  "chromium_trunk": "http://src.chromium.org/svn/branches/781",
+  "chromium_version": "87276",
   # Grab the SCons build stuff from the NaCl repo.
   "scons_trunk": "http://src.chromium.org/native_client/trunk/",
   "scons_version": NACL_REVISION,
