@@ -124,16 +124,31 @@ def NaClTestProgram(env,
     A list of Nodes, one for each architecture-specific test.
   '''
 
-  arch_name = '%s_%s' % nacl_utils.GetArchFromSpec(arch_spec)
+  arch, subarch = nacl_utils.GetArchFromSpec(arch_spec)
+  arch_name = '%s_%s' % (arch, subarch)
+  if subarch == '32':
+    action='$NACL_SEL_LDR32 $SOURCE'
+  else:
+    action='$NACL_SEL_LDR64 $SOURCE'
+  print '----------------------------------------------'
+  print 'NaClTestProgram  arch_name %s ' % arch_name
+  print 'ENV %s ' % env
   test_program = env.NaClProgram(
       '%s_%s_%s' % (module_name, arch_name, target_name),
       test_sources,
       variant_dir='test_%s' % arch_name)
   # Tests are always built with debugging turned on.
   env.AppendOptCCFlags(is_debug=False)
+  # NaClTestProgram (this function) calls NaClProgram, but for modules (nexes
+  # that run in a browser) the code path is:
+  # MakeNaclModuleEnvironment, which calls AppendArchFlags, and then calls
+  # NaClProgram.  Since the code path here does not go through
+  # MakeNaclModuleEnvironment, we need to append architecture flags to
+  # our environment so that -m32/-m64 types of flags gets set.
+  env.AppendArchFlags(arch_spec)
   test_node = env.Alias(target_name,
                         source=test_program,
-                        action='$NACL_SEL_LDR32 $SOURCE')
+                        action=action)
   # Tell SCons that |test_node| never goes out of date, so that you don't see
   # '<test_node> is up to date.'
   env.AlwaysBuild(test_node)
@@ -233,7 +248,7 @@ def AllNaClModules(env, sources, module_name):
 
   dbg_nexes = env.NaClModules(sources, module_name, is_debug=True)
   env.GenerateNmf(target='%s_dbg.nmf' % module_name,
-                  source=opt_nexes,
+                  source=dbg_nexes,
                   nexes={'x86-32': '%s_x86_32_dbg.nexe' % module_name,
                          'x86-64': '%s_x86_64_dbg.nexe' % module_name})
 
