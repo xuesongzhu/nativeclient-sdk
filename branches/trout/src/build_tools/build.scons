@@ -1,0 +1,236 @@
+#! -*- python -*-
+#
+# Copyright (c) 2011 The Native Client Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+"""Build file for running scripts in the build_tools directory
+
+Currently, this script only runs the generate_installers.py command
+
+Adapted from scons documentation: http://www.scons.org/wiki/UnitTests
+and from ../project_templates/test.scons
+"""
+
+__author__ = 'mball@google.com (Matt Ball)'
+
+from build_tools import make_nacl_tools
+import os
+import sys
+
+Import('env')
+
+# Add the system path to this environment so that we can run gclient and such
+env.AppendENVPath('PATH', os.environ['PATH'])
+# Duplicate all the shell environment variables, so that various Visual Studio
+# tools will have the variables they expect (e.g. VS 2008 needs VS90COMNTOOLS).
+# Do this using "if not in" instead of update(), so that os.environ variables
+# don't override variables in env['ENV'].
+for shell_var in os.environ:
+  if shell_var not in env['ENV']:
+    env['ENV'][shell_var] = os.environ[shell_var]
+
+
+def run_generate_installer(env, target, source):
+  '''Runs the generate_installer script to create the SDK installer'''
+  # The development flag tells generate_installers not to download a fresh
+  # copy of all the cygwin packages.
+  args = ["--jobs=%s" % env['JOB_COUNT']]
+  if env['DEVELOPMENT'] == '1':
+    args.append('--development')
+  if env['IS_WINDOWS']:
+    from build_tools import generate_windows_installer
+    return generate_windows_installer.main(args)
+  else:
+    from build_tools import generate_installers
+    return generate_installers.main(args)
+
+installer_node = env.Command(
+    target='generate_installers_dummy_target.txt',
+    source='generate_installers.py',
+    action=run_generate_installer)
+
+env.Depends(installer_node, env.GetToolchainNode())
+env.AddNodeAliases(installer_node, ['bot'], 'installer')
+
+install_file = 'nacl-sdk.exe' if sys.platform == 'win32' else 'nacl-sdk.tgz'
+installer = os.path.join(os.path.dirname(env['ROOT_DIR']), install_file)
+
+installer_test_node = env.CreatePythonUnitTest(
+    'tests/installer_test.py',
+    [installer_node],
+    buffered=False,
+    params=['--jobs=%s' % env['JOB_COUNT'],
+            '--outdir=%s' % os.path.join('scons-out', 'sdk_installer'),
+            installer],
+    banner='test installer')
+
+env.AddNodeToTestSuite(installer_test_node, ['bot'],
+                       'run_installer_test', 'large')
+
+
+#------------------------------------------------------------------------------
+# Add build_tools unit tests
+build_utils_test = env.CreatePythonUnitTest('tests/build_utils_test.py',
+                                            ['build_utils.py'])
+env.AddNodeToTestSuite(build_utils_test,
+                       ['bot'],
+                       'run_build_utils_test',
+                       'small')
+
+installer_contents_test = env.CreatePythonUnitTest(
+    'tests/installer_contents_test.py', ['installer_contents.py'])
+env.AddNodeToTestSuite(installer_contents_test,
+                       ['bot'],
+                       'run_build_utils_test',
+                       'small')
+
+nacl_utils_test = env.CreatePythonUnitTest('nacl_sdk_scons/nacl_utils_test.py',
+                                           ['nacl_sdk_scons/nacl_utils.py'])
+env.AddNodeToTestSuite(nacl_utils_test,
+                       ['bot'],
+                       'run_nacl_utils_test',
+                       'small')
+
+
+#------------------------------------------------------------------------------
+# Put together the toolchain
+
+import gyp_extract
+
+ppapi_base = os.path.join(env['ROOT_DIR'],
+                          'third_party',
+                          'native_client',
+                          'native_client',
+                          'src',
+                          'third_party',
+                          'ppapi')
+
+# Load ppapi_cpp.gypi
+ppapi_cpp_gypi = gyp_extract.LoadGypFile(os.path.join(ppapi_base,
+                                                      'ppapi_cpp.gypi'))
+
+# Load ppapi_gl.gypi
+ppapi_gl_gypi = gyp_extract.LoadGypFile(os.path.join(ppapi_base,
+                                                     'ppapi_gl.gypi'))
+
+# From ppapi_cpp.gypi:ppapi_c:c/[^/]*\.h
+c_headers = gyp_extract.GypTargetSources(
+    ppapi_cpp_gypi, 'ppapi_c', 'c/[^/]*\.h')
+
+# From ppapi_cpp.gypi:ppapi_c:c/dev/[^/]*\.h
+c_dev_headers = gyp_extract.GypTargetSources(
+    ppapi_cpp_gypi, 'ppapi_c', 'c/dev/[^/]*\.h')
+
+# From ppapi_cpp.gypi:ppapi_cpp_objects:cpp/[^/]*\.h
+# From ppapi_cpp.gypi:ppapi_cpp:cpp/[^/]*\.h
+cpp_headers = (
+    gyp_extract.GypTargetSources(
+        ppapi_cpp_gypi, 'ppapi_cpp_objects', 'cpp/[^/]*\.h') +
+    gyp_extract.GypTargetSources(
+        ppapi_cpp_gypi, 'ppapi_cpp', 'cpp/[^/]*\.h')
+)
+
+# From ppapi_cpp.gypi:ppapi_cpp_objects:cpp/dev/[^/]*\.h
+cpp_dev_headers = gyp_extract.GypTargetSources(
+    ppapi_cpp_gypi, 'ppapi_cpp_objects', 'cpp/dev/[^/]*\.h')
+
+# From ppapi_gl.gypi:ppapi_gles2:.*\.h
+gles2_headers = gyp_extract.GypTargetSources(
+    ppapi_gl_gypi, 'ppapi_gles2', '.*\.h')
+
+
+c_header_install = env.AddHeaderToSdk(
+  [os.path.join(ppapi_base, h) for h in c_headers], os.path.join('ppapi', 'c'))
+c_dev_header_install = env.AddHeaderToSdk(
+  [os.path.join(ppapi_base, h) for h in c_dev_headers],
+  os.path.join('ppapi', 'c', 'dev'))
+cpp_header_install = env.AddHeaderToSdk(
+  [os.path.join(ppapi_base, h) for h in cpp_headers],
+  os.path.join('ppapi', 'cpp'))
+cpp_dev_header_install = env.AddHeaderToSdk(
+  [os.path.join(ppapi_base, h) for h in cpp_dev_headers],
+  os.path.join('ppapi', 'cpp', 'dev'))
+
+# TODO(dspringer): Remove these lines when trusted ppapi builds are no longer
+# needed for debugging.
+# -------- 8< Cut here --------
+# From ppapi_cpp.gypi:ppapi_cpp_objects:cpp/[^/]*\.cc
+# From ppapi_cpp.gypi:ppapi_cpp:cpp/[^/]*\.cc
+cpp_trusted_sources = (
+    gyp_extract.GypTargetSources(
+        ppapi_cpp_gypi, 'ppapi_cpp_objects', 'cpp/[^/]*\.cc') +
+    gyp_extract.GypTargetSources(
+        ppapi_cpp_gypi, 'ppapi_cpp', 'cpp/[^/]*\.cc')
+)
+
+cpp_trusted_source_install = env.AddHeaderToSdk(
+  [os.path.join(ppapi_base, cpp) for cpp in cpp_trusted_sources],
+  subdir=os.path.join('ppapi', 'cpp'),
+  base_dir=os.path.join(env['ROOT_DIR'], 'third_party'))
+# -------- 8< Cut here --------
+
+#env.AddLibraryToSdk(['ppapi_cpp'])
+env.Requires('ppapi_cpp', [c_header_install,
+                           c_dev_header_install,
+                           cpp_header_install,
+                           cpp_dev_header_install,
+                           # TODO(dspringer): Remove this when trusted ppapi
+                           # builds are no longer needed.
+                           cpp_trusted_source_install])
+
+# GLES2 headers go into the GLES2 subdir, Khronos headers into the KHR subdir,
+# EGL header go in the EGL subdir.
+gl_base = os.path.join(ppapi_base, 'lib', 'gl', 'include')
+egl_base = os.path.join(gl_base, 'EGL')
+egl_header_install = env.AddHeaderToSdk([
+    os.path.join(egl_base, 'egl.h'),
+    os.path.join(egl_base, 'eglext.h'),
+    os.path.join(egl_base, 'eglplatform.h'),
+    ], 'EGL')
+
+gles2_base = os.path.join(gl_base, 'GLES2')
+gles2_header_install = env.AddHeaderToSdk([
+    os.path.join(gles2_base, 'gl2.h'),
+    os.path.join(gles2_base, 'gl2ext.h'),
+    os.path.join(gles2_base, 'gl2platform.h'),
+    ], 'GLES2')
+khr_header_install = env.AddHeaderToSdk([
+    os.path.join(gl_base, 'KHR', 'khrplatform.h'),
+    ], 'KHR')
+ppapi_gles2_header_install = env.AddHeaderToSdk(
+  [os.path.join(ppapi_base, h) for h in gles2_headers],
+  os.path.join('ppapi', 'gles2'))
+#env.AddLibraryToSdk(['ppapi_gles2'])
+env.Requires('ppapi_gles2', [
+    egl_header_install,
+    gles2_header_install,
+    khr_header_install,
+    ppapi_gles2_header_install,
+])
+
+
+#------------------------------------------------------------------------------
+#   Build sel_ldr and ncval
+
+def build_nacl_tools(env, target, source):
+  ''' Tool for running make_nacl_tools
+  This builds sel_ldr, ncval, and the nacl libraries'''
+  make_nacl_tools_args = [
+      '--toolchain',
+      env['NACL_TOOLCHAIN_ROOT'],
+      '--jobs',
+      env['JOB_COUNT'],
+      '--nacl_dir',
+      os.path.join(env['ROOT_DIR'], 'third_party', 'native_client'),
+  ]
+  if env['DEVELOPMENT'] != '1':
+    make_nacl_tools_args.extend(['-c'])
+  print make_nacl_tools_args
+  make_nacl_tools.main(make_nacl_tools_args)
+
+nacl_tools_cmd = env.Command('nacl_tools_dummy_target',
+                             'make_nacl_tools.py',
+                             build_nacl_tools)
+env.Depends(nacl_tools_cmd, env.GetHeadersNode())
+env.Depends(env.GetToolchainNode(), nacl_tools_cmd)
