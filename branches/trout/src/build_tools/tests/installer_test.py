@@ -58,7 +58,6 @@ def TestingClosure(_outdir, _jobs):
       command = [os.path.join(path, scons), '-j', _jobs]
 
       annotator.Run(' '.join(command), cwd=path, shell=True)
-      return True
 
     def testReadMe(self):
       '''Check that the current build version and date are in the README file'''
@@ -79,7 +78,6 @@ def TestingClosure(_outdir, _jobs):
           contents.count(str(datetime.date.today() -
                              datetime.timedelta(days=1))),
           "Cannot find today's or yesterday's date in README")
-      return True
 
     def testHttpd(self):
       '''Test the simple HTTP server.
@@ -171,7 +169,45 @@ def TestingClosure(_outdir, _jobs):
 
       runAndQuitHttpServer()
       runAndQuitHttpServer(5280)
-      return True
+
+
+    def testProjectTemplates(self):
+      '''Create and build projects from project_templates.'''
+
+      def initAndCompileProject(project_name, flags=[]):
+        '''A small helper function that runs init_project.py and then runs
+        a scons build in the resulting directory.
+
+        Args:
+          project_name: The project's name, set the --name= parameter for
+              init_project to this value.
+          flags: Any extra flags to pass to init_project.  Must be an array,
+              can be empty.
+        '''
+        path = os.path.join(_outdir, 'project_templates')
+        scons = 'scons.bat' if sys.platform == 'win32' else 'scons'
+        scons_command = [os.path.join(path, project_name, scons), '-j', _jobs]
+        init_project_command = [sys.executable,
+                                'init_project.py',
+                                '--name=%s' % project_name] + flags
+        annotator.Run(' '.join(init_project_command), cwd=path, shell=True)
+        annotator.Run(' '.join(scons_command),
+                      cwd=os.path.join(path, project_name),
+                      shell=True)
+
+      initAndCompileProject('test_c_project', flags=['-c'])
+      initAndCompileProject('test_cc_project')
+      # Calling init_project again with the same names should cause an error
+      # because the project already exists, and we don't overwrite projects.
+      print "Rerunning init_project again to test overwriting previous project."
+      print "We expect these tests to throw exceptions:"
+      self.assertRaises(subprocess.CalledProcessError,
+                        initAndCompileProject,
+                        'test_c_project',
+                        flags=['-c'])
+      self.assertRaises(subprocess.CalledProcessError,
+                        initAndCompileProject,
+                        'test_cc_project')
 
     def testValgrind(self):
       '''Verify that Valgrind works properly (Linux 64-bit only)'''
@@ -179,7 +215,7 @@ def TestingClosure(_outdir, _jobs):
       if (sys.platform not in ['linux', 'linux2'] or
           platform.machine() != 'x86_64'):
         annotator.Print('Not running on 64-bit Linux -- skip')
-        return True
+        return
       true_basename = os.path.join(_outdir, 'true')
       true_c_filename = '%s.c' % true_basename
       true_nexe_filename = '%s.nexe' % true_basename
