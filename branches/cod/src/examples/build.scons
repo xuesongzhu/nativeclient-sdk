@@ -1,0 +1,56 @@
+#! -*- python -*-
+#
+# Copyright (c) 2011 The Native Client Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+"""
+Build file for the NaCl SDK Examples
+
+This file runs all the scons files in the various example sub-directories.
+Do not invoke this script directly, but instead use the scons or scons.bat
+wrapper function.  E.g.
+
+Linux or Mac:
+  ./scons [Options...]
+
+Windows:
+  scons.bat [Options...]
+"""
+
+#------------------------------------------------------------------------------
+HELP_STRING = """
+===============================================================================
+Help for NaCl SDK Examples
+===============================================================================
+
+* cleaning:            ./scons -c
+* build a target:      ./scons <target>
+* clean a target:      ./scons -c <target>
+
+Supported targets:
+  * geturl             Build the geturl example.
+  * hello_world        Build the hello_world example.
+  * hello_world_c      Build the hello_world_c example.
+  * input_events       Build the input_events example.
+  * load_progress      Build the load_progress example.
+  * pi_generator       Build the pi_generator example.
+  * pong               Build the pong example.
+  * sine_synth         Build the sine_synth example.
+  * tumbler            Build the tumbler example.
+"""
+
+example_sconscripts = ['geturl/build.scons',
+                       'hello_world/build.scons',
+                       'hello_world_c/build.scons',
+                       'input_events/build.scons',
+                       'load_progress/build.scons',
+                       'pi_generator/build.scons',
+                       'pong/build.scons',
+                       'sine_synth/build.scons',
+                       'tumbler/build.scons',
+                      ]
+
+Help(HELP_STRING)
+
+SConscript(example_sconscripts)
