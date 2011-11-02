@@ -1,4 +1,4 @@
-#summary Tips on porting to Native Client
+#summary Tips on porting to Native Client OUTDATED
 #labels Deprecated
 
 THIS DOCUMENT IS OUTDATED GO TO http://code.google.com/chrome/nativeclient/ for updated documents
