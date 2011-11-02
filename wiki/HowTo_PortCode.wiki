@@ -1,6 +1,8 @@
 #summary Tips on porting to Native Client
 #labels Deprecated
 
+THIS DOCUMENT IS OUTDATED GO TO http://code.google.com/chrome/nativeclient/ for updated documents
+
 This page describes how to port your code to Native Client. Although this page concentrates on porting projects that use [http://www.gnu.org/software/autoconf/ Autoconf], most of the information is also relevant to non-Autoconf projects.
 
 *Contents:*
