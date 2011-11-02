@@ -1,4 +1,4 @@
-#summary THESE ITEMS ARE ALL OUTDATED
+#summary THESE DOCUMENTS ARE ALL OUTDATED GO TO http://code.google.com/chrome/nativeclient/
 
 = Introduction =
 
