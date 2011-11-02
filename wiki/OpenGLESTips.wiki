@@ -1,7 +1,6 @@
-#summary OpenGL ES 2.0, Pepper & Native Client OUTDATED
 #labels Deprecated
 
-THIS DOCUMENT IS OUTDATED GO TO http://code.google.com/chrome/nativeclient/ for updated documents
+Please visit the [http://code.google.com/chrome/nativeclient/ Native Client SDK website] for current information on programming with the Native Client SDK.
 
 = Introduction =
 
