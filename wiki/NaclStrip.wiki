@@ -1,5 +1,7 @@
-#summary How to use nacl-strip to reduce .nexe size
+#summary How to use nacl-strip to reduce .nexe size OUTDATED
 #labels Deprecated
+
+THIS DOCUMENT IS OUTDATED GO TO http://code.google.com/chrome/nativeclient/ for updated documents
 
 = Introduction =
 
