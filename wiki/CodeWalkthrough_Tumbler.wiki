@@ -1,7 +1,6 @@
-#summary Anatomy of a simple Google Chrome web app that uses Native Client OUTDATED
 #labels Deprecated
 
-THIS DOCUMENT IS OUTDATED GO TO http://code.google.com/chrome/nativeclient/ for updated documents
+Please visit the [http://code.google.com/chrome/nativeclient/ Native Client SDK website] for current information on programming with the Native Client SDK.
 
 <h1>Code Walkthrough: Tumbler Example</h1>
 
