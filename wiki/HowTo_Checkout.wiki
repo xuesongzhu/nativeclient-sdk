@@ -14,13 +14,24 @@ This repository is still used from some tools and applications that are  ancilla
 
 You need to install [http://dev.chromium.org/developers/how-tos/install-depot-tools depot_tools] in order to use gclient.
 
-== Checking out [git] ==
-
-To checkout using glient and git use the following commands:
+== Create a Project Directory ==
 
 {{{
 mkdir nativeclient-sdk
 cd nativeclient-sdk
-gclient config https://chromium.googlesource.com/external/nativeclient-sdk.git --name=src
+}}}
+
+== Create a .gclient Configuration (git) ==
+{{{
+gclient config --name=src  https://chromium.googlesource.com/external/nativeclient-sdk.git
+}}}
+
+== Create a .gclient Configuration (svn) ==
+{{{
+gclient config http://nativeclient-sdk.googlecode.com/svn/trunk/src
+}}}
+
+== Sync to the repo ==
+{{{
 gclient sync
 }}}
