@@ -1,11 +1,26 @@
 #summary Links to Source Code
 
-== Browsing the source code ==
+== Quick Links ==
 
-[http://code.google.com/p/nativeclient-sdk/source/browse#svn/trunk/src/native_client Browse the code]
+[http://code.google.com/p/nativeclient-sdk/source/browse#svn/trunk/src/native_client Browse the code | [http://code.google.com/p/nativeclient-sdk/source/list Recent changes] | [https://chromium.googlesource.com/external/nativeclient-sdk/ Git Mirror]
 
-[http://code.google.com/p/nativeclient-sdk/source/list Recent changes]
+== Native Client SDK has moved ==
 
+The Native Client SDK itself has moved to the chromium repository. Instructions for building and testing the Native Client SDK itself are located on the [https://sites.google.com/a/chromium.org/dev/nativeclient/sdk/howto_buildtestsdk chromium.org website]
 
+This repository is still used from some tools and applications that are  ancillary to the SDK itself and don't belong in the chromium repo.
 
-The Native Client SDK is an open source project. Instructions for implementors who want to build and test source code for the Native Client SDK are located on the [https://sites.google.com/a/chromium.org/dev/nativeclient/sdk/howto_buildtestsdk chromium.org website]  
+== Prerequisites ==
+
+You need to install [http://dev.chromium.org/developers/how-tos/install-depot-tools depot_tools] in order to use gclient.
+
+== Checking out [git] ==
+
+To checkout using glient and git use the following commands:
+
+{{{
+mkdir nativeclient-sdk
+cd nativeclient-sdk
+gclient config https://chromium.googlesource.com/external/nativeclient-sdk.git --name=src
+gclient sync
+}}}
