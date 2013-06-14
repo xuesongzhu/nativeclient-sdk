@@ -2,7 +2,7 @@
 
 == Quick Links ==
 
-[http://code.google.com/p/nativeclient-sdk/source/browse#svn/trunk/src/native_client Browse the code | [http://code.google.com/p/nativeclient-sdk/source/list Recent changes] | [https://chromium.googlesource.com/external/nativeclient-sdk/ Git Mirror]
+[http://code.google.com/p/nativeclient-sdk/source/browse#svn/trunk/src/native_client Browse the code |  [http://code.google.com/p/nativeclient-sdk/source/list Recent changes] | [https://chromium.googlesource.com/external/nativeclient-sdk/ Git Mirror]
 
 == Native Client SDK has moved ==
 
